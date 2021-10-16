@@ -6,15 +6,15 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "My Site111",
+  title: "My Site",
   tagline: "Dinosaurs are cool",
-  url: "https://your-docusaurus-test-site.com",
-  baseUrl: "/",
+  url: "https://Min-wys.github.io",
+  baseUrl: "/my-website/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
-  organizationName: "facebook", // Usually your GitHub org/user name.
-  projectName: "docusaurus", // Usually your repo name.
+  organizationName: "Min-wys", // Usually your GitHub org/user name.
+  projectName: "my-website", // Usually your repo name.
 
   presets: [
     [
@@ -24,13 +24,12 @@ const config = {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
-          editUrl: "https://github.com/facebook/docusaurus/edit/main/website/",
+          editUrl: "https://github.com/Min-wys/my-website/edit/master/",
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
-          editUrl:
-            "https://github.com/facebook/docusaurus/edit/main/website/blog/",
+          editUrl: "https://github.com/Min-wys/my-website/edit/master/blog/",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -43,21 +42,24 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: "My Site",
-        logo: {
-          alt: "My Site Logo",
-          src: "img/logo.svg",
-        },
+        title: "能量补给站",
         items: [
           {
             type: "doc",
-            docId: "intro",
+            docId: "HTML/HTML1",
             position: "left",
-            label: "Tutorial",
+            label: "HTML",
           },
-          { to: "/blog", label: "Blog", position: "left" },
           {
-            href: "https://github.com/facebook/docusaurus",
+            type: "doc",
+            docId: "JS基础/JS简介",
+            position: "left",
+            label: "JS",
+          },
+          // { to: "/blog", label: "Blog", position: "left" },
+          {
+            // href: "https://github.com/facebook/docusaurus",
+            href: "https://github.com/Min-wys/my-website",
             label: "GitHub",
             position: "right",
           },

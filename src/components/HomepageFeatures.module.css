@@ -4,7 +4,62 @@
   padding: 2rem 0;
   width: 100%;
 }
+.div1 {
+  width: 100%;
+  height: 50rem;
+  background-size: cover;
+  /* border:1px solid green; */
+  background-image: url("../../static/img/HomepageFeatures/13.jpeg");
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+.div2 {
+  height: 30rem;
+  /*铺满整个盒子*/
+  background-size: cover;
+  /*固定背景*/
+  background-attachment: fixed;
+  background-image: url("../../static/img/HomepageFeatures/3.png");
+}
 
+.div3 {
+  height: 23rem;
+  background-size: cover;
+  background-color: #fff;
+  background-image: url("../../static/img/HomepageFeatures/12.jpeg");
+}
+
+div h1 {
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  background-image: url("../../static/img/HomepageFeatures/9.jpeg");
+  background-position: 0px 0px;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: contain;
+}
+.div4 {
+  width: 100%;
+  height: 30rem;
+  background-image: url("../../static/img/HomepageFeatures/8.jpeg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.div5 {
+  height: 48rem;
+  background-size: cover;
+  background-color: #fff;
+  background-image: url("../../static/img/HomepageFeatures/1.png");
+}
 .featureSvg {
   height: 200px;
   width: 200px;
