@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Min-wys.github.io/my-website/blog</id>
-    <title>My Site111 Blog</title>
+    <title>My Site Blog</title>
     <updated>2021-08-26T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Min-wys.github.io/my-website/blog"/>
-    <subtitle>My Site111 Blog</subtitle>
+    <subtitle>My Site Blog</subtitle>
     <icon>https://Min-wys.github.io/my-website/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[Welcome]]></title>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0">
     <channel>
-        <title>My Site111 Blog</title>
+        <title>My Site Blog</title>
         <link>https://Min-wys.github.io/my-website/blog</link>
-        <description>My Site111 Blog</description>
+        <description>My Site Blog</description>
         <lastBuildDate>Thu, 26 Aug 2021 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
