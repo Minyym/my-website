@@ -56,9 +56,14 @@ const config = {
             position: "left",
             label: "JS",
           },
+          {
+            type: "doc",
+            docId: "TS/ts基础",
+            position: "left",
+            label: "TS",
+          },
           // { to: "/blog", label: "Blog", position: "left" },
           {
-            // href: "https://github.com/facebook/docusaurus",
             href: "https://github.com/Min-wys/my-website",
             label: "GitHub",
             position: "right",

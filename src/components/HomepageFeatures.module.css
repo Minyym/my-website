@@ -14,7 +14,8 @@
   background-position: top center;
 }
 .div2 {
-  height: 30rem;
+  /* height: 30rem; */
+  height: 40rem;
   /*铺满整个盒子*/
   background-size: cover;
   /*固定背景*/
