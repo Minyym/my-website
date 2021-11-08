@@ -62,6 +62,12 @@ const config = {
             position: "left",
             label: "TS",
           },
+          {
+            type: "doc",
+            docId: "ES/函数的扩展",
+            position: "left",
+            label: "ES",
+          },
           // { to: "/blog", label: "Blog", position: "left" },
           {
             href: "https://github.com/Min-wys/my-website",
