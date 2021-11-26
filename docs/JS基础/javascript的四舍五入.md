@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-## JavaScript的四舍五入---------
+## JavaScript的四舍五入
 
 - 在javascrit有以下几种四舍五入的操作
   - 向上取整`ceil`
