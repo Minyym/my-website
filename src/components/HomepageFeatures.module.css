@@ -3,6 +3,14 @@
   align-items: center;
   padding: 2rem 0;
   width: 100%;
+  height: 93vh;
+  background-size: cover;
+  background-position: top center;
+  background: linear-gradient(
+    to left,
+    rgba(0, 0, 255, 0.4),
+    rgba(255, 255, 0, 0.4)
+  );
 }
 .div1 {
   width: 100%;
