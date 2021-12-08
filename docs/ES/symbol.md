@@ -174,4 +174,20 @@ sidebar_position: 6
   Symbol.keyFor(s2) // undefined
   ```
 
-  
+## 内置的symbol值
+
+- ### Symbol.hasInstance
+
+  - 对象的`Symbol.hasInstance`属性，指向一个内部方法。当其他对象使用`instanceof`运算符，判断是否为该对象的实例时，会调用这个方法
+
+    ```js
+    class MyClass {
+      [Symbol.hasInstance](foo) {
+        return foo instanceof Array;
+      }
+    }
+    
+    [1, 2, 3] instanceof new MyClass() // true
+    ```
+
+- 
