@@ -52,7 +52,7 @@ const config = {
           },
           {
             type: "doc",
-            docId: "JS基础/JS简介",
+            docId: "JS基础/new",
             position: "left",
             label: "JS",
           },
