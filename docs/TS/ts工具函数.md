@@ -3,7 +3,9 @@ sidebar_position: 3
 
 ---
 
-```TSX
+## Partial
+
+```JS
 // Partial -------------------------
 // 变成可选的
 type Partial1<T> = {
@@ -16,7 +18,11 @@ interface a {
 const obj: Partial1<a> = {
   name: "123",
 };
+```
 
+## Required
+
+```JS
 // Required -------------------------
 // 变成一定要选的
 type Required1<T> = {
@@ -31,6 +37,11 @@ const obj1: Required1<aa> = {
   name: "123",
 };
 
+```
+
+## Readonly
+
+```TS
 // Readonly -------------------------
 // 变成只读的
 type Readonly1<T> = {
@@ -44,7 +55,11 @@ const obj2: Readonly1<aaa> = {
   name: "123",
 };
 obj2.name = "1"; // 报错
+```
 
+## Record
+
+```ts
 // Record -------------------------
 // 快速构建一个对象类型
 type Record1<K extends keyof any, T> = {
@@ -64,6 +79,11 @@ const obj3: Record1<l, aaaa> = {
     name: "lala",
   },
 };
+```
+
+## Pick
+
+```ts
 // Pick-------------------------
 // 从一个type中选取新的属性,组成新的type
 type Pick1<T, K extends keyof T> = {
@@ -78,6 +98,11 @@ const obj4: Pick1<aaaaa, "age" | "gender"> = {
   age: 13,
   gender: "nv",
 };
+```
+
+## Exclude
+
+```ts
 // Exclude-------------------------
 // 去除联合类型中的一些类型,构成新的类型
 type Exclude1<T, K> = T extends K ? never : T;
@@ -92,15 +117,29 @@ const obj5: Omit1<aaaaa, "name"> = {
   gender: "nv",
 };
 
+
+```
+
+## Extract
+
+```ts
 // Extract-------------------------
 // 取出联合类型中的一些类型,构成新的类型
 type Extract1<T, K> = T extends K ? T : never;
+```
 
+## NonNullable
+
+```ts
 // NonNullable-------------------------
 // 取出联合类型中的null和undefined,组成新的类型
 type NonNullable1<T> = T extends null | undefined ? never : T;
 type a6 = NonNullable1<null | undefined | "name">;
+```
 
+## Parameters
+
+```ts
 // Parameters-------------------------
 // Parameters,从 [函数 Type] 的形参构造一个数组 Type
 type Parameters1<T extends (...args: any) => any> = T extends (
@@ -108,6 +147,29 @@ type Parameters1<T extends (...args: any) => any> = T extends (
 ) => any
   ? P
   : never;
-
 ```
+
+## ConditionalPick（自己封装使用）
+
+```TS
+// 支持根据指定的 Condition 条件来生成新的类型  
+// 效果
+interface Example {
+	a: string;
+	b: string | number;
+	c: () => void;
+	d: {};
+}
+
+// 测试用例：
+type StringKeysOnly = ConditionalPick<Example, string>;
+//=> {a: string}
+
+type ConditionalPick<V, T> = {
+  [K in keyof V as V[K] extends T ? K : never]: V[K]
+}
+type StringKeysOnly = ConditionalPick<Example, string | number>
+```
+
+
 
