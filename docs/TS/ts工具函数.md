@@ -149,6 +149,22 @@ type Parameters1<T extends (...args: any) => any> = T extends (
   : never;
 ```
 
+## ReturnType
+
+```TS
+// ReturnType 函数返回值
+type T0 = ReturnType<() => string>// TO = string
+
+type ReturnType1<F extends (...args: any) => any> = F extends (
+  ...args: any
+) => infer A
+  ? A
+  : never
+type T1 = ReturnType1<() => string>
+```
+
+
+
 ## ConditionalPick（自己封装使用）
 
 ```TS
