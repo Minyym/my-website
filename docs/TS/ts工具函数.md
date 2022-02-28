@@ -1,6 +1,5 @@
 ---
 sidebar_position: 3
-
 ---
 
 ## Partial
@@ -116,8 +115,6 @@ const obj5: Omit1<aaaaa, "name"> = {
   age: 14,
   gender: "nv",
 };
-
-
 ```
 
 ## Extract
@@ -163,12 +160,10 @@ type ReturnType1<F extends (...args: any) => any> = F extends (
 type T1 = ReturnType1<() => string>
 ```
 
-
-
 ## ConditionalPick（自己封装使用）
 
 ```TS
-// 支持根据指定的 Condition 条件来生成新的类型  
+// 支持根据指定的 Condition 条件来生成新的类型
 // 效果
 interface Example {
 	a: string;
@@ -186,6 +181,3 @@ type ConditionalPick<V, T> = {
 }
 type StringKeysOnly = ConditionalPick<Example, string | number>
 ```
-
-
-
