@@ -42,14 +42,8 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: "能量补给站",
+        title: "Yym",
         items: [
-          {
-            type: "doc",
-            docId: "HTML/HTML1",
-            position: "left",
-            label: "HTML",
-          },
           {
             type: "doc",
             docId: "JS基础/new",
