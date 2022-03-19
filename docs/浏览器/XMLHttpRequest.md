@@ -1,0 +1,114 @@
+---
+sidebar_position: 3
+---
+
+## XMLHttpRequest
+
+- 定义：XMLHttpRequest 出现之前，如果服务器数据有更新，依然需要重新刷新整个页面。而 XMLHttpRequest 提供了从 Web 服务器获取数据的能力，如果你想要更新某条数据，只需要通过 XMLHttpRequest 请求服务器提供的接口，就可以获取到服务器的数据，然后再操作 DOM 来更新页面内容，整个过程只需要更新网页的一部分就可以了，而不用像之前那样还得刷新整个页面，这样既有效率又不会打扰到用户。
+
+## 回调函数
+
+- 将一个函数作为参数传递给另外一个函数，那作为参数的这个函数就是回调函数
+
+  ```JS
+  
+  let callback = function(){
+      console.log('i am do homework')
+  }
+  function doWork(cb) {
+      console.log('start do work')
+      cb()
+      console.log('end do work')
+  }
+  doWork(callback)
+  ```
+
+- 上面的回调方法有个特点，就是回调函数 callback 是在主函数 doWork 返回之前执行的，我们把这个回调过程称为同步回调。
+
+  ```JS
+  
+  let callback = function(){
+      console.log('i am do homework')
+  }
+  function doWork(cb) {
+      console.log('start do work')
+      setTimeout(cb,1000)   
+      console.log('end do work')
+  }
+  doWork(callback)
+  ```
+
+- 在这个例子中，我们使用了 setTimeout 函数让 callback 在 doWork 函数执行结束后，又延时了 1 秒再执行，这次 callback 并没有在主函数 doWork 内部被调用，我们把这种回调函数在主函数外部执行的过程称为异步回调。
+
+- 你应该已经知道浏览器页面是通过事件循环机制来驱动的，每个渲染进程都有一个消息队列，页面主线程按照顺序来执行消息队列中的事件，如执行 JavaScript 事件、解析 DOM 事件、计算布局事件、用户输入事件等等，如果页面有新的事件产生，那新的事件将会追加到事件队列的尾部。所以可以说是消息队列和主线程循环机制保证了页面有条不紊地运行。
+
+- 这里还需要补充一点，那就是当循环系统在执行一个任务的时候，都要为这个任务维护一个系统调用栈。这个系统调用栈类似于 JavaScript 的调用栈，只不过系统调用栈是 Chromium 的开发语言 C++ 来维护的
+
+## XMLHttpRequest 运作机制
+
+![](https://files.catbox.moe/r7d78l.webp)
+
+```JS
+
+ function GetWebData(URL){
+    /**
+     * 1:新建XMLHttpRequest请求对象
+     */
+    let xhr = new XMLHttpRequest()
+
+    /**
+     * 2:注册相关事件回调处理函数 
+     */
+    xhr.onreadystatechange = function () {
+        switch(xhr.readyState){
+          case 0: //请求未初始化
+            console.log("请求未初始化")
+            break;
+          case 1://OPENED
+            console.log("OPENED")
+            break;
+          case 2://HEADERS_RECEIVED
+            console.log("HEADERS_RECEIVED")
+            break;
+          case 3://LOADING  
+            console.log("LOADING")
+            break;
+          case 4://DONE
+            if(this.status == 200||this.status == 304){
+                console.log(this.responseText);
+                }
+            console.log("DONE")
+            break;
+        }
+    }
+
+    xhr.ontimeout = function(e) { console.log('ontimeout') }
+    xhr.onerror = function(e) { console.log('onerror') }
+
+    /**
+     * 3:打开请求
+     */
+    xhr.open('Get', URL, true);//创建一个Get请求,采用异步
+
+
+    /**
+     * 4:配置参数
+     */
+    xhr.timeout = 3000 //设置xhr请求的超时时间
+    xhr.responseType = "text" //设置响应返回的数据格式
+    xhr.setRequestHeader("X_TEST","time.geekbang")
+
+    /**
+     * 5:发送请求
+     */
+    xhr.send();
+}
+```
+
+第一步：创建 XMLHttpRequest 对象。当执行到let xhr = new XMLHttpRequest()后，JavaScript 会创建一个 XMLHttpRequest 对象 xhr，用来执行实际的网络请求操作。
+
+第二步：为 xhr 对象注册回调函数。因为网络请求比较耗时，所以要注册回调函数，这样后台任务执行完成之后就会通过调用回调函数来告诉其执行结果。XMLHttpRequest 的回调函数主要有下面几种：ontimeout，用来监控超时请求，如果后台请求超时了，该函数会被调用；onerror，用来监控出错信息，如果后台请求出错了，该函数会被调用；onreadystatechange，用来监控后台请求过程中的状态，比如可以监控到 HTTP 头加载完成的消息、HTTP 响应体消息以及数据加载完成的消息等。
+
+第三步：配置基础的请求信息。注册好回调事件之后，接下来就需要配置基础的请求信息了，首先要通过 open 接口配置一些基础的请求信息，包括请求的地址、请求方法（是 get 还是 post）和请求方式（同步还是异步请求）。然后通过 xhr 内部属性类配置一些其他可选的请求信息，你可以参考文中示例代码，我们通过xhr.timeout = 3000来配置超时时间，也就是说如果请求超过 3000 毫秒还没有响应，那么这次请求就被判断为失败了。我们还可以通过xhr.responseType = "text"来配置服务器返回的格式，将服务器返回的数据自动转换为自己想要的格式，如果将 responseType 的值设置为 json，那么系统会自动将服务器返回的数据转换为 JavaScript 对象格式。下面的图表是我列出的一些返回类型的描述：假如你还需要添加自己专用的请求头属性，可以通过 xhr.setRequestHeader 来添加。
+
+第四步：发起请求。一切准备就绪之后，就可以调用xhr.send来发起网络请求了。你可以对照上面那张请求流程图，可以看到：渲染进程会将请求发送给网络进程，然后网络进程负责资源的下载，等网络进程接收到数据之后，就会利用 IPC 来通知渲染进程；渲染进程接收到消息之后，会将 xhr 的回调函数封装成任务并添加到消息队列中，等主线程循环系统执行到该任务的时候，就会根据相关的状态来调用对应的回调函数。如果网络请求出错了，就会执行 xhr.onerror；如果超时了，就会执行 xhr.ontimeout；如果是正常的数据接收，就会执行 onreadystatechange 来反馈相应的状态。这就是一个完整的 XMLHttpRequest 请求流程，如果你感兴趣，可以参考下 Chromium 对 XMLHttpRequest 的实现，
