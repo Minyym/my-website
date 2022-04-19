@@ -6,7 +6,8 @@
 
 - 要在github网站上进行相应的配置，
 
-  ![](https://files.catbox.moe/6qjyo0.png)
+  ![](https://raw.githubusercontent.com/Min-wys/figure-bed/master/img/20220419171344.png)
+  
 - 配置`docusaurus.config.js`,具体的配置可参考本项目
 
 ### 设置自动部署
@@ -15,11 +16,11 @@
 
 - 现在github上设置Personal access tokens，位置在个人中心，setting--developer settings--Personal access tokens
 
-  ![](https://files.catbox.moe/auwqh2.png)
+  ![](https://raw.githubusercontent.com/Min-wys/figure-bed/master/img/20220419171122.png)
 
 - 然后在自己项目的setting中将刚刚的token添加上
 
-  ![](https://files.catbox.moe/v5ixba.png)
+  ![](https://raw.githubusercontent.com/Min-wys/figure-bed/master/img/20220419170920.png)
 
 - 在项目中添加配置，`.github/workflows/documentation.yml`
 
@@ -50,4 +51,5 @@
           BUILD_SCRIPT: npm install && npm run build
   ```
 
-  ![](https://files.catbox.moe/qwyf6h.png)
+
+![](https://raw.githubusercontent.com/Min-wys/figure-bed/master/img/action.png)
