@@ -1,24 +1,41 @@
 name: Deploy Github pages
+# on 定义的是执行该 Action 的时机，这里的配置是指：
+# 当 master 分支的 push 事件被触发的时候执行该任务
 on:
   push:
     branches:
       - master
+# jobs 是定义你要运行的具体任务，
+# 每个 Action 可以有多个 Job
+# 每个 Job 可以有多个 Step
+# 每个 Step 又可以有多个 Run
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # 运行在 ubuntu 系统环境下
     steps:
     - name: Checkout
       uses: actions/checkout@master
-      with:
-        persist-credentials: false
+      # with:
+      #   persist-credentials: false
     - name: Install and Build
+    # `run: |` 的方式，允许我们一次定义多个要执行的命令
       run: |
-        npm install
-        npm run-script build 
+        yarn install
+        yarn run build 
     - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v3
-      with:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: build
-        BUILD_SCRIPT: npm install && npm run build
+      # uses: JamesIves/github-pages-deploy-action@releases/v3
+      # with:
+      #   ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      #   BRANCH: gh-pages
+      #   FOLDER: build
+      #   BUILD_SCRIPT: npm install && npm run build
+
+      #   name: Publish to Github Pages
+       # 部署
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v2.5.0
+        env:
+          PERSONAL_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          # 生成文件的目录
+          PUBLISH_DIR: ./build
