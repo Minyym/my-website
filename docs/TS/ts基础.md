@@ -487,8 +487,6 @@ sidebar_position: 1
      };
      ```
 
-  4. 
-
 ## 6、泛型
 
 泛型（Generics）是指在定义函数、接口或类的时候，不预先指定具体的类型，而在使用的时候再指定类型的一种特性。
@@ -588,22 +586,86 @@ function createArray<T = string>(length: number, value: T): Array<T> {
 }
 ```
 
-## 7、泛型高级
+## 
 
-```ts
+### 条件类型
 
-type TypeName<T> = T extends string
-  ? string
-  : T extends number
-  ? number
-  : T extends boolean
-  ? boolean
-  : T extends undefined
-  ? undefined
-  : T extends Function
-  ? Function
-  : object
-const g: TypeName<string> = 1
+在`TS` 2.8 加入了条件类型,逻辑是三元运算符，所以比较好理解
+
+```
+T extends U ? X : Y
+```
+
+### infer
+
+在`extends`条件类型的子句中，可以使用`infer T`来捕获指定位置的类型（该类型由 TS 编译器推断），在`infer`后面的子句中可以使用捕获的类型变量。配合`extends`条件类型，截取符合条件的目标的某部分类型。
+
+```js
+type ParseInt = (n: string) => number
+// 如果是类型 T 是函数，则 R 会捕获其返回值类型并返回 R，否则返回 any
+type ReturnType<T extends (...args: any) => any> = T extends (...args: any) => infer R ? R : any
+type R = ReturnType<ParseInt>   // number
+ 
+type GetType<T> = T extends (infer E)[] ? E : never
+type E = GetType<['a', 100]>
+```
+
+
+
+### extends 
+
+下面的一些内容会经常用`extends`关键字,`extends`类似数学集合里的子集概念,可以看一下这篇文章，会对TS有进一步对理解。[深入Typescript 的类型系统](https://zhuanlan.zhihu.com/p/38081852)
+
+
+
+### keyof
+
+> keyof 操作符是在 TypeScript 2.1 版本引入的，操作符可以用于获取某种类型的所有键，其返回类型是联合类型。
+
+`keyof` 可以用来取得一个对象接口的所有 `key` 值.
+
+```
+interface Foo {
+  name: string;
+  age: number
+}
+type T = keyof Foo // -> "name" | "age"
+```
+
+
+
+### typeof
+
+> typeof 操作符可以用来获取一个变量或对象的类型
+
+```
+interface Person {
+  name: string
+}
+
+const me: Person = {
+  name: 'bugaboo'
+}
+type MyType = typeof me // MyType = Person
+type MyNameType = typeof me.name // MyNameType = string
+```
+
+### in
+
+遍历**联合类型**
+
+```js
+type key = 'vue' | 'react';
+
+type MappedType = { [k in key]: string } // { vue: string; react: string; }
+```
+
+
+
+### in和keyof一同使用
+
+```js
+type Partial<T> = { [P in keyof T]?: T[P] };
 ```
 
 
