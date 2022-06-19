@@ -181,7 +181,18 @@ type NamesStars = JoinStrArray<Names, '⭐️'> // "Sem⭐️Lolo⭐️Kaquko"
 ## 10
 
 ```TS
-
+type TypeName<T> = T extends string
+  ? string
+  : T extends number
+  ? number
+  : T extends boolean
+  ? boolean
+  : T extends undefined
+  ? undefined
+  : T extends Function
+  ? Function
+  : object
+const g: TypeName<string> = 1
 ```
 
 ## 11
@@ -201,17 +212,67 @@ type E4 = IsEqual<{ a: 1 }, { a: 1; b: 2 }>; // false
 ## 12
 
 ```ts
-type TypeName<T> = T extends string
-  ? string
-  : T extends number
-  ? number
-  : T extends boolean
-  ? boolean
-  : T extends undefined
-  ? undefined
-  : T extends Function
-  ? Function
-  : object
-const g: TypeName<string> = 1
+// 实现一个 Head 工具类型，用于获取数组类型的第一个类型
+type Head<T extends Array<any>> = T extends [] ? never : T[0];
+
+// 测试用例
+type H0 = Head<[]>; // never
+type H1 = Head<[1]>; // 1
+type H2 = Head<[3, 2]>; // 3
+```
+
+## 13
+
+```JS
+// 实现一个 Tail 工具类型，用于获取数组类型除了第一个类型外，剩余的类型。
+type Tail<T extends Array<any>> = T extends [infer A, ...infer B] ? B : [];
+// 测试用例
+type T0 = Tail<[]>; // []
+type T1 = Tail<[1, 2]>; // [2]
+type T2 = Tail<[1, 2, 3, 4, 5]>; // [2, 3, 4, 5]
+```
+
+## 14
+
+```JS
+// 实现一个 Unshift 工具类型，用于把指定类型 E 作为第一个元素添加到 T 数组类型中
+type Unshift<T extends any[], E> = [E, ...T];
+
+// 测试用例
+type Arr0 = Unshift<[], 1>; // [1]
+type Arr1 = Unshift<[1, 2, 3], 0>; // [0, 1, 2, 3]
+```
+
+## 15
+
+```js
+// 实现一个 Shift 工具类型，用于移除 T 数组类型中的第一个类型
+type Shift<T extends any[]> = T extends [infer A ,...infer B] ? B :[]
+
+// 测试用例
+type S0 = Shift<[1, 2, 3]> 
+type S1 = Shift<[string,number,boolean]> 
+```
+
+## 16
+
+```js
+// 实现一个 Push 工具类型，用于把指定类型 E 作为第最后一个元素添加到 T 数组类型中
+type Push<T extends any[], V> = [...T, V];
+
+// 测试用例
+type Arr01 = Push<[], 1>; // [1]
+type Arr12 = Push<[1, 2, 3], 4>; // [1, 2, 3, 4]
+```
+
+## 17
+
+```js
+// 实现一个 Includes 工具类型，用于判断指定的类型 E 是否包含在 T 数组类型中
+type Includes<T extends any[], U> = U extends T[number] ? true : false;
+
+type I0 = Includes<[], 1>; // false
+type I1 = Includes<[2, 2, 3, true], true>; // true
+type I2 = Includes<[2, 3, 3, 1], 1>; // true
 ```
 
