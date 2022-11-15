@@ -1,3 +1,7 @@
+## 生命周期
+
+![](https://cdn.jsdelivr.net/gh/Min-wys/figure-bed/img/20220816160247.png)
+
 ## 组件类
 
 ### memo
@@ -85,3 +89,53 @@ class Index extends React.Component{
 }
 ```
 
+### getDerivedStateFromProps
+
+- `getDerivedStateFromProps` 会在调用 render 方法之前调用，并且在初始挂载及后续更新时都会被调用。它应返回一个对象来更新 state，如果返回 `null` 则不更新任何内容。
+- 如果把 getDerivedStateFromProps 英文分解 get ｜ Derived | State ｜ From ｜ Props 翻译 **得到 派生的 state 从 props 中** ，正如它的名字一样，这个生命周期用于，在初始化和更新阶段，接受父组件的 props 数据， 可以对 props 进行格式化，过滤等操作，返回值将作为新的 state 合并到 state 中，供给视图渲染层消费。
+
+
+
+## hooks
+
+### useImperativeHandle
+
+- 正常情况下 ref 是不能挂在到函数组件上的，因为函数组件没有实例，但是 useImperativeHandle 为我们提供了一个类似实例的东西。
+
+- 它帮助我们通过 useImperativeHandle 的第 2 个参数，所返回的对象的内容挂载到 父组件的 ref.current 上。
+
+- forwardRef会创建一个React组件，这个组件能够将其接受的 ref 属性转发到其组件树下的另一个组件中。
+
+  ```JS
+  import React, { forwardRef, useImperativeHandle, useEffect, useRef } from 'react'
+  
+  const TestRef = forwardRef((props, ref) => {
+    useImperativeHandle(ref, () => ({
+      open() {
+        console.log("open")
+      }
+    }))
+     return <div>1</div>
+  })
+  
+  function App () {
+    const ref = useRef()
+    useEffect(() => {
+      ref.current.open()
+    },[])
+    
+    return(
+      <>
+        <div>哈哈哈哈</div>
+        <TestRef ref={ref}></TestRef>
+      </>
+    )
+  }
+  export default App
+  ```
+
+### useRef
+
+- useRef 可以创建出一个 ref 原始对象，只要组件没有销毁，ref 对象就一直存在，那么完全可以把一些不依赖于视图更新的数据储存到 ref 对象中。这样做的好处有两个：
+  - 第一个能够直接修改数据，不会造成函数组件冗余的更新作用。
+  - 第二个 useRef 保存数据，如果有 useEffect ，useMemo 引用 ref 对象中的数据，无须将 ref 对象添加成 dep 依赖项，因为 useRef 始终指向一个内存空间，**所以这样一点好处是可以随时访问到变化后的值。**

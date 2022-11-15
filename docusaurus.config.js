@@ -8,12 +8,12 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "My Site",
   tagline: "Dinosaurs are cool",
-  url: "https://Min-wys.github.io",
+  url: "https://Minyym.github.io",
   baseUrl: "/my-website/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
-  organizationName: "Min-wys", // Usually your GitHub org/user name.
+  organizationName: "Minyym", // Usually your GitHub org/user name.
   projectName: "my-website", // Usually your repo name.
 
   presets: [
@@ -24,12 +24,12 @@ const config = {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
-          editUrl: "https://github.com/Min-wys/my-website/edit/master/",
+          editUrl: "https://github.com/Minyym/my-website/edit/master/",
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
-          editUrl: "https://github.com/Min-wys/my-website/edit/master/blog/",
+          editUrl: "https://github.com/Minyym/my-website/edit/master/blog/",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -64,7 +64,7 @@ const config = {
           },
           // { to: "/blog", label: "Blog", position: "left" },
           {
-            href: "https://github.com/Min-wys/my-website",
+            href: "https://github.com/Minyym/my-website",
             label: "GitHub",
             position: "right",
           },
