@@ -2,6 +2,17 @@
 sidebar_position: 1
 
 ---
+| 类型工具                             | 创建新类型的方式                                             | 常见搭配           |
+| ------------------------------------ | ------------------------------------------------------------ | ------------------ |
+| 类型别名（Type Alias）               | 将一组类型/类型结构封装，作为一个新的类型                    | 联合类型、映射类型 |
+| 工具类型（Tool Type）                | 在类型别名的基础上，基于泛型去动态创建新类型                 | 基本所有类型工具   |
+| 联合类型（Union Type）               | 创建一组类型集合，满足其中一个类型即满足这个联合类型（\|\|） | 类型别名、工具类型 |
+| 交叉类型（Intersection Type）        | 创建一组类型集合，满足其中所有类型才满足映射联合类型（&&）   | 类型别名、工具类型 |
+| 索引签名类型（Index Signature Type） | 声明一个拥有任意属性，键值类型一致的接口结构                 | 映射类型           |
+| 索引类型查询（Indexed Type Query）   | 从一个接口结构，创建一个由其键名字符串字面量组成的联合类型   | 映射类型           |
+| 索引类型访问（Indexed Access Type）  | 从一个接口结构，使用键名字符串字面量访问到对应的键值类型     | 类型别名、映射类型 |
+| 映射类型 （Mapping Type）            | 从一个联合类型依次映射到其内部的每一个类型                   | 工具类型           |
+
 ## 1、TypeScript 简介
 
 1. TypeScript 是 JavaScript 的超集。
@@ -667,6 +678,33 @@ type MappedType = { [k in key]: string } // { vue: string; react: string; }
 ```js
 type Partial<T> = { [P in keyof T]?: T[P] };
 ```
+
+### &交叉类型
+
+**需要同时满足 A 与 B 两个类型**
+
+```ts
+interface NameStruct {
+  name: string;
+}
+
+interface AgeStruct {
+  age: number;
+}
+
+type ProfileStruct = NameStruct & AgeStruct;
+
+const profile: ProfileStruct = {
+  name: "linbudu",
+  age: 18
+}
+```
+
+### | 联合类型
+
+联合类型只需要符合成员之一即可（`||`），而交叉类型需要严格符合每一位成员（`&&`）。
+
+
 
 
 
