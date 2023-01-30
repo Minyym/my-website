@@ -1,0 +1,4764 @@
+---
+layout: post
+title:  "Welcome to Jekyll!"
+date:   2020-12-19 14:47:34 +0800
+categories: jekyll update
+---
+
+# HTML，CSS
+
+## 说一下HTML是什么
+
+ 1.超级文本标记语言（`Hyper Text Mark-up Language`），它通过标记符号来标记显示的网页中的各个部分，HTML是一种标准，一种规范。
+
+## `!<DOCTYPE html>`是做什么的
+
+·`DOCTYPE（document type）`： 文档类型    
+
+1. 版本声明。    
+2. 给浏览器声明，告诉浏览器应该按照`html5`的规范来解析当前的文档。
+3. 如果不书写，那么按照什么规范解析，就看浏览器心情   
+4. 必须定义在 HTML 文档的第一行，在 HTML 标签之前   
+5. 不是`html`标签，他只是一条浏览器的指令，在所有版本中，这条指令对大小写都不敏感
+
+## 如何解决页面的乱码问题
+
+1. 使用<meta charset="UTF-8">
+2. `charset`代表字符编码，`utf-8`是万国码
+
+## 块状元素和行内元素的区别有什么
+
+1. 块级元素
+   1. 独占一行，换行显示
+   2. 可以设置宽高
+   3. 可以容纳行内元素和其他块元素(p标签、h标签都只能嵌套行元素或行内块元素)
+2. 行内元素
+   1. 在一行中如有剩余空间，允许同其他 行内/行内块 标签公用一行（行内显示）
+   2. 不可以直接设置宽高（宽高无效）,默认的宽高由内容决定
+   3. 行标签只能嵌套行标签（a标签不能嵌套a标签）
+
+## 网页的组成
+
+1. `HTML`（超文本标记语言）
+2. `CSS样式标准`层叠样式表
+3. `JavaSript` 行为标准
+
+## `HTML5` 新特性
+
+1. 新的语义化元素：article 、footer 、header 、nav 、section
+2. 表单增强，新的表单控件：calendar 、date 、time 、email 、url 、search
+3. 新的 API：音频(用于媒介回放的 video 和 audio 元素)、图形（绘图 canvas 元素）
+4. 新的 API：离线，通过创建 cache manifest 文件，创建应用程序缓存
+5. 新的 API：本地存储，localStorage-没有时间限制的数据存储，sessionStorage-session 数据存储（关闭浏览器窗口数据删除）
+6. 新的 API：实时通讯，设备能力
+
+## html5 新的标签及解析
+
+- header 
+  - 用来定义文档（网页或者是某一个段落）的页眉（头部）
+- footer
+  - footer标签代表一个网页或者章节内容的底部区域（页脚）
+- section
+  - html中一个独立的区域（主要针对网页分块），没有其他语义
+- article
+  - 代表文档、页面、或程序中，可以独立的完整的被外部引用的内容
+- nav
+  - 表示页面的一部分，其目的是在当前文档或其他文档中提供导航链接。
+- aside
+  - 表示一个和其余页面内容几乎无关的区域
+
+## C3 的新特性有哪些？
+
+1、颜色: 新增 RGBA , HSLA 模式
+2、文字阴影(text-shadow)
+3、边框: 圆角(border-radius) 边框阴影 : box-shadow
+4、盒子模型: box-sizing
+5、背景:background-size background-origin background-clip
+6、渐变: linear-gradient , radial-gradient
+7、过渡 : transition 可实现动画
+8、自定义动画 animate @keyfrom
+9、媒体查询 多栏布局 @media screen and (width:800px) {…}
+10、border-image
+11、2D 转换;transform: translate(x,y) rotate(x,y) skew(x,y) scale(x,y)
+12、3D 转换
+13、字体图标 font-face
+14、弹性布局 flex1、颜色: 新增 RGBA , HSLA 模式
+2、文字阴影(text-shadow)
+3、边框: 圆角(border-radius) 边框阴影 : box-shadow
+4、盒子模型: box-sizing
+5、背景:background-size background-origin background-clip
+6、渐变: linear-gradient , radial-gradient
+7、过渡 : transition 可实现动画
+8、自定义动画 animate @keyfrom
+9、媒体查询 多栏布局 @media screen and (width:800px) {…}
+10、border-image
+11、2D 转换;transform: translate(x,y) rotate(x,y) skew(x,y) scale(x,y)
+12、3D 转换
+13、字体图标 font-face
+14、弹性布局 flex
+
+## CSS 中哪些属性可继承，哪些不可以？
+
+**能继承的属性**
+
+1. 字体系列属性:font、font-family、font-weight、font-size、font-style;
+
+2. 文本系列属性:
+
+   2.1）内联元素：color、line-height、word-spacing、letter-spacing、
+
+text-transform;
+
+​		2.2）块级元素：text-indent、text-align;
+
+3. 元素可见性：visibility
+
+4. 表格布局属性：caption-side、border-collapse、border-spacing、empty-cells、table-layout;
+
+5. 列表布局属性：list-style
+
+**不能继承的属性**
+
+1. display：规定元素应该生成的框的类型；
+2. 文本属性：vertical-align、text-decoration;
+3. 盒子模型的属性：width、height、margin 、border、padding;
+4. 背景属性：background、background-color、background-image;
+5. 定位属性：float、clear、position、top、right、bottom、left、min-width、min-height、max-width、max-height、overflow、clip
+
+## 表单的新的属性有哪些 及 作用
+
+- placeholder：
+
+- 占位符
+
+- autocomplete：
+
+  - 是否提示用户曾经输入过的值 默认是on 关闭是off
+
+- autofocus：
+
+  - 默认自动获取焦点
+
+  - 他有唯一一个值是autofocus
+
+- required：
+
+  - 必填项，当提交的时候，此表单必须填写
+
+- disabled：
+
+  - 禁用任何表单元素，这个元素就被禁止输入或选择等等操作，并且不会被提交
+
+- checked：
+
+  - 单选框或多选框 默认被选中
+
+- readonly：
+  - 对于可编辑的表单来说 表示不能再次被编辑 但是是可以被提交的
+
+- form：
+
+  - 如果input存在form属性，表示当前的input属于某一个表单
+  - 此时form表单的id的值 就是这个input的值
+  - 那么form表单 和当前的input就进行关联了
+  - 无论input书写在哪里，都能随着表单发送数据
+
+- select标签的新属性
+
+  - selected： 默认选中项（写在option标签中）
+  - multiple： 让select可以进行多选（按住ctrl键进行多选）
+
+## 表单的所有 type 类型
+
+- type旧类型：
+
+  1. text： 文本框
+  2. password： 密码框
+  3. radio： 单选框
+  4. checkbox： 多选框
+  5. hidden： 隐藏域
+  6. file： 文件域
+  7. button： 按钮
+  8. reset： 重置按钮
+  9. submit： 提交按钮
+
+- type新类型
+
+  1. color：
+
+     用来引入或者打开指定颜色的控件
+
+  2. date：
+
+     日期的控件（年月日）
+
+  3. week：
+
+     日期的控件（年周）（火狐不支持）
+
+  4. month：
+
+     日期的控件（年月）（火狐不支持）
+
+  5. email：
+
+     编辑email的字段
+
+     自带验证，但是验证不完整，一般还是自己书写
+
+     在移动端上 有相对应的自动弹出键盘包含 @ .com 等按键
+
+  6. number：
+
+     用来输入数字的控件
+
+     多了一个上下的按键，可以增加和降低数字大小
+
+     验证必须是数字
+
+     其他属性
+
+     - min：最少数量
+     - max：最大数量
+     - value：当前数量
+     - step：每次累加累减数量
+
+  7. search：
+
+     用来搜索框，当用户输入内容后，在末尾有一个删除按钮，单击可以删除输入好的文字
+
+  8. tel：
+
+     电话号码输入框
+
+  9. url：
+
+     url地址
+
+  10. range：
+
+      输入一个拖拽的控件
+
+      属性：
+
+      - max：最大值
+      - min：最小值
+      - step：每次走的最小单位
+      - value：当前值
+
+## 什么是重绘重排
+
+重排和重绘是DOM编程中耗能的主要原因之一：
+
+- 重排（回流）：当render tree中的一部分或者是全部，因为元素的尺寸、布局、隐藏等等改变引起页面的重新渲染，这个过程称作为重排，完成重排以后，浏览器会重新绘制受影响的部分到屏幕，该过程称为重绘。
+
+  > 重排的情况:
+  >
+  > - 添加或者删除可见的DOM元素
+  > - 元素位置改变
+  > - 元素尺寸改变
+  > - 元素内容改变（例如：一个文本被另一个不同尺寸的图片替代）
+  > - 页面渲染初始化（无法避免）
+  > - 浏览器窗口尺寸改变
+
+- 重绘：当render tree（渲染树）中更新的属性只会影响元素的外观、风格，不会影响元素的布局的时候，浏览器需要重新绘制当前元素的样式，被称作为重绘。
+
+- 重绘不会引起重排，但重排一定会引起重绘，一个元素的重排通常会带来一系列的反应，甚至触发整个文档的重排和重绘，性能代价是高昂的。 
+
+## link引入和@import引入的对比
+
+1. **功能范围不同** link属于`html`标签 @import只是`css`提供的引入`css`的功能
+
+2. **加载顺序不同** 页面在加载的时候，link引入的`css`会同时被加载 @import引入的`css`只有等页面全部下载完成以后才进行加载，所以可能会出现闪烁
+
+3. **兼容性** link所有浏览器都支持 @import低版本ie不支持
+
+4. **使用JS控制样式** JS只能控制link标签 @import是不能够被JS控制的
+
+## 可能造成页面闪烁的原因有哪些
+
+1. 使用@import引入css样式
+2. style和link书写在head中的时候
+
+## px em rem 这三中长度单位的区别？
+
+1. px是一个绝对单位;em和rem是一个相对单位, em参考的是当前父元素大小, 参考的是页面根元素html的字体大小.
+
+## 去除图片留白的问题
+
+1. 原因：因为图片底部默认和行框的文字基线对齐，所以图片和行框底部有一定的间隙
+2. 解决方法：
+   1. 给父元素设置font-size为0
+   2. 把图片设置成块状元素，就不会存在基线对齐的问题
+   3. 使用`vertial-align：bottom`
+
+## display和visibility隐藏的区别
+
+1. visibility可以继承，子元素是因为继承了才隐藏
+   1. 可以覆盖继承，子元素即可显示
+   2. display不能被继承，而是直接带着所有内部元素直接隐藏
+2. visibility隐藏，原来空间仍然保留,display隐藏，原来空间消失被占用
+3. `js`可以获取到visibility隐藏元素的可视化宽高, `js`不可以获取到display隐藏元素的可视化宽高
+4. display:none 会引起回流(重排)和重绘 visibility:hidden 会引起重绘
+
+## `opacity`和`rgba`和`hsla`透明的区别
+
+- `rgba`和`hsla`只是一个颜色，是属性的取值，比如color background-color，所以只是对颜色的一个处理
+- opacity是一个属性，透明是直接设置给元素的，并不会对元素的某部分进行控制
+
+## 说一下盒模型
+
+- 在`html`中，把每一个元素都当做成一个盒子，拥有盒子的平面外形和空间
+- 盒模型由内容（content）+内边距（padding）+边框（border）+外边距（margin）4部分构成
+  1. 内容区域：你书写的内容或者子元素能够显示的区域
+  2. 内边距：撑开内容与边框的距离
+  3. 边框：元素的边框
+  4. 外边距：撑开元素和其他元素之间的距离
+- 盒子模型分为怪异盒子模型和标准盒子模型，通过box-sizing切换
+- 怪异盒子模型和标准盒子模型的区别
+  1. 标准盒子模型的所占用空间的计算方式是 content+padding+border+margin
+  2. 怪异盒子模型所占的的空间计算方式是 content+margin（content内容是包含内容内边距和边框的）
+
+## 清除浮动的一些方法
+
+1. 给浮动元素的父级设置高度height（不推荐使用）
+
+   缺点：很多情况下 高度都是不缺定的 所有不适用
+
+2. 以浮制浮，给浮动元素的父元素设置浮动，原理是开启BFC（不推荐使用）
+
+   缺点：只有在父级需要浮动的时候，可以这么清除，否则父级的浮动会影响布局
+
+3. `overflow：hidden`；给父级设置，原理也是开启BFC（可以使用）
+
+   优点：简单快捷
+
+   缺点：元素超出的时候，会隐藏超出部分
+
+4. `br`清除浮动：在浮动元素的后边书写一个br。br中书写clear属性，值为all
+
+   缺点：增加不必要的元素，不符合样式与结构相分离的要求
+
+5. clear清浮动法：给浮动元素的下边添加一个块元素，书写样式`clear:both`
+
+   缺点：增加额外的结构，不符合语义化标准
+
+6. after伪元素清浮动（推荐）
+
+   可以给所有浮动元素的父级一个` clearFix`的类名
+
+   当一个元素需要清除浮动的时候 直接设置`clearFix`类名即可
+
+## 在垂直方向的`margin：0 auto`为什么不能居中
+
+因为在垂直方向块级元素并没有满屏的属性，没有剩余的空间可以平分
+
+## 用CSS画一个三角形
+
+1. 给边框宽度，大一些
+2. 让元素的内容宽度是0
+3. 就有了四个三角形，设置其中三个为透明
+
+```JS
+var k = 0;
+for(var i=0,j=0;i<2,j<3;i++,j++){
+    k += i + j;
+}
+console.log(k)//6
+
+var k = 0;
+for(var i=0,j=0;i<3,j<2;i++,j++){
+    k += i + j;
+}
+console.log(k)//2
+```
+
+1. 结果是 1乘2加上2乘2得六
+2. 原因是：考察知识点： 逗号表达式 逗号表达式只有最后一项是有效的
+
+## `HTML`的语义化标签
+
+1. 语义化标签更具有可读性，便于团队的开发和维护
+2. 没有css的情况下，网页也能很好的呈现出内容结构和代码结构
+3. 关于SEO，搜索引擎更能理解到网页中各部分之间的关系，更准确更快速搜索信息
+
+## `CSS`的优先级
+
+1. !important > 行内样式1000>ID选择器0100 > 类选择器 0010> 标签0001 > 通配符0000 > 继承 > 浏览器默认属性
+2. 后代选择器是每个权重值相加，数值越大，权重越大，权重是相等，最后一个胜出
+
+## `src` 和 `href `的区别
+
+`href` 是超文本引用，它是指向资源的位置，建立与目标文件的联系；`src` 目的是把资源下载到页面中；**浏览器解析` href` 不会阻塞对文档的处理**（这就是官方建议使用 link 引入而不是 @ import 的原因），`src `会阻塞对文档的处理。
+
+当浏览器解析到该元素时，会暂停其他资源的下载和处理，直到将该资源加载、编译、执行完毕，图片和框架等元素也如此，类似于将所指向资源嵌入当前标签内。这也是为什么将js脚本放在底部而不是头部。
+
+##  script 标签为什么要放在 body 标签的底部（defer、`async`）
+
+因为浏览器在渲染`html`的时候是从上到下执行的，当遇到`js`文件的时候就会停止当前页面的渲染，转而去下载`js`文件，如果将script标签放在头部，在文件很大的情况下将导致首屏加载时间延长，影响用户体验。解决办法：
+
+1. 将script标签放在body的底部
+2. 通过defer、`async`属性将js文件转为异步加载
+
+defer和async的区别：首先都是实现js文件的异步加载，不阻塞页面的渲染；区别就是defer必须等到整个文档渲染完成后才执行，而async在加载完成后，会暂停html的解析，转去执行js
+
+## 如何实现元素的水平垂直居中
+
+1. 不知道元素的宽高
+
+   1. display：flex布局
+
+      ```JS
+      .outer{
+          height:200px;
+          width:200px;
+          border:1px solid #000;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+      ```
+
+   2. 使用绝对定位，使用margin:auto
+
+      ```JS
+      .outer{
+          height:200px;
+          width:200px;
+          border:1px solid #000;
+          position:relative;
+      }
+      .inner{
+          border:1px solid #000;
+          position:absolute;
+          top:0px;
+          bottom: 0px;
+          left:0px;
+          right:0px;
+          margin:auto;
+      }
+      ```
+
+   3. 绝对定位+transform
+
+      ```JS
+      .outer{
+          height:200px;
+          width:200px;
+          border:1px solid #000;
+          position:relative;
+      }
+      .inner{
+          border:1px solid #000;
+          position:relative;
+          top:50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+      }
+      ```
+
+2. 已知元素的宽高（上面方法都适用）
+
+   1. 绝对定位，计算定位的距离
+
+      ```js
+      .outer{
+          height:200px;
+          width:200px;
+          border:1px solid #000;
+          position:relative;
+      }
+      .inner{
+          height: 100px;
+          width:100px;
+          border:1px solid #000;
+          position:absolute;
+          top:50px;   /*（父元素高度-子元素高度）/2*/
+          left:50px;  /*（父元素宽度-子元素宽度）/2*/
+      }
+      ```
+
+   2. 绝对工位，利用负margin
+
+      ```JS
+      .outer{
+          height:200px;
+          width:200px;
+          border:1px solid #000;
+          position:relative;
+      }
+      .inner{
+          height: 100px;
+          width:100px;
+          border:1px solid #000;
+          position:absolute;
+          top:50%;
+          left: 50%;
+          margin-top:-50px;  /* 子元素高度的一半 */
+          margin-left:-50px; /* 子元素宽度的一半 */
+      }
+      ```
+
+## 如何实现0.5px的边
+
+1. 缩放
+
+   ```js
+   .hr.scale-half {
+       height: 1px;
+       transform: scaleY(0.5);
+   }
+   ```
+
+2. 线性渐变:渐变的角度从下往上，从白色#fff渐变到黑色#000，而且是线性的
+
+   ```js
+   <style>
+   .hr.gradient {
+       height: 1px;
+       background: linear-gradient(0deg, #fff, #000);
+   }
+   </style>
+   <p>linear-gradient(0deg, #fff, #000)</p>
+   <div class="hr gradient"></div>
+   ```
+
+3. box-shadow:第二个参数为0.5px，表示阴影垂直方向的偏移为0.5px
+
+   ```JS
+   <style>
+   .hr.boxshadow {
+       height: 1px;
+       background: none;
+       box-shadow: 0 0.5px 0 #000;
+   }
+   </style>
+   <p>box-shadow: 0 0.5px 0 #000</p>
+   <div class="hr boxshadow"></div>
+   ```
+
+## 行内元素的padding和margin可设置吗？
+
+行内元素设置水平方向的padding和margin是可以生效,但是设置垂直方向的padding和margin虽然看起来对标签起作用,但实际并没有对周围元素产生任何影响, 所以行内元素设置垂直方向的padding和margin是无效的.
+
+## 简述readyonly与disabled的区别
+
+readyonly是设置表单元素为只读状态;
+
+disabled是设置表单元素为禁用状态
+
+## 哪些标签都存在伪元素?
+
+1. 大部分容器标签(大部分双标签)都有伪元素, iframe没有伪元素;
+2. 大部分单标签都没有伪元素, 但是img有伪元素
+
+## 伪元素可以使用js来操作吗?
+
+js不可以操作伪元素
+
+## 让两个块级元素在一行显示有哪些做法?
+
+1. 设置显示模式:display:inline|inline-block;
+2. flex布局: 给父元素设置display:flex;
+3. 使用浮动
+
+## Less是什么?
+
+Less是一种css预处理语言, 在less中可以定义一些变量和表达式以及使用嵌套语法; less中使用@定义变量(@baseColor:pink); 后期可以通过一些编译工具(less)将less编译成浏览器能直接识别的css样式. 所以less只是在开发阶段使用的一种中间语言, 使用less的目的是提高开发效率以及提高代码的可维护性.
+
+## 圣杯布局、双飞翼布局
+
+1. 圣杯布局()
+
+   1. middle\left\right都为`float：left`
+   2. middle占100%；
+
+   3. 将left使用`margin-left：-100%` 拉倒最左边
+
+   4. 将right使用`margin-left：-200px `拉到最右边。
+
+   ​     --------------------到此为止和双飞的布局是一样的。下面就不一样了---------------------------
+
+   ​    5.  为了保证不覆盖内容，我的解决方案是在`content`中加入`padding-left、padding:-right 200px`，这个时候出现了一个问题，就是整个都会向里推了`200px;`(内容虽然推过来了，但是left和right也跟过来了)
+
+   ​    6. 解决left、right推过来的问题：
+
+   ​      6.1 在left上使用`position:relative;left:-200px;`（拉回去）
+
+   ​      6.2 在right上使用`position:relative;right:-200px;`(拉回去)
+
+   ·`content`的宽度就不要设置100%了，让它自适应。设置100%就会出现滚动条。
+
+   ```JS
+   <div id="content">
+       <div>
+   哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈1
+       </div>
+       <div id="left"></div>
+       <div id="right"></div>
+   </div>
+   ```
+
+2. 双飞翼布局
+
+   1. 我将所有的`middle、left、right`都浮动了。 `float:left;`
+
+   ​    2. 将left使用`margin-left:-100%`，拉到了最左边。
+
+   ​    3. 将right使用`margin-right:-200px;`，拉到了最右边。（出现了一个问题，内容被遮挡了。）
+
+      4. 在`html`中添加了c，然后c的左右外边距是`200px;`宽度为自适应。
+
+         ```JS
+         <div id="content">
+             <div id="middle">
+                 <div id="c">
+                     1哈哈吼吼呵呵哈哈吼吼呵呵哈哈吼吼呵呵哈
+                 </div>
+             </div>
+             <div id="left"></div>
+             <div id="right"></div>
+         </div>
+         ```
+
+## `BFC`
+
+1. **块级格式化上下文**，是一个独立的渲染区域，让处于 BFC 内部的元素与外部的元素相互隔离，使内外元素的定位不会相互影响。
+2. 触发条件
+   1. 根元素
+   2. `position: absolute/fixed`
+   3. `display: inline-block / table`
+   4. `float` 元素
+   5. `ovevflow` !== `visible`
+3. 应用
+   1. 阻止`margin`重叠,解决外边距折叠问题
+   2. 可以包含浮动元素 —— 清除内部浮动(清除浮动的原理是两个`div`都位于同一个 BFC 区域之中)
+   3. 自适应两栏布局
+   4. 可以阻止元素被浮动元素覆盖
+
+## 如何垂直居中一个浮动元素？
+
+1. 已知元素的宽高
+
+   ```JS
+   #div1{
+       background-color:#6699FF;
+       width:200px;
+       height:200px;
+       position: absolute;        /*父元素需要相对定位*/
+       top: 50%;
+       left: 50%;
+       margin-top:-100px ;   /*二分之一的height，width*/
+       margin-left: -100px;
+       }
+   ```
+
+2. 未知宽高
+
+   ```JS
+   #div1{
+       width: 200px;
+       height: 200px;
+       background-color: #6699FF;
+    
+       margin:auto;
+       position: absolute;        /*父元素需要相对定位*/
+       left: 0;
+       top: 0;
+       right: 0;
+       bottom: 0;
+       }
+   
+   ```
+
+## 描述一个”reset”的CSS文件并如何使用它。知道normalize.css吗？你了解他们的不同之处？
+
+Reset样式的目的是清除浏览器某些默认样式，方便css书写
+
+Normalize的理念与reset不同，它并不清除浏览器默认样式，而是尽量将所有浏览器的默认样式统一。
+
+目的：
+
+用于浏览器默认css样式的存在并且不同浏览器对相同HTML标签的默认样式不同，若不初始化会造成不同浏览器之间的显示差异。
+
+## 如何解决 margin“塌陷”？（外边距折叠）
+
+为什么设计成外边距折叠：实际上就是为了页面的美观。根本原因是margin有直接的接触，水平的margin不会出现外边距折叠的情况
+
+**外边距塌陷共有两种情况：**
+
+1. 第一种情况：两个同级元素，垂直排列，上面的盒子给 margin-bottom 下面的盒子给margin-top，那么他们两个的间距会重叠，以大的那个计算。解决这种情况的方法为：两个外边距不同时出现
+2. 第二种情况：两个父子元素，内部的盒子给 margin-top，其父级也会受到影响，同时产生上边距，父子元素会进行粘连，决绝这种情况的方法为：父级添加一个 css 属性，overflow： hidden，禁止超出外边距重叠就是 margin-collapse
+
+**解决方案：**（大致是分为俩种：阻止margin的直接接触，一个是开启BFC）
+
+1、为父盒子设置 border，为外层添加 border 后父子盒子就不是真正意义上的贴合 （可以设置成透明：border：1px solid transparent）。 
+
+2、为父盒子添加 overflow：hidden； 
+
+3、为父盒子设定 padding 值； 
+
+4、为父盒子添加 position：fixed； 
+
+5、为父盒子添加 display：table； 
+
+6、利用伪元素给子元素的前面添加一个空元素.son:before{ content:"";overflow:hidden; }
+
+## HTML5 的 input 增加哪些 type？
+
+在 HTML5 中，为 input 元素新增了以下一些 type 属性值，用来丰富文本框的类型。
+
+color：用于指定颜色的控件 dao
+
+date：用于输入日期的控件（年，月，日，不包括时间）
+
+datetime：基于 UTC 时区的日期时间输入控件（时，分，秒及几分之一秒）
+
+datetime-local：用于输入日期时间控件，不包含时区
+
+email：用于编辑 e-mail 的字段
+
+month：用于输入年月的控件，不带时区
+
+number: 用于输入浮点数的控件
+
+range：用于输入不精确值控件 
+
+search：用于输入搜索字符串的单行文本字段。换行会被从输入的值中自动移除
+
+tel：用于输入电话号码的控件
+
+time：用于输入不含时区的时间控件
+
+url：用于编辑 URL 的字段 
+
+week：用于输入一个由星期-年组成的日期，日期不包括时区
+
+## 雪碧图 （ 精灵图 ）？
+
+是把网站上用到的一些图片整合到一张单独的图片中，从而减少你的网站的 HTTP 请求数量，该图片使用 css background 和 background-position 属性渲染，这也就意味着你的标 签变得更复杂了，图片是在 css 中定义，并非在<img>标签中
+
+**优点：**
+
+- 1、减少网页的 http 请求，从而加快了网页加载速度，提高用户体验 
+- 2、减少图片的体积，因为每个图片都有一个头部信息，把多个图片放到一个图片里，就 会 共用同一个头信息，从而减少了字节数
+- 3、解决了网页设计师在图片命名上的困扰，只需对一张集合的图片上命名就可以了，不需 要对每一个小元素进行命名
+- 4、更换风格方便，只需要在一张或少张图片上修改图片的颜色或样式，整个网页的风格 就 可以改变
+
+缺点：
+
+- 1、在宽屏，高分辨率的屏幕下的自适应页面，你的图片如果不够宽，很容易出现背景断裂 
+- 2、CSS Sprites 在开发的时候，要通过 photoshop 或其他工具测量计算每一个背景单元的精确位置
+- 3、在维护的时候比较麻烦，如果页面背景有少许改动，一般就要改这张合并的图片
+- 4、精灵图不能随意改变大小和颜色。改变大小会失真模糊，降低用户体验，CSS3 新属性可以改变精灵图颜色，但是比较麻烦，并且新属性有兼容问题，现在一般用字体图标代替精灵图
+
+## 伪类及伪元素
+
+​	单冒号（：）用于 CSS3 的伪类
+
+​	双冒号（：：）用于 CSS3 的伪元素
+
+1. `E:first-child`，选择**父元素的第一个子元素**并且该子元素为E。
+2. `E:first-of-type`，选择父元素的**第一个出现**的E元素。
+
+## CSS的选择器
+
+1. id选择器
+2. 类名选择器
+3. 标签选择器
+4. 通用选择器
+5. 组合选择器
+6. 后代选择器
+7. 子代选择器
+8. 相邻通用选择器
+9. 通用兄弟选择器
+10. 属性选择器
+11. 链接伪类选择器
+12. 动态伪类选择器(:focus,:target)
+13. 伪类选择器（:first-child,:last-child.....）
+14. 伪元素选择器（after，before）
+
+## 如果需要手动写动画，你认为最小时间间隔是多久，为什么？
+
+ 多数显示器默认频率是60Hz，即1秒刷新60次，所以理论上最小间隔为1/60＊1000ms ＝ 16.7ms
+
+## 设置CSS样式的几种方式
+
+外部样式表，引入一个外部css文件
+
+内部样式表，将css代码放在 <head> 标签内部
+
+内联样式，将css样式直接定义在 HTML 元素内部
+
+## 知道css有个content属性吗？有什么作用？有什么应用？
+
+知道。css的content属性专门应用在 before/after 伪元素上，用来插入生成内容。最常见的应用是利用伪类清除浮动。
+
+```JS
+//一种常见利用伪类清除浮动的代码
+.clearfix:after {
+    content:""; //这里利用到了content属性
+    display:block; 
+    height:0;
+    clear:both; 
+}
+```
+
+## 实现左边定宽右边自适应效果
+
+1. flex(父级元素)+flex :1（右边子元素）
+
+   ```JS
+   * {
+       margin: 0;
+       padding: 0;
+     }
+     html,
+     body {
+       height: 100%;
+     }
+   .outer {
+       display: flex;
+       height: 100%;
+     }
+     .box1 {
+       width: 100px;
+       height: 100%;
+       background-color: aqua;
+     }
+     .box2 {
+       height: 100%;
+       background-color: red;
+       flex-grow: 1;
+     }
+   <div class="outer">
+     <div class="box1"></div>
+     <div class="box2"></div>
+   </div>
+   ```
+
+2. 左边定宽，并且**左浮动**；右边设置距离左边的宽度
+
+   ```JS
+   * {
+       margin: 0;
+       padding: 0;
+     }
+     html,
+     body {
+       height: 100%;
+     }
+     .box1 {
+       width: 100px;
+       height: 100%;
+       float: left;
+       background-color: aqua;
+     }
+     .box2 {
+       height: 100%;
+       margin-left: 100px;
+       background-color: red;
+     }
+   
+   <div class="box1"></div>
+   <div class="box2"></div>
+   ```
+
+3. 左边定宽，**左边**设置position:absolute；右边设置距离左边的宽度
+
+   ```JS
+   .outer {
+       position: relative;
+       height: 100%;
+     }
+     .box2 {
+       height: 100%;
+       background-color: aqua;
+       margin-left: 100px;
+     }
+     .box1 {
+       width: 100px;
+       height: 100%;
+       background-color: red;
+       position: absolute;
+     }
+   ```
+
+## 三列布局（中间固定两边自适应宽度）
+
+1. 采用浮动布局（左边左浮动，右边右浮动，中间margin：0 宽度值）
+
+   ```JS
+   .outer {
+       position: relative;
+       height: 100%;
+     }
+     .box1 {
+       height: 100%;
+       width: 100px;
+       float: left;
+       background-color: blue;
+     }
+     .box2 {
+       height: 100%;
+       float: right;
+       width: 100px;
+       background-color: blueviolet;
+     }
+     .box3 {
+       height: 100%;
+       background-color: yellow;
+       margin: 0 100px;
+     }
+   <div class="outer">
+     <div class="box1">box1</div>
+     <div class="box2">box2</div>
+     <div class="box3">box3</div>
+   </div>
+   ```
+
+2. 绝对定位方式（左右绝对定位，左边left0右边right0，中间上同）
+
+   ```JS
+    * {
+       margin: 0;
+       padding: 0;
+     }
+     html,
+     body {
+       height: 100%;
+     }
+     .outer {
+       position: relative;
+       height: 100%;
+     }
+     .box1 {
+       height: 100%;
+       width: 100px;
+       background-color: blue;
+       position: absolute;
+       left: 0;
+       top: 0px;
+     }
+     .box2 {
+       height: 100%;
+       position: absolute;
+       right: 0px;
+       top: 0px;
+       width: 100px;
+       background-color: blueviolet;
+     }
+     .box3 {
+       height: 100%;
+       background-color: yellow;
+       margin: 0 100px;
+     }
+   ```
+
+3. flex布局
+
+   ```JS
+   * {
+       margin: 0;
+       padding: 0;
+     }
+     html,
+     body {
+       height: 100%;
+     }
+     .outer {
+       height: 100%;
+       display: flex;
+     }
+     .box1 {
+       height: 100%;
+       width: 100px;
+       background-color: blue;
+     }
+     .box2 {
+       height: 100%;
+       flex-grow: 1;
+       background-color: blueviolet;
+     }
+     .box3 {
+       height: 100%;
+       width: 100px;
+       background-color: yellow;
+     }
+   ```
+
+## CSS3动画
+
+1. 变形：使用`transform`
+
+   1. 移动原点 `transform-origin`
+   2. 旋转（rotate）
+   3. 移动`translate`
+   4. 缩放`scale`
+   5. `skew`倾斜
+
+2. 动画
+
+   1. 关键帧动画
+
+      ```JS
+      @keyframes name{
+      
+        [keyframes-selector] { Properties:Properties value; }
+      
+        [keyframes-selector] { Properties:Properties value; }
+      
+       }
+      ```
+
+   2. 关键帧的使用
+
+      基础语法：
+
+      1. `animation-name:`动画属性名
+
+      2. `animation-duration:`动画持续时间
+
+      3. `animation-timing-function`动画帧频，和transition-timing一样，检测的是关键帧区间，并不是整个区间，ease | `linear | ease-in | ease-out | cubic-Bezier (n1 , n2, n3, n4)`
+
+      4. `animation-delay:`动画延迟时间
+
+      5. `animation-iteration-count`动画循环次数，infinite为无限次
+
+      6. animation-direction: normal; /定义动画播放方式/
+
+         默认normal，动画正常播放； alternate，动画轮流反向播放
+
+   3. 动画的暂停和播放
+
+      animation-play-state 属性
+
+      - paused：规定动画已暂停
+      - running：规定动画正在播放
+
+   4. 动画开始和结束状态
+
+      animation-fill-mode 属性:**控制动画起始和结束状态**
+
+      - none：使用得动画不会对动画等待和动画完成的元素样式产生改变
+      - forwards：告诉浏览器动画结束后，元素的样式将设置为动画的最后一帧的样式
+      - backwards ：那么在动画等待的那段时间内，元素的样式将设置为动画第一帧的样式
+      - both：在动画等待和动画结束状态，元素将分别应用动画第一帧和最后一帧的样式
+
+# JS基础
+
+## JS的数据类型，和变量类型
+
+1. 数据类型
+   1. 基本数据类型：int(数值), string(字符串), boolean(布尔), null(空), undefined(未定义),Symbol，BigInt
+   2. 对象数据类型： object(对象），Math，Function，Array，Date
+2. 变量数据类型
+   1. 基本数据类型
+   2. 引用数据类型
+
+## 分析基本数据类型和引用数据类型的区别
+
+1. 基本数据类型：null undefined string number boolean
+   引用数据类型：Object
+   
+2. 基本数据类型特点：
+   1.我们不能给基本类型值添加属性和方法 就算添加也是获取不到的
+   
+   ```JS
+   var a =123;
+   // 先new Number，添加c属性，但到下一行就干掉了
+   a.c = 456;
+   console.log(a,a.c)// 123 undefined a.c的时候又new Number，到时没有c
+   ```
+   
+   2.基本类型的比较是值的比较
+   3.基本类型的变量是存放在栈区的（栈区指内存里的栈内存),栈区包括了变量的标识符和变量的值
+   
+3. 引用类型的特点：
+   1.引用类型的值是可变的，我们可以为引用类型添加属性和方法
+   2.引用类型的值是同时保存在栈内存和堆内存中的对象
+   3.引用类型的比较是引用地址的比较
+
+## eval是做什么的？
+
+1. 它的功能是把对应的字符串解析成JS代码并运行；
+
+2. 应该避免使用eval，不安全，非常耗性能（2次，一次解析成js语句，一次执行）。
+
+3. 由JSON字符串转换为JSON对象的时候可以用eval，var obj =eval('('+ str +')')
+
+## 什么是window对象? 什么是document对象?
+
+1. window
+   1. BOM 的核心对象是 `window`，它表示浏览器的一个实例。是客户端浏览器对象模型的基类。
+   2. 在浏览器中，`window` 对象有双重角色，它既是通过 JavaScript 访问浏览器窗口的一个接口，又是 ECMAScript 规定的 `Global` 对象。
+   3. 这意味着在网页中定义的任何一个对象、变量和函数，都以 `window` 作为其 `Global` 对象，因此有权访问 `isNaN()`、`isFinite()`、`parseInt()`、`parseFloat()` 等方法
+2. document
+   1. **Document 对象**是是window对象的一个属性，因此可以将document对象作为一个全局对象来访问。当浏览器载入 html文档, 它就会成为 **Document 对象**。
+   2. 打开控制台输入 document，然后我们就看到了一个document对象，既然是对象，输入 typeof document, 控制打印了 "object"
+
+## null和undefined区别
+
+- null是一个空对象指针，指向的一个空对象
+
+- undefined是找不到
+
+- null的使用场景
+
+  * 作为函数的参数，表示该函数的参数不是对象 ex:send(null,null,null)
+  * 作为对象原型链的终点
+  * 如果定义的变量准备在将来用于保存对象，那么最好将该变量初始化为null而不是其他值
+  * 让一个对象变成垃圾对象
+
+- undefined的使用场景
+
+  * 变量被声明了，但没有赋值时，就等于undefined
+  * 调用函数时，应该提供的参数没有提供，该参数等于undefined
+  * 对象没有赋值的属性，该属性的值为undefined
+  * 函数没有返回值时，默认返回undefined
+
+- typeOf检测undefined是undefined，检测null是Object
+
+-  在验证null时，一定要使用　=== ，因为 == 无法分别 null 和　undefined
+
+  ```JS
+  null == undefined // true
+  null === undefined // false
+  null  === null // true
+  ```
+
+##  "==" 和 "===" 的区别？
+
+只会对值进行表,===不仅会对值进行比较,还会对数据类型进行比较.
+
+## typeof(typeof()) 和instanceof 的区别?
+
+typeof可以判断变量的数据类型,返回值是字符串;
+
+a instanceof b是判断b是不是在a的原型链上, 也可以实现判断数据类型, 返回值为布尔.
+
+## js中函数有哪些调用方式?
+
+自调用，new调用，执行上下文调用，回调函数
+
+## 列举和数组操作相关的方法
+
+push:将元素添加到数组的末尾, 返回值是数组长度，修改
+
+pop:将数组最后一个元素弹出, 返回值是被弹出的元素，修改
+
+unshift:在数组的开头插入一个元素,返回值是数组的长度，修改
+
+shift:将数组第一个元素弹出,返回值是被弹出的元素，修改
+
+splice(index,len):删除数组中指定元素修改
+
+reverse: 翻转数组修改
+
+sort：数组排序，修改
+
+concat:连接数组,不修改
+
+## 列举和字符串操相关的方法
+
+substr(start,len)/substring(start,end): 截取字符串
+
+slice:从数组会字符串中截取一段
+
+indexOf/lastIndexOf:查找某一个字符是否存在于另外一个字符串中, 存在则返回索引, 不存在则返回-1;indexOf是从前向后顺序查找;lastIndexOf是从后向前查找
+
+replace:替换字符串特定的字符
+
+toUpperCase:将字符串转成大写
+
+toLowerCase:将字符串转成小写
+
+charAt:获取字符串中指定索引的字符
+
+split，返回数组
+
+## documen.write和 innerHTML的区别?
+
+document.write是指定在整个页面区域的内容, innerHTML是指定某一个元素的内容.
+
+## 分别阐述split(),slice(),splice(),join()？
+
+split的可以使用一个字符串切割另外一个字符串, 返回值是数组;
+
+slice可以从数组中截取一部分(字符串对象也有slice方法);
+
+splice(index,len)可以删除指定的数组元素;
+
+join可以将数组元素使用特定的连接符拼接成字符串
+
+## 例举 3 中强制类型转换和 2 中隐式类型转换？
+
+强制转换:
+
+转化成字符串 toString() String() 转换成数字 Number()、 parseInt()、 parseFloat();Boolean（）
+
+隐式转换:
+
+转换成布尔类型 Boolean() 隐式拼接字符串 
+
+例子 var str = "" + - / % ===
+
+## 如何判断一个变量foo是数组?
+
+1. foo instanceof Array
+2. foo.constructor == Array
+3. Array.isArray(foo)
+4. Object.prototype.toString.call(foo) == "[object Array]"
+
+## 知道的网页制作会用到的图片格式有哪些？
+
+1. png-8，png-24，jpeg，gif，svg。
+2. 但是上面的那些都不是面试官想要的最后答案。面试官希望听到是Webp。（是否有关注新技术，新鲜事物）
+3. 科普一下Webp：WebP格式，谷歌（google）开发的一种旨在加快图片加载速度的图片格式。图片压缩体积大约只有JPEG的2/3，并能节省大量的服务器带宽资源和数据空间。Facebook Ebay等知名网站已经开始测试并使用WebP格式。
+4. 在质量相同的情况下，WebP格式图像的体积要比JPEG格式图像小40%
+
+### 关于数据传递问题
+
+- 在js调用函数时传递变量参数时, 是值传递还是引用传递?
+- 只有值传递, 没有引用传递, 传递的都是变量的值, 只是这个值可能是基本数据, 也可能是地址(引用)数据
+
+## 函数声明和函数表达式的区别
+
+1. 函数什么行在程序运行之前就已将存在，会变量提升
+2. 函数表达式不会提升，只提升那个变量
+
+## 浏览器渲染原理解析
+
+1、首先渲染引擎下载HTML，解析生成DOM Tree
+
+2、遇到css标签或JS脚本标签就新起线程去下载他们，并继续构建DOM。（其中css是异步下载同步执行）浏览器引擎通过 DOM Tree 和 CSS Rule Tree 构建 Rendering Tree
+
+3、 通过 CSS Rule Tree 匹配 DOM Tree 进行定位坐标和大小，这个过程称为 Flow 或 Layout 。
+
+4、最终通过调用Native GUI 的 API 绘制网页画面的过程称为 Paint 。
+
+当用户在浏览网页时进行交互或通过 js 脚本改变页面结构时，以上的部分操作有可能重复运行，此过程称为 Repaint 或 Reflow。 重排是指dom树发生结构变化后，需要重新构建dom结构。 重绘是指dom节点样式改变，重新绘制。 重排一定会带来重绘，重绘不一定有重排。
+
+如何减少浏览器重排：将需要多次重排的元素，position属性设为absolute或fixed，这样此元素就脱离了文档流，它的变化不会影响到其他元素。
+
+## 一个页面上有大量的图片（大型电商网站），加载很慢，你有哪些方法优化这些图片的加载，给用户更好的体验
+
+图片懒加载，在页面上的未可视区域可以添加一个滚动条事件，判断图片位置与浏览器顶端的距离与页面的距离，如果前者小于后者，优先加载。
+
+如果为幻灯片、相册等，可以使用图片预加载技术，将当前展示图片的前一张和后一张优先下载。
+
+如果图片为css图片，可以使用CSSsprite，SVGsprite，Iconfont、Base64等技术。
+
+如果图片过大，可以使用特殊编码的图片，加载时会先加载一张压缩的特别厉害的缩略图，以提高用户体验。
+
+如果图片展示区域小于图片的真实大小，则因在服务器端根据业务需要先行进行图片压缩，图片压缩后大小与展示一致。
+
+## 一个满屏 品 字布局 如何设计?
+
+ 简单的方式：
+
+  上面的div宽100%，
+
+  下面的两个div分别宽50%，
+
+  然后用float或者inline使其不换行即可
+
+## li与li之间有看不见的空白间隔是什么原因引起的？有什么解决办法
+
+行框的排列会受到中间空白（回车\空格）等的影响，因为空格也属于字符,这些空白也会被应用样式，占据空间，所以会有间隔，把字符大小设为0，就没有空格了。
+
+## 为什么要初始化CSS样式
+
+ 因为浏览器的兼容问题，不同浏览器对有些标签的默认值是不同的，如果没对CSS初始化往往会出现浏览器之间的页面显示差异。
+
+## css多列等高如何实现？
+
+利用padding-bottom|margin-bottom正负值相抵；
+
+ 设置父容器设置超出隐藏（overflow:hidden），这样子父容器的高度就还是它里面的列没有设定padding-bottom时的高度，
+
+ 当它里面的任 一列高度增加了，则父容器的高度被撑到里面最高那列的高度，
+
+ 其他比这列矮的列会用它们的padding-bottom补偿这部分高度差。
+
+## 怎么让Chrome支持小于12px 的文字？
+
+ 1、用图片：如果是内容固定不变情况下，使用将小于12px文字内容切出做图片，这样不影响兼容也不影响美观。
+
+ 2、使用12px及12px以上字体大小：为了兼容各大主流浏览器，建议设计美工图时候设置大于或等于12px的字体大小，如果是接单的这个时候就需要给客户讲解小于12px浏览器不兼容等事宜。
+
+ 3、继续使用小于12px字体大小样式设置：如果不考虑chrome可以不用考虑兼容，同时在设置小于12px对象设置-webkit-text-size-adjust:none，做到最大兼容考虑。
+
+ 4、使用12px以上字体：为了兼容、为了代码更简单 从新考虑权重下兼容性。
+
+## 什么是回调函数
+
+- 你定义的
+- 你没有直接调用
+- 但最终它执行了(在特定条件或时刻)
+
+## 描述一下对象销毁的方法
+
+- 如果包含对象引用地址的变量是局部变量
+  - 局部作用域的变量在函数执行完成的时候会自动销毁
+  - 变量销毁以后，对象就没有被变量所引用（此时对象已经不可能再被使用），此时对象就会变成垃圾对象
+  - 垃圾对象会等待回收
+- 如果包含对象引用地址的变量是全局变量
+  - 全局变量只有等待浏览器关闭才能销毁
+  - 所以此时不用的对象一直被引用，会占用空间
+  - 把变量主动设置为null，对象就没有被引用了，就变成了垃圾对象
+
+## 谈一谈 call apply bind
+
+- 这三个函数的存在意义是**改变函数执行时的上下文**，再具体一点就是**改变函数运行时的this指向**。
+- call和apply功能一样，都是调用某个函数并改变函数的this指向
+- 区别是参数不同，call以参数列表形式传参，apply以数组形式传参
+- bind不会调用函数，改变this指向后会返回一个新的函数的引用
+
+## ["1", "2", "3"].map(parseInt) 答案是多少？
+
+1. 是`[1, NaN, NaN]`https://juejin.cn/post/6844904089059344398
+
+2. `parseInt` `parseInt(string, radix)`将一个字符串 `string` 转换为 `radix` 进制的整数， `radix` 为介于2-36之间的数。最后都是以十进制形式返回。
+
+   ```JS
+   parseInt('1', 0) // 1
+   parseInt('2', 1) // NaN
+   parseInt('3', 2) // NaN
+   ```
+
+3. `parseInt('1', 0) // 1`如果radix没有指定或者是为0，参数会被假定一10为基数来解析，以字符0X0x开头，会假定一十六进制来解析
+
+4. `parseInt('3', 2) // NaN`二进制没有3这个数,同理`parseInt('2', 1) // NaN`
+
+5. 如果第一个参数`string`的第一个值就大于等于第二个参数`radix`，那么直接返回`NaN`
+
+6. 如果第一个参数`string`的第一个值符合条件，其他值不符合条件，那么不符合条件的值到最后会被忽略，然后进行计算
+
+## 什么是事件？IE与火狐的事件机制有什么区别？ 如何阻止冒泡？
+
+1. 我们在网页中的某个操作（有的操作对应多个事件）。例如：当我们点击一个按钮就会产生一个事件。是可以被 JavaScript 侦测到的行为。
+2. 事件处理机制：I.E.是事件冒泡、Firefox同时支持两种事件模型，也就是：捕获型事件和冒泡型事件；
+3. ev.stopPropagation();（旧ie的方法 ev.cancelBubble = true;）
+
+## Javascript中，有一个函数，执行时对象查找时，永远不会去查找原型，这个函数是？
+
+1. `hasOwnProperty`
+2. `JS`中的`hasOwnProperty`函数方法是返回一个布尔值，指出一个对象是否具有指定的名称的属性。此方法无法检查该对象的原型链中是否具有该属性，该属性必须是对象本身的一个成员
+3. `object.hasOwnProperty(proName)`
+4. `proName`是必选项，一个属性名称的字符串值
+
+## JSON了解吗
+
+1. 定义：JSON是一种轻量级的数据交换模式
+
+2. 它是基于JS的一个子集。数据格式简单，易于读写，占用带宽小
+
+3. 方法
+
+   1. JS对象-》json字符串
+
+      ```JS
+      JSON.stringify()
+      ```
+
+   2. json字符串转换为JS对象
+
+      ```JS
+      JSON.parse()
+      ```
+
+## js延迟加载的方式有哪些？
+
+1. defer和async
+
+   1. 在默认情况下，网页都是同步加载外部 JavaScript文件的，在引入外部js文件时会阻塞dom的执行
+
+   2. defer相当于告诉浏览器立即下载，但是延迟执行
+
+   3. 如果页面中有多个延迟脚本，那么第一个延迟脚本会先于第二个延迟脚本执行，而这些脚本会先于DOMContentLoaded事件执行
+
+   4. async，即表示应该立即下载脚本，但不应妨碍页面汇总的其它操作。只对外部脚本文件有效。
+
+      ![image-20201223230014464](C:\Users\pc\AppData\Roaming\Typora\typora-user-images\image-20201223230014464.png)
+
+## 如何判断当前脚本运行在浏览器还是NODE中？
+
+ 通过判断Global对象是否为window，如果不为window，当前脚本没有运行在浏览器中
+
+## split() 、join() 的区别
+
+前者是切割成数组的形式，后者是将数组转换成字符串
+
+## 哪一些操作会造成内存泄漏
+
+1. 内存泄漏就是指任何对象在您不再拥有或需要它之后仍然存在。
+2. 垃圾回收器定期扫描对象，并计算引用了每个对象的其他对象的数量。如果一个对象的引用数量为 0（没有其他对象引用过该对象），或对该对象的惟一引用是循环的，那么该对象的内存即可回收。
+3. 造成内存泄漏的操作
+   1. 全局变量：JavaScript中的全局变量是由根节点（root node）引用的，因此它们在应用程序的整个生命周期中都不会被垃圾回收。
+      1. 解决：使用严格模式，尽量少创建一些全局变量
+   2. 计时器
+   3. 多出引用
+   4. 闭包
+
+# `JS`高级
+
+##  谈谈你对 this 指向的理解？
+
+1. this是函数中的一个变量，他指向的对象是根据函数调用时候决定的
+   1. 首先确实是否是硬绑定，如果是则this指向call所规定的对象
+   2. 是否是实例化调用，如果是实例化调用，则this指向实例化对象
+   3. 判断函数调用是否是被上下文对象调用的，如果是 则this指向上下文对象（要注意是否存在隐式丢失现象）
+   4. 函数自调用 返回window，在ES5的严格模式下，this指向的是undefined
+   5. 箭头函数没有this（箭头函数的this是它外层函数的this指向）
+   6. vue中的this指向组件实例对象
+   7. react
+      1. 普通事件回调函数 undefined，使用babel编译后是严格模式
+      2. 箭头函数 组件实例对象
+
+##  谈一谈箭头函数
+
+1. 没有自己的 this，指向它外层全局/函数作用域指向的 this
+
+2. 没有自己的 arguments，指向它外层全局/函数作用域指向的 arguments
+
+3. 箭头函数没有显示原型属性，不能被 new 调用
+   箭头函数有隐式原型属性，可以 call/apply 等方法，但是没有意义
+   
+4. 写法
+   
+   1.只有一个参数，并且函数体只有一个return，参数写在 =>前   函数体写在=>后  如果函数体只有一个return  则直接书写return后的语句 并且省略大括号
+   2.函数多个形参 或者没有形参，使用括号括起来
+   3.当函数体有多句话 需要书写完整的函数体，使用大括号括起来
+   
+5. 如何控制函数的this? 
+
+   1. 利用函数的bind()
+   2. 利用箭头函数
+   3. 也可以用外部保存了this的变量
+
+## new 关键字内部做了什么？
+
+1. 先创建一个空对象，最后会返回这个对象
+2. 调用构造函数，并将构造函数的this指向新创建的空对象
+3. 把新创建的对象的__proto__指向构造函数的显式原型
+4. 判断构造函数的返回值，来决定new的返回值是（构造函数的返回值还是实例化对象）
+
+## 谈谈你对原型的理解？
+
+1. 什么是原型
+   1. 原型指的是两个原型属性：`prototype(显示原型属性) 和 proto(隐式原型属性)`
+2. `prototype(显示原型属性)`
+   1. 每一个函数都有自己的显式原型（prototype属性）
+   2. 函数只有在使用的时候如果是new调用 才是一个构造函数
+   3. 显示原型（prototype其实是一个指针）指向的是 当前函数的原型对象，默认是空对象
+   4. 每一原型对象都有一个constructor属性，指向当前原型对象的构造函数
+3. `proto(隐式原型属性)`
+   1. 所有的实例对象都有__proto__属性, 它指向的就是原型对象
+   2. 这样通过__proto__属性就形成了一个链的结构---->原型链
+   3. 当查找对象内部的属性/方法时, js引擎自动沿着这个原型链查找，找不到就会报undefined
+   4. 当给对象属性赋值时不会使用原型链, 而只是在当前对象中进行操作
+   5. 所有函数都是`Function()`的实例化对象，所有原型对象都是`Object()`的实例化对象）
+   6. `Function`是`new Function`出来的，Object的原型对象的隐式原型是null
+   7. Object和Function两个构造函数是本身就有的，Object的__proto__指向Function的原型对象，因为Object可以使用call方法。
+4. 原型链的作用：用来查找属性/方法
+5. 作用：通过继承的方式来复用代码
+6. vue中我们使用的全局事件总线
+
+## 谈一谈闭包
+
+1. 定义：通过 chrome 调试查看，一个包含内部函数引入外部函数变量的对象，closure
+
+2. 产生时间： 执行内部函数定义(创建函数对象)后
+
+3. 闭包的产生条件
+
+   1. 函数嵌套
+   2. 内部函数引用外部函数的局部变量
+   3. 执行外部函数
+
+4. 闭包的优点
+
+   1. 延长函数局部变量存活时间(生命周期)
+   2. 让函数外部操作（读/写）函数内部的数据
+
+5. 闭包的生命周期
+
+   1. 产生：内部函数定义执行完了
+   2. 死亡：当内部函数成为垃圾对象（内部函数没有任何变量引用），自动被垃圾回收机制回收释放
+
+6. 闭包的缺点
+
+   容易导致内存泄漏
+   内存泄漏：占用了内存空间，没有及时释放
+   内存溢出：将要使用内存超过了实际内存（程序会直接崩溃）
+   解决：及时释放
+   目的：当保存闭包内部函数成为垃圾对象 fn = null;
+
+7. 闭包的应用
+
+   高阶函数（执行函数返回值新函数） --> React
+   框架/库底层源码 --> Vue，this会使用给一个变量进行接收，然后使用
+
+   react的函数科里化
+
+## 谈谈你对 promise 的理解？
+
+1. promise 对象是一个异步编程解决方案，用来解决异步回调地狱问题方案
+2. promise 对象有三种状态：代表异步执行的状态
+   1. pending 初始化状态（异步代码还在执行中）
+   2. resolved / fulfilled 成功状态（异步代码执行成功了）
+   3. rejected 失败状态（异步代码执行失败了）
+3. 当你创建 promise 对象，默认为 pending
+   1. resolve 调用 resolve 函数，可以将 promise 对象的状态由 pending 变成 resolved
+   2. reject 调用 reject 函数，可以将 promise 对象的状态由 pending 变成 rejected
+
+4. 注意：promise 的状态只能修改一次
+5. promise的方法
+   1. `Promise.prototype.then`捕获成功的promise对象
+   2. `Promise.prototype.catch`用来捕获失败的promise对象
+   3. `Promise.all([promise1, ...]) ` 传入 n 个 promise 对象，只有 n 个 promise 对象的状态都成功，才成功，只要有一个失败，就失败，它的PromiseValue的值是一个数组，保存的是all方法中所有promise对象resolve的输出的值
+   4. `Promise.allSettled([promise1, ...])`传入 n 个 promise 对象，等 n 个 promise 对象状态全部发生变化，得到所有结果值，PromiseValue就是一个数组，包含了方法内返回的所有promise对象
+   5. `Promise.resolve()` 返回一个成功状态 promise 对象
+   6. `Promise.reject()`返回一个失败状态 promise 对象
+   7. `race `返回promise对象，promise对象的状态是race中第一个执行完成的那个promise的状态（无论成功还是失败）
+
+## 谈谈你对 async 函数的理解？
+
+1. async 函数是一个解决异步编程的方案，最好用的方案
+2. 本质上是 generator 语法糖
+3. async 取代 \*
+   await 取代 yield
+4. await 只会等 promise 对象
+   1. 如果 promise 对象是 pending 状态 就一直等
+   2. 如果 promise 对象是 resolved 状态 就会执行后面代码
+   3. 如果 promise 对象是 rejected 状态 就会退出当前 async 函数
+5. 执行 async 函数返回值是一个 promise 对象
+   1. 全部执行完就是 resolved 状态
+   2. 内部 promise 对象是 rejected 状态或者内部报错了，就是 rejected 状态
+   3. 代码还未执行完，就是 pending
+
+## （浏览器事件轮询机制）谈谈完整异步代码的执行机制（从浏览器到 nodejs）?
+
+1. 浏览器事件轮询机制
+   1. JS执行代码的顺序
+   2. 现在执行同步代码，在去执异步代码
+   3. 流程：
+      1. JS引擎会从上到下执行代码，同步代码依次执行，把响应的回调函数放到对应的事件管理模块（DOM 事件放在DOM 事件管理模块，定时器放在定时器管理模块）
+      2. 事件发生或计时器到期时，管理模块会将回调函数及其数据添加到回调列队中
+      3. 等初始化代码执行完毕，js引擎就会循环的检查回调队列中的回调函数，并执行
+2. nodejs轮训机制（说微任务优先是没有算上script标签是宏任务，初始化的时候从前面开始轮回，再次更新的时候的，是从poll开始，最终停在了poll队列，之所以停在poll阶段，是因为要I/O任务，读文件，停在这里，有了就先处理它）
+   1. .nodeJS使用了第三方库libuv，nodeJS会把一些异步操作（I/O、文件的读写）交给libuv处理。nodejs的主线程没有必要等待，可以继续处理其他事情。
+   2. libuv会开启多个线程去执行这些异步操作，当异步代码操作完毕以后，会把回调函数放到回调队列中，主线程在适当的时候回去轮询回调队列。
+   3. nodejs把所有的异步操作代码分为了微任务代码和宏任务代码
+   4. nodejs会优先执行微任务代码，然后才执行宏任务代码
+   5. 微任务：process.nextTick，Promise的then\catch\finally、queueMicrotask
+   6. process.nextTick一定是最先执行，其他微任务根据书写代码依次执行
+   7. 在宏任务每次执行下一个阶段之前，都会去检查微任务队列中是否有微任务需要执行，然后才会执行下一个阶段
+   8. 宏任务的轮询顺序
+      1. timers阶段：处理setTimeout和setInterval的回调函数
+      2. pedding阶段：处理系统级别操作的回调函数
+      3. idle阶段：处理nodejs内部的回调函数
+      4. poll阶段：处理I/O或者网络请求等异步操作的回调函数
+         1. 当poll阶段不为空的时候，那么执行完回调函数，就继续执行下个阶段check了
+         2. 当poll阶段为空，会一直等待poll中有其他的回调函数
+         3. 当时当 timer阶段的计时器到期了，或者check阶段有setImmediate等待执行的时候，会直接进入check阶段
+      5. check阶段：setImmediate的回调函数
+      6. close阶段：执行一些关闭的函数
+3. H5新的MutationObserver也基于event loop   ==> 微任务
+4. Promise的.then不是webAPI，没有时间管理模块
+5. webApi是DOM和BOM(W3C)
+6. 
+
+![image-20210114200455967](C:\Users\pc\AppData\Roaming\Typora\typora-user-images\image-20210114200455967.png)
+
+
+
+## 谈一谈继承
+
+1. ES5继承
+
+   1. 组合继承，this和原型链继承
+
+      ```JS
+      function Animal(name, age) {
+          this.name = name;
+          this.age = age;
+      }
+      Animal.prototype.say = function () {
+          console.log("吼~")
+      }
+      function Cat(color, name, age) {
+          this.color = color;
+          //构造函数继承
+          Animal.call(this, name, age)
+      }
+      //原型链继承
+      Cat.prototype = new Animal();
+      //修正constructor
+      Cat.prototype.constructor = Cat;
+      var cat1 = new Cat("white", "wanAn", "2");
+      ```
+
+   2. 子类的原型对象为什么指向实例对象，因为直接指向父类的原型对象，指向的就是同一个地址，子类就修改父类的数据，子类是不能修改父类上的数据，所以指向实例对象，也可以找到，父类的原型对象，最后修正constructor
+
+   3. 例如：Vue、VueComponent，Array和Object
+
+2. ES6使用extend继承，是ES5的语法糖
+
+   ```JS
+   class Person {       
+           constructor(name, age) {               
+               this.name = name;
+               this.age = age;
+           }           
+           eat() {
+               console.log("吃饭");
+           }
+           sex = "男";
+           static hi = "hello";
+       }
+       Person.prototype.drink = function () {
+           console.log("大乌苏");
+       }
+       //定义一个Student类 继承 Person类
+       class Student extends Person {
+           constructor(project, name, age) {
+               // ES6中继承的子类中，如果使用构造函数constructor()那么就必须使用super()方法初始化，这样下面才可以调用this关键字。super()只能用在子类的构造函数之中，用在其他地方就会报错,这是因为子类自己的this对象，必须先通过父类的构造函数完成塑造，得到与父类同样的实例属性和方法，然后再对其进行加工，加上子类自己的实例属性和方法。
+               // super=>Person2.prototype  super.sayHello()
+               super(name, age);
+               this.project = project;
+           }
+           study() {
+               console.log("我最喜欢ES6了")
+           }
+       }
+   ```
+
+3. 区别
+
+   1. ES5 的继承是通过原型或者是构造函数来实现
+   2. ES6 用过 class 关键字定义类，里面有构造方法，类之间通过 extends 关键字实现，子类必须 在 constructor 方法中调用 super 方法
+   
+4. 应用
+
+   1. react的类组件
+   2. vue的VueComponent
+
+## 谈谈call/apply/bind
+
+1. 这三个方法都是函数这个特殊对象的方法,通过这三个方法都可以改变函数内部this的指向
+2. call和apply会调用一次函数, 而bind不会调用函数, 返回一个新的函数
+3. call和apply传参的形式不同
+   1. call的参数是一个参数列表
+   2. apply是一个数组
+
+## 说一下事件委托
+
+1. 定义：将事件注册给父元素
+2. 原理：事假冒泡，字元素的事件会向外冒泡，触发父级的相同事件，可以根据事件对象可以找到触发事件的目标元素
+3. 事件委托有什么好处
+   1.减少绑定的监听数
+   2.减少了内存的开销
+   3.一劳永逸,后续新增的子节点也可以享受到之前绑定的事件委托
+4. 触发者	最内层的子元素	event.target
+   事件源	绑定事件的元素	this
+5. 小程序
+   触发者	最内层的子元素	event.target
+   事件源	绑定事件的元素	this不行了,他存放的是当前页面实例,event.currentTarget可以获取到当前事件源
+
+## 谈一谈作用域链
+
+作用域：是变量在程序中可以访问的有效范围
+
+
+
+1. 函数的创建的时候，会创建一条作用域链
+2. 作用域链的用途,是保证对  当前执行环境**有权访问**的所有变量和函数的  **有序访问**。
+3. 作用域链访问的所有的变量和函数， 也就是访问的是各个函数变量对象，其实真正意义上是一个各个作用域的变量对象组成的链条
+4. 在函数定义的时候，创建的作用域链式不完整的，因为当前的函数没有执行，所以作用域链的最前端没有变量对象
+5. 当函数调用并创建执行上下文的时候，会把当前的作用域的变量对象放到作用域链的最前端，此时作用域链完整并激活
+6. 作用域链的前端,始终都是当前执行的代码所在环境的变量对象。最末端一定是window对象
+7. 当查找一个变量的时候，就会沿着作用域链去查找，如果查不到就会抛出错误
+
+## 什么是执行上下文
+
+1. js解析并不是真正的直接逐行解析，而是进入到一个新的作用域的时候，会有一个准备工作，这个准备工作被称作为‘执行上下文’，执行上下文还在内存中为函数执行创建一个空间
+2. 新的作用域可以是全局作用域和局部作用域
+3. 全局的执行上下文只有一个，局部的执行上下文可以有多个
+4. 因为有多个执行上下文，所以js会创建一个执行上下文栈（stack），用来管理所有的执行上下文
+5. 代码最开始指向是先执行全局，所以会现在stack中压入一个全局执行上下文，全局执行上下文等代码全部指向完毕才退出
+6. 当代码执行一个函数，此时就会创建一个新的局部执行上下文，并把它压入到stack中，当函数执行函完毕，就把当前执行上下文在stack中弹出
+7. 执行上下文包含3个内容：1.变量对象  2.确定this  3.激活作用域链
+
+## 谈一谈变量对象
+
+1. 变量对象 是 保存当前作用域所有的属性和方法
+2. 在执行上下文中，变量对象被创建和激活，只有变量对象被激活，我们才能获取到当前作用域定义的属性和方法
+3. 变量对象分为 全局变量对象和局部变量对象
+4. 全局的变量对象其实就是window对象，因为所有的全局变量和全局的函数 都是window对象的属性和方法
+5. 局部变量对象：
+   1. 创建局部执行上下文时候产生局部变量对象
+   2. 在变量对象中创建形参和实参
+   3. 把所有的函数声明放到变量对象中(函数优先提升),此时如果有重名的属性，则直接覆盖
+   4. 把当前作用域中所有的变量，以键值对的形式保存在变量对象中，此时所有的变量的值都应该是undefined
+   5. 当提升的变量如果和形参或函数有重名的，则不会干扰已经存在的这些属性(只有当执行到变量被赋值了，才会进行覆盖)
+
+## 说一下事件轮询机制 
+
+说一下事件轮询机制 	
+
+- js执行代码的顺序：
+
+  - 先执行同步代码
+  - 等待同步代码执行完成后才执行异步代码
+- 模型由两个重要内容
+
+  - 事件管理模块
+
+  - 回调队列
+- 执行初始化同步代码，把相应的回调给到浏览器对应的管理模块
+- 当事件发生或计时器到期时，管理模块会将回调函数及其数据添加到回调列队中
+- 等初始化代码执行完毕，js引擎就会循环的检查回调队列中的回调函数，并执行
+
+## 说一下 进程和线程
+
+- 进程是程序的某一次的执行，主要在内存开启一定的空间
+
+- 线程是进程的一个独立单元，是cpu的基本调度单位
+
+- 有的程序是单进程的 有的程序是多进程的（多个进程不可以共享数据）
+
+- 有的进程是单线程，有的进程是多线程（多个线程可以共享数据）
+
+- 单线程：
+
+  - 编程简单
+
+  - 效率低
+
+- 多线程：
+
+  - 可以提高CPU的利用率
+  - 创建多个线程的时候会有额外开销
+  - 切换线程的时候也会有额外的开销
+  - 容易产生死锁（活锁、饿死）
+
+## 描述多态和封装
+
+- 封装的目的是将信息隐藏，一般来说封装包括封装数据、封装实现，封装实现即隐藏实现细节、设计细节，封装使得对象内部的变化对其他对象而言是不可见的，对象对它自己的行为负责，其他对象或者用户都不关心它的内部实现，使用者只需要知道如何使用即可。
+- 多态：同一操作作用于不同的对象上面，可以产生不同的解释和不同的执行结果，也就是说，给不同的对象发送同一个消息时，这些对象会根据这个消息分别给出不同的反馈。
+
+## 简单描述h5新属性多线程的书写过程
+
+- 在主线程中
+  - 创建一个分线程(并且把分线程的js代码传入构造函数中)
+  - 向分线程传输数据（如果不发送也要书写）
+  - 主线程也要书写一个事件，当子线程传输回来数据的时候，会直接触发onmessage事件
+  - 关闭线程
+- 在分线程中
+  - onmessage事件用来接收主线程传递过来的数据 数据保存在事件函数的第一个参数上（event对象）
+  - 可以直接使用postmessage把得到数据传送回主线程
+  - 关闭线程
+
+## 事件流
+
+事件流就是多个节点对象对同一种事件进行响应的先后顺序,主要包括以下3种类型
+
+- 冒泡型（IE） 事件从最特定的目标向最不特定的目标( document对象)触发,也就是事件从下向上进行响应,这 个传递过程被形象地称为“冒泡”
+
+- 捕获型(网景) 事件从最不确定的目标（document对象）开始触发，然后到最特定的目标，也就是事件从上向下进行相应
+
+- 混合型 （ECMA）w3C的DOM事件模型支持捕获型和冒泡型两种事件流,其中捕获型事件流先发生,然后才发生冒泡型事件流。两种事件流会触及DOM中的所有层级对象,从 document对象开始,最后返回 document对象结束。因此,可以把事件传播的整个过程分为3个阶段
+  - **捕获阶段**:事件从 document对象沿着文档树向下传播到目标节点,如果目标节点的任何一个上级节点注册了相同的事件,那么事件在传播的过程中就会首先在最接近顶部的上级节点执行,依次向下传播
+  - **目标阶段**:注册在目标节点上的事件被执行
+  - **冒泡阶段**:事件从目标节点向上触发,如果上级节点注册了相同的事件,将会逐级响应,依次向上传播
+  
+- 阻止冒泡
+
+  ```JS
+  event.stopPropagation();
+  event.cancelBubble=true;
+  ```
+
+
+## 单线程与异步
+
+1. JS是单线程编程语言, 只能同时做一件事
+2. js引擎是在一个线程(可以称为JS线程)上解析执行js代码的(web worker除外), 无论是同步代码还是异步代码
+3. 界面第一次渲染: 初始化同步代码 ==> 所有的微任务==> **渲染界面**==> 执行第一个宏任务
+4. 界面更新渲染: 所有的微任务==> **渲染界面**==> 执行第一个宏任务
+5. 总结: 清空微队列中所有微任务 ==> 渲染界(UI线程) ==> 执行宏队列中的第一个宏任务
+6.  **浏览器**在另一个线程(GUI渲染线程)进行页面渲染操作
+7. GUI渲染线程与js线程是互斥(不会同时执行), 因为 JS 可以修改 DOM 结构
+8. 遇到需要等待 (网络请求, 定时任务) 不能卡住
+
+# DOMBOM
+
+## SelectorAPI或传统获取元素的区别？
+
+1. getElementsByXXXXX获取的是一个动态的集合
+2. queryselectorAll获取的是静态的集合
+3. 动态：选出来的元素会随着文档的改变而改变，静态：只要取出来，就和页面有没有任何关系
+
+## 如何快速获取html和body元素？
+
+document.documentElement
+ducoment.body
+
+## 节点类型有哪些？
+
+文档节点
+属性节点
+元素节点
+文本节点
+注释节点
+
+## 如果获取obj的所有子元素节点和父元素节点？
+
+`obj.children`
+`obj.parentNode`
+
+## `js`的组成部分及作用
+
+`ECMAScript`：语法规范
+DOM：文档对象模型 操作节点
+`BOM`：浏览器对象模型 操作浏览器
+
+## `window.onload` 的作用
+
+当整个文档内容（DOM节点+所需要的资源（音频、视频、图片、程序等等））全部加载完毕，才会执行
+
+## 鼠标的`mouseover`事件和`mouseenter`事件的区别
+
+`mouseover`:鼠标移入(可以触发事件的冒泡)
+`mouseenter`:鼠标移入(不会触发事件的冒泡)
+
+## 新旧方法设置自定义属性
+
+```JS
+    //获取
+    ele.getAttribute("key");
+    //设置一个新的属性 eat = "pig";
+    ele.setAttribute("key", "value");
+	//删除一个属性
+    ele.removeAttribute("key");
+
+    //获取
+    console.log(ele.dataset.key);
+    //设置
+    ele.dataset.key = "value";
+    //删除
+    delete ele.dataset.key;
+```
+
+## 事件绑定(`DOM2`)和普通事件绑定（`DOM0`）有什么区别
+
+1. `DOM0`级事件（on+事件名）
+   1. 对同一个元素绑定的同一中事件，只能执行一次，后面绑定会把前面的覆盖掉
+   2. 销毁事件，直接给事件一个null即可
+2. `DOM2`级事件（`addEventListners("事件名（不加on）"，事件回调函数，true/false（true是捕获，false是冒泡）)`）IE浏览器使用`attachEvent(事件类型（加on），事件处理函数)`
+   1. 能够为多个对象注册相同的事件处理函数,也可以为同一个对象注册多件处理函数
+   2. 支持冒泡和捕获
+   3. 销毁事件
+      1. `removeEvent("事件类型"，移出的事件函数)`，注意：移出的事件函数必须和绑定的事件函数是同一个
+
+## IE和标准下有哪些兼容性的写法
+
+1. `var ev = ev || window.event`
+2. `document.documentElement.clientWidth || document.body.clientWidth`
+3. `var target = ev.srcElement||ev.target`
+
+## 如何阻止事件冒泡和事件默认行为
+
+1. 阻止默认事件
+        1. return false:必须书写在函数的末尾，因为return会退出函数
+             2. `e.preventDefault(); `
+            (低版本ie) :`e.returnValue = false;`
+   2.阻止传播
+             1. event对象中的方法` event.stopPropagation() `
+                  2. (低版本`ie`)`event.cancelBubble = true;`
+
+## `DOMContentLoaded` 事件和 `window.onload` 事件的区别
+
+1.  `DOMContentLoaded`事件： 当所有的节点加载完成后执行（不需要等待图片加载） 
+2. `window.onload`事件: 所有的节点及资源全部加载完成以后执行
+
+## textContent和innerText的区别
+
+textContent和innerText类似，
+       - textContent可以获取displaynone隐藏元素的内容,innerText不行
+              - textContent 获取的文本 带有格式的  innerText没有
+              - textContent兼容性是ie8 + 
+
+## 获取时间戳的方法有哪些
+
+Date.now(); 
+new Date().getTime() 
++new Date()
+ new Date()-0
+Number(new Date())
+
+## 如何禁用系统滚动条
+
+直接给html和body都设置overflow：hidden即可
+
+## 下列代码输出什么，解释原因
+
+```JS
+var undefined;
+undefined == null; // true  undefined与null相等，但不恒等（===）
+1 == true;   // true 尝试将boolean转换为number，0或1
+2 == true;   // false 尝试将boolean转换为number，0或1
+0 == false;  // true 尝试将boolean转换为number，0或1
+0 == '';     // true 一个是number一个是string时，会尝试将string转换为number
+NaN == NaN;  // false NAN和谁都不相等
+[] == false; // true 先转换为数值
+[] == ![];   // true
+```
+
+
+
+# `ES5+`
+
+## 谈一谈严格模式
+
+- 在全局或函数的第一条语句定义为: 'use strict',将"use strict"放在函数体的第一行，则整个函数以"严格模式运行"。
+- 这种模式使得Javascript在更严格的语法条件下运行
+- 变量必须声明才能使用
+- 函数自调用情况下，this指向undefined
+- 创建eval作用域
+- 禁止在函数内部遍历调用栈
+- 严格模式下不可以删除变量
+
+## Object.create创建对象 说明每一个的含义
+
+- prototype:必须参数,指定原型对象,可以为null
+- 该方法可以指定对象的原型和对象特性
+- value：指定属性值
+- writable：默认为 false,设置属性值是否可写
+- enumerable：默认为 false,设置属性是否可枚举( for/in)
+- configurable：默认为false,设置是否可修改属性特性和删除属性
+
+## 谈一谈let和const和var
+
+- let
+  - 只在声明所在的块级作用域内有效
+  - 没有声明提升
+  - 不允许重复声明
+  - 不属于顶层对象的属性
+  - 块级作用域的出现，实际上使得获得广泛应用的匿名立即执行函数表达式（匿名 IIFE）不再必要了
+- const
+  - 声明一个只读的常量
+  - 声明的常量不得改变值
+  - 声明的常量如果是对象，可以修改对象的内容
+  - 必须立即初始化
+  - 只在声明所在的块级作用域内有效
+  - 声明的常量也是不提升
+  - 不可重复声明
+  - 不属于顶层对象的属性
+- var
+  - 声明提升
+  - 允许重复声明
+  - 属于顶层对象的属性
+
+## 谈一谈模板字符串
+
+1.  模板字符串（template string）是增强版的字符串，用反引号（`）标识。可以嵌套变量，可以换行，可以包含单引号和双引号。
+2.它可以当作普通字符串使用，也可以用来定义多行字符串。模板字符串中嵌入变量，需要将变量名写在${}之中。
+3.大括号内部可以放入任意的 JavaScript 表达式，可以进行运算，以及引用对象属性
+4.模板字符串之中还能调用函数。
+
+## 描述扩展运算符和rest参数
+
+rest参数（...）
+1.和普通参数混合使用的时候，需要放在参数的最后
+2.rest 参数搭配的变量是一个数组，该变量将多余的参数放入数组中。
+3.rest 参数用于获取函数的多余参数，这样就不需要使用arguments对象了。
+
+4.函数的`length`属性，不包括 rest 参数
+
+5.用于解构赋值
+
+扩展运算符（spread）是三个点（...）它好比 rest 参数的逆运算，将一个数组转为用逗号分隔的参数序列，用来展开数组
+
+## 谈一谈箭头函数（写法 和 特点）
+
+写法：
+	1. 只有一个参数，并且函数体只有一个return
+参数写在 =>前   函数体写在=>后  如果函数体只有一个return  则直接书写return后的语句 并且省略大括号
+	2.函数多个形参 或者没有形参，使用括号括起来
+	3.当函数体有多句话 需要书写完整的函数体，使用大括号括起来
+特点
+	1.this指向：箭头函数没有自己的this，箭头函数的this在定义的时候就已经确定了，在箭头函数中使用this，其实是定义的时候他所在父级函数的this
+	2.箭头函数不能用于构造函数，也就是不能使用new关键字调用
+	3.箭头函数没有arguments对象
+
+## for in 和 for of
+
+- `for...in`循环，只能获得对象的键名，不能直接获取键值。
+- `for...of`循环，允许遍历获得键值，可以遍历具有 iterator 接口的数据结构
+
+## 谈一谈 新增的两种数据类型
+
+- `Symbol`，表示独一无二的值
+  - Symbol传入的参数 没有意义 方便识别
+  - Symbol不能使用new调用，而是直接使用
+  - 类型转换的时候，不能转数字
+  - 要用变量保存这个Symbol 否则以后就拿不到了
+  - 不能遍历出来，可以使用Object.getOwnPropertySymbols方法来拿
+- BigInt（大整数）只用来表示整数，没有位数的限制，任何位数的整数都可以精确表示。
+  - BigInt 类型的数据必须添加后缀`n`
+  - BigInt 与普通整数是两种值，它们之间并不全等。
+  - 类型转换和number区别不大
+  - typeof运算符对于 BigInt 类型的数据返回bigint。
+
+## 谈一谈 新增的两种数据结构
+
+- `Set`类型，类似于数组，里边的值没有重复的
+- `Set`本身是一个构造函数，用来生成 Set 数据结构
+- `Set`函数可以接受一个数组作为参数，用来初始化
+- Map 数据结构。它类似于对象，也是键值对的集合，但是“键”可以是任意类型的值
+
+## 谈一谈generator
+
+- Generator 函数一种异步编程解决方案，内部封装了很多的状态，被称作状态机
+- 执行Generator会返回一个迭代器对象，在generator函数中，遇到yield就会停止，直到运行next
+- 特征
+  - `function`关键字与函数名之间有一个星号
+  - 函数体内部使用`yield`表达式，定义不同的内部状态
+
+## 谈一下class
+
+- class是ES6的一个语法糖
+
+- `constructor`方法是类的默认方法，通过`new`命令生成对象实例时，自动调用该方法。一个类必须有`constructor`方法，如果没有显式定义，一个空的`constructor`方法会被默认添加。
+
+- static定义的属性和方法 其实都是静态属性和方法
+
+  ```JS
+  class Person {
+              //constructor:当new的时候，会自动调用这个方法，必须存在（书写公有属性）
+              constructor(name, age) {
+                  //其实写在构造函数中的属性 都放在了constructor中
+                  this.name = name;
+                  this.age = age;
+              }
+              //直接书写在class中的方法 其实就是原型对象上的公有方法
+              eat() {
+                  console.log("吃饭");
+              }
+  
+              //如果直接在class中书写属性，则还是实例化对象所有的（这样写无法传参）
+              sex = "男";
+  
+              // static定义的属性和方法 其实都是静态属性和方法  是构造函数对象上的
+              static hi = "hello";
+          }
+  
+          //也可以通过原型对象扩展原型方法
+          Person.prototype.drink = function () {
+              console.log("大乌苏");
+          }
+  ```
+
+## 谈一谈import
+
+- 动态加载
+- `import()`的参数，指定要加载的模块的位置。
+- `import()`返回一个 Promise 对象，如果正常加载进来，则返回成功promise，否则返回失败promise
+- 需要的时候再使用import加载，而不是初始化页面的时候一次性引入所有的模块
+
+## 分析module.exports和exports的区别
+
+1. module.exports可以直接把对象赋值给自己，就直接变成了对象，直接把方法暴露了出去
+2. 不能直接把对象赋值给exports，因为exports本身指向的是module.exports对象，如果你直接赋值的话，就把exports对象的指向修改了。但是模块只能暴露moudule.exports的对象
+
+## 总结ES6+
+
+### 列出整体ES6+新语法列表
+
+***说明: 跟面试官交流ES6, 先快速说出这套列表, 再选择几个常用的/有些难度的/有说头的说, 或者看面试官关注哪方面的***
+
+1. const与let
+2. 解构赋值
+
+
+
+1. 字符串的扩展
+
+2. 数值的扩展
+
+3. 函数的扩展
+
+4. 数组的扩展
+
+5. 对象的扩展
+
+   
+
+6. 类语法
+
+7. 模块化语法
+
+8. 异步语法
+
+9. 新容器语法
+
+10. 代理(Proxy)与反射(Reflect)语法
+
+
+### <u>const与let</u>
+
+- ***const定义常量, let定义变量***
+- ***相对于var***
+  - ***有块作用域***
+  - ***没有变量提升***
+  - ***不会添加到window上***
+  - ***不能重复声明***
+
+### <u>解构赋值</u>
+
+- 解构对象: *const {id:id, name} = this.product*
+- 解构数组: *const [count, setCount] = useState()* 
+- 形参解构: add ({ id, title }) {}
+- 引入模块解构: import { getProductList } from '@/api'
+
+
+
+
+
+### 字符串的扩展
+
+- **<u>模板字符串</u>**: `我是${name}, 今年${age}`
+- 方法: *includes() / startsWith() / endswith()*
+
+### 数值的扩展
+
+- 完善二进制(0b)与八进制(0o)表示
+- 给Math添加方法: parseInt()与parseFloat()  (原本window上有)
+- 指数计算: **
+
+### <u>函数的扩展</u>
+
+- ***箭头函数***
+  - ***没有自己的this, 使用外部作用域中的this, 不能通过bind来绑定this***
+  - ***不能通过new来创建实例对象***
+  - ***内部没有arguments, 可以通过rest参数来代替***
+- **形参默认值: *fn (a=2, b={}) {}***
+- **rest参数: *fn (a, ...args) {} / fn (a, ...args) {}***      fn(1, 2, 3, 4)
+
+### <u>数组的扩展</u>
+
+- 扩展运算符
+  - ***浅拷贝数组: const arr2 = [...arr]***
+  - 合并多个数组: *const arr3 =  [...arr1, ...arr2]*
+- 静态方法
+  - Array.from():  将类数组对象和可遍历对象转为真数组
+    - Array.from(new Set(arr))
+    - [...new Set(arr)]
+  - Array.of(1, 2, 3): 将一组值，转换为数组
+- 实例方法
+  - find() / findIndex(): 查找匹配的元素或下标
+  - arr.flat(): 将多维数组转为一维数组(也称为: 数组扁平化)
+
+### <u>对象的扩展</u>
+
+- `扩展运算符`
+  - ***浅拷贝对象: const obj2 = {...obj1}***
+  - 合并多个对象: *const obj3 =  {...obj1, ...obj2}*
+- 属性/方法的简洁写法:  {name, getName () {}}
+- 遍历内部属性
+  - for..of: 遍历对象及其原型链上所有属性
+  - Object.keys(obj): 得到对象自身可遍历的所有属性名的数组
+- 静态方法:
+  - Object.is(value1, value2): 判断2个值是否完全一样
+  - Object.assign(target, ...sources): 将后面任意多个对象合并到target对象上 
+
+### <u>类语法</u>
+
+- class
+- extends
+- constructor
+- super() / super.xxx()
+- static
+
+### <u>模块化语法</u>
+
+- export  
+
+- export default  value
+
+- import: 静态导入, 合并一起打包
+
+- ***`import()`: 动态导入, 拆分打包, 用于懒加载***      const Home = () => import('./views/Home.vue')
+
+  import('./views/Home.vue').then((module) => {
+
+  ​	// 使用module块
+
+  ​	module.default
+
+  ​	module.xxx
+
+  })
+
+### <u>异步语法</u>
+
+- ***Promise***
+- ***async 函数***
+- ***await 表达式***
+
+
+
+### 新容器语法
+
+- Map
+- Set
+
+
+
+### 代理(Proxy)与反射(Reflect)语法
+
+- Proxy拦截对data任意属性的任意(13种)操作, 常用3个: 读取属性值, 修改或添加属性, 删除属性
+- Reflect： 动态对被代理对象的相应属性进行特定的操作
+
+
+
+### 装饰器语法
+
+- 在react中简化高阶组件在类组件中的使用
+- @withRouter / @connect()
+
+​	
+
+### 面试可说的: ES6常用语法
+
+- <font color='red'>const与let</font>
+- <font color='red'>箭头函数</font>
+- 解构赋值
+- 形参默认值
+- rest/剩余参数
+- 类语法: class / extends / constructor / static /super
+- 扩展运算符: ...
+- 模板字符串
+- <font color='red'>异步语法: promise / async & await</font>
+- 对象的属性与方法简写
+- set / map
+- <font color='red'>模块化语法: export / default / import / import()</font>
+
+
+
+# `nodeJS`
+
+## 分析node的外层函数
+
+1. 在nodeJS中，每一个JS模块都包裹了一层函数。
+2. 在JS中，通过`arguments.callee.toString()`可以看到一个函数：
+3. `function (exports, require, module, __filename, __dirname) {}`
+4. 这个函数是所有模块都有的，node编译时往其中注入5个参数：
+   - exports 暴露模块
+   - require 引入模块
+   - module exports属性暴露模块
+   - __filename 文件的绝对路径
+   - __dirname 文件夹的绝对路径
+
+## 谈一谈Buffer
+
+1. Buffer是一个和数组类似的对象，不同是Buffer是专门用来保存二进制数据的(数据储存为二进制数据，性能是最好的)。
+2. Buffer 类在全局作用域中，在Global上，可以直接使用，因此无需使用 require('buffer').Buffer
+
+特点
+
+1. 大小固定：在创建时就确定了，且无法调整
+2. 性能较好：直接对计算机的内存进行操作
+3. 每个元素大小为1字节
+
+方法
+
+1. **Buffer.alloc(size[, fill[, encoding]])：** 返回一个指定大小的 Buffer 实例，如果没有设置 fill，则默认填满 0（打印出来的是十六进制），如果设置了，长度不够就自动的重复进行补全。
+2. **Buffer.allocUnsafe(size)：** 返回一个指定大小的 Buffer 实例，但是它不会被初始化，所以它可能包含敏感的数据
+3. **Buffer.from(string[, encoding])：** 返回一个被 string 的值初始化的新的 Buffer 实例，打印出来的是十六进制的数字，额有使用forEash遍历，遍历出来的是十进制。可以使用toString()方法进行转换话汉字。
+
+## 谈谈process
+
+1. `process` 对象是一个全局变量，它提供有关当前 Node.js 进程的信息并对其进行控制。 作为一个全局变量，它始终可供 Node.js 应用程序使用，无需使用 `require()`。 它也可以使用 `require()` 显式地访问：
+
+方法和属性
+
+1. argv 属性返回一个数组，其中包含当启动 Node.js 进程时传入的命令行参数
+2. argv0 属性保存当 Node.js 启动时传入的 `argv[0]` 的原始值的只读副本,也就是获取nodejs程序目录
+3. cwd() 方法返回 Node.js 进程的当前工作目录。绝对路径
+4. exit([code]) 退出进程
+
+## 谈谈path.resolve方法
+
+path.resolve([...paths]) 方法将路径或路径片段的序列解析为绝对路径
+
+建议参数加上`__dirname`。即`path.resolve(__dirname,"路径")`。
+
+## 谈一谈fs文件系统
+
+1. 全称为file system，所谓的文件系统，就是对计算机中的文件进行增删改查等操作。它是一个服务器的基础，在Node中通过fs模块来操作文件系统。
+
+2. **const** **fs** **=** require('fs');引入使用
+
+3. fs中的大部分方法都为我们提供了两个版本：
+
+   - 同步方法：带sync的方法
+     - 同步方法会阻塞程序的执行
+     - 同步方法通过返回值返回结果
+   - 异步方法：不带sync的方法
+     - 异步方法不会阻塞程序的执行
+     - 异步方法都是通过回调函数来返回结果的
+
+4. 文件的同步写入
+
+   - 打开文件：`fs.openSync(filePath[,flags,mode])`
+     - filePath：当前的文件路径
+     - flags：文件系统标志 `"a"/"w"/"r"`
+     - mode：默认值是0o666（文件可读可写）、0o111（文件可执行）、0o222（文件可写入）、0o333（文件读取） 一般不设置，mode 就使用其默认值
+     - 返回的是文件描述符的整数
+   - 写入内容：`fs.writeSync(fd,string[,position[,encoding]])`
+     - fd：要写入的文件的描述符
+     - string：要写入的内容
+     - position：写入的起始位置
+     - encoding：写入文件的编码，默认utf-8
+   - 关闭文件：`fs.closeSync(fd)`
+     - fd：文件描述符，通过fd来对文件进行操作
+
+5. 文件的异步写入
+
+   异步写入一般都有回调函数
+
+   - 打开文件：`fs.open(filePath,flags[,mode],callback)`
+
+     - callback：回调函数，异步方法通过回调函数返回文件的描述符（fd），同步代码是通过返回值返回。
+
+     - 回调函数的参数：(err,fd)
+
+       err：错误对象。错误优先机制
+
+     - 返回值：文件描述符
+
+   - 写入内容：`fs.write(fd,string[,position,[encoding]],callback)`
+
+   - 关闭文件：`fs.close(fd,callback)`
+
+6. 文件的简单写入
+
+   - 同步方法：`fs.writeFileSync(filePath,data[,options])`
+   - 异步方法：`fs.writeFile(filePath,data[,opations],callback)`
+
+7. 文件的简单读取
+
+   - 同步方法：`fs.readFileSync(filePath[,opations])`
+   - 异步方法：`fs.readFile(filePath[,opations],callback)`
+
+## 书写一个快速读写文件
+
+```JS
+const fs = require("fs");
+const path = require("path");
+//拼接路径
+const readFilePath = path.resolve(__dirname, "./a.mp4");
+const writeFilePath = path.resolve(__dirname, "./b.mp4");
+//创建一个可读流
+const rs = fs.createReadStream(readFilePath);
+//创建一个可写流
+const ws = fs.createWriteStream(writeFilePath);
+//快速读写
+rs.pipe(ws);
+```
+
+## 谈一谈加密
+
+- `crypto` 模块提供了加密功能，共有四种消息加密算法（md5、sha1、sha256、sha512）
+
+- 特点
+
+  - 生成的密文长度固定
+  - 同样的明文加密后一定得到同样的密文
+  - 不可逆
+
+- 使用方法
+
+  - 使用`createHmac()`方法可以生成一个HMAC对象，参数是加密方式和明文
+  - 通过`digest()`方法可以把HMAC对象转换成16进制，参数是`'hex'`
+
+  ```JS
+  //引入加密模块
+  const crypto = require("crypto");
+  //假设拿到了需要加密的信息
+  let secret = 'lph15701665563';
+  //可以给明文加点料
+  secret += 'nice1';
+  //使用createHmac方法可以生成一个HMAC对象 参数是加密方式 和 明文
+  const hash = crypto.createHmac('MD5', secret);
+  
+  //通过digest可以把HMAC对象转换成16进制显示或保存
+  const mySecret = hash.digest("hex");
+  //可以对密文再次加密 然后再存到数据库 会更安全
+  const hash2 = crypto.createHmac('sha256', mySecret);
+  const mySecret2 = hash2.digest("hex");
+  console.log(mySecret2);
+  ```
+
+## nodejs搭建一个服务端，并返回一个html数据
+
+```JS
+const http = require("http");
+//创建一个服务
+const server = http.createServer((request, response) => {
+    //设置报文头部
+    response.setHeader("Content-Type", "text/html;charset=utf-8");
+    //响应数据
+    response.end("<h1>湖人总冠军</h1>");
+})
+const host = "localhost";
+const port = 3000;
+//启动服务
+server.listen(port, host, (err) => {
+    if (err) {
+        console.log("服务器启动失败：" + err);
+        return;
+    }
+    console.log(`服务器启动成功:请访问 http://${host}:${port}`)
+})
+```
+
+
+
+## 什么是http协议
+
+1. 协议就是：在网络通信中，两台计算机必须准守的规则或者规定。
+
+2. http协议就是：超文本传输协议。在万维网中，服务器向浏览器传递超文本的时候准守的协议。
+
+3. 在客户端和服务端互传的信息称作为报文，http协议规定了报文的格式。服务端响应的报文称作为响应报文，客户端发送的报文称作为请求报文
+
+## 请求方式及解析
+
+1.GET请求：（查）
+
+​      用于请求指定的页面信息，并返回一个实体
+
+​      数据会在url地址上边发送（查询字符串 queryString）
+
+ 2.POST(增)
+
+​      \- 向指定的资源提交数据进行处理（登录注册）
+
+​      \- 数据会在报文体中发送
+
+  3.PUT(改)
+
+​      \- 更改服务器数据
+
+​      \- 发送文件
+
+  4.DELETE(删)
+
+​      \- 删除指定的数据
+
+​    5.OPTIONS（预检）
+
+​      \- 提前检查服务器支持的请求类型
+
+## GET和POST的区别
+
+1. GET在浏览器回退时是无害的，而POST会再次提交请求。
+2. GET产生的URL地址可以被Bookmark，而POST不可以。
+3. GET请求会被浏览器主动cache，而POST不会，除非手动设置。
+4. GET请求只能进行url编码，而POST支持多种编码方式。
+5. GET请求参数会被完整保留在浏览器历史记录里，而POST中的参数不会被保留。
+6. GET请求在URL中传送的参数是有长度限制的，而POST么有。
+   对参数的数据类型，GET只接受ASCII字符，而POST没有限制。
+7. GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息。
+8. GET参数通过URL传递，POST放在Request body中。
+9. https://mp.weixin.qq.com/s/UK9XlxOOsSt4h6xAhcGuDQ
+
+## 常见响应状态码（status）
+
+1XX: 正在响应
+
+​      100：请求继续，请继续发送请求
+
+​      101：协议切换中
+
+​    2XX: 响应成功
+
+​      200：请求成功
+
+​      204：请求成功，但是页面不需要任何更新
+
+​      206：范围请求，只请求的部分资源
+
+​    3XX: 重定向
+
+​      301：永久重定向
+
+​      302：临时重定向
+
+​      304：读取缓存
+
+​    4XX: 客户端错误导致响应失败
+
+​      400：请求报文中有语法错误
+
+​      403: 服务器拒绝客户端访问
+
+​      404：找不到资源
+
+​    5XX: 服务器错误
+
+​      500：服务器出现了问题
+
+​      503：服务器正在忙
+
+## 什么是TCP三次握手
+
+在发送数据之前，客户端和服务端要建立连接，所谓的建立连接其实就是双方都保存有对方的信息
+
+​    TCP三次握手的意义在于：客户端和服务端都能知道对方的接收和发送能力正常。
+
+​    1.客户端向服务端发送数据包，服务端收到数据包，说明客户端的发送能力正常
+
+​    2.服务端接收到数据包之后，向客户端发送数据包，客户端接收的服务端的数据包之后，说明服务端的接受和发送能力正常
+
+​    3.客户端继续向服务端发送数据包，服务端接受到数据包之后，说明客户端的接受能力也正常
+
+## 什么是TCP四次挥手
+
+客户端和服务端总共要发送4个数据包，保证双方都知道对方的数据发送完毕
+
+​    1.客户端发送数据包，表示请求数据发送完毕
+
+​    2.服务端接受到客户端的释放信号，向客户端发送数据包，表示已经接收到客户端发送的释放信号
+
+​    3.服务端的数据发送完毕后，会主动给客户端发送数据包，表示服务端的响应数据发送完毕
+
+​    4.客户端向服务端发送数据包，表示收到，并同意断开连接
+
+## 从输入url到解析出页面 中间经历的过程
+
+1. DNS查询 / 解析
+
+   将域名地址解析成ip地址（4个缓存 1个递归查询）
+
+   - 浏览器DNS缓存
+   - 计算机DNS缓存
+   - 路由器DNS缓存
+   - 网络运营商DNS缓存
+     - .com --> d.com --> c.d.com --> b.c.d.com --> a.b.c.d.com
+
+2. TCP连接： TCP三次握手
+
+3. 发送请求：
+
+   - 按照HTTP协议的规定，生成请求报文，浏览器将请求报文发送给服务器
+
+   - 浏览器将请求报文发送给服务器
+
+4. 返回响应
+
+   - 按照HTTP协议的规定，生成相应报文，服务器将请求报文发送给客户端
+
+5. 渲染页面：
+
+   1. 解析html生成DOM树
+
+      - 因为浏览器无法直接理解和使用 html 文件，所以需要将 html 文件转为浏览器能够理解的结构 DOM 树
+      - 输入：html 文件
+      - 输出：DOM 树
+      - 操作过程：解析 html 结构为浏览器可以理解的 DOM 树结构，期间会去下载次级资源以及执行 js 代码。
+
+   2. .解析css生产CSSOM树
+
+      样式计算是为了获取每个节点的样式，其主要分为三步来完成。
+
+      - 转成浏览器可以理解的数据结构styleSheets，可以在开发者工具上通过 document.styleSheets 打印出来。只需要了解到主进程会将 css 代码转成浏览器可以理解的结构，这个结构支持查询和修改。可以在开发者工具上通过 document.styleSheets 打印出来。
+
+      - 将 css 转成标准化的样式
+
+        比如 rem 转成 px、bule 转成 rgba 等。
+
+      - 最后是计算每个节点的样式。
+
+        这一步骤涉及到 css 的继承规则和层叠规则。有些属性是可以被子元素继承的，有些属性是会覆盖前面的样式
+
+   3. .解析js，可能会对DOM和样式修改
+
+   4. 根据DOM树和CSSOM树，生成渲染树（render Tree）
+
+      想要渲染一个完整的页面，仅知道 DOM 树和 DOM 树元素的样式还是不够的，我们还需要知道 DOM 树中元素的位置。同样的布局这个子阶段也分为两个过程操作，分别是合成布局树和计算节点位置。
+
+      - 合成布局树
+
+        布局树和 DOM 树类似，不过布局树上只包含会显示的节点内容，不包含 display: none 样式的元素。只包含可见节点
+
+      - 计算节点位置
+
+        有了一颗完成的布局树，主线程会计算出每个元素的位置信息以及盒子大小
+
+   5. 分层：根据层叠上下文属性，将渲染树的节点进行分层
+
+      因为页面有很多复杂的效果，比如滑动、z-idnex 等。为了更好的实现这些效果，渲染引擎**主线程**还需要为特定的阶段生成专用的图层，并生成一颗对应的**图层树**。
+
+      - 拥有层叠上下文属性的元素会单独生成一个图层。
+
+        - 3D 或透视变换的 css 属性
+        - 使用加速视频解码的 video 元素
+        - canvas 元素
+        - opacity 属性
+
+      - 需要裁剪的地方也会单独生成一个图层
+
+        裁剪就是需要滚动的地方，里面内容会单独生成一个图层。如果有滚动条，滚动条也会单独生成一个图层
+
+   6. 生成图层绘制指令
+
+      在完成图层树的构建之后，渲染引擎**主线程**会对每个图层进行绘制。这里说的绘制不是真正的绘制画面，而是生成一个绘制指令列表。
+
+      将每个图层的绘制拆分成多个绘制指令，传给**合成线程**。
+
+   7. 栅格化：将图层划分为图块
+
+      绘制指令生成之后，渲染进程**主线程**会将绘制指令发送给**合成线程**，由合成线程来完成最后的绘制工作。合成线程会将图层划分为**图块**。
+
+   8. 合成和显示
+
+      等所有图块都被栅格化，**合成线程**会收集位图信息来创建**合成帧**。合成帧随后会通过 IPC 协议将消息传给**浏览器主进程**。浏览器主进程收到消息后，会将页面内容绘制到内存中，最后再将内存显示在屏幕上。
+
+6. 断开连接：TCP四次挥手
+
+   
+
+## MIME类型
+
+| **application/octet-stream**          | **应用程序文件**                      |
+| ------------------------------------- | ------------------------------------- |
+| **text/plain**                        | **文本文件**                          |
+| **text/css**                          | **css\****文件**                      |
+| **text/html**                         | **html\****文件**                     |
+| **application/javascript**            | **js\****文件**                       |
+| **image/gif**                         | **GIF** **图片**                      |
+| **image/jpeg**                        | **JPEG/JPG** **图片**                 |
+| **image/png**                         | **PNG** **图片**                      |
+| **image/svg+xml**                     | **SVG\****图片 (矢量图)**             |
+| **image/x-icon**                      | **icon\****图片**                     |
+| **application/json**                  | **json\****文件**                     |
+| **multipart/form-data**               | 上传文件                              |
+| **application/x-www-form-urlencoded** | Form表单格式                          |
+| **audio/webm**                        | **WebM** **音频文件格式**             |
+| **video/webm**                        | **WebM\****视频文件格式的音视频文件** |
+
+## 谈一谈cookie
+
+1.“HTTP 是一个无状态的协议”:即使同一个客户端连续两次发送请求给服务器，服务器也识别不出这是同一个客户端发送的请求。为了解决 HTTP 无状态导致的问题，后来出现了 Cookie
+2.Cookie指某些网站为了辨别用户身份而储存在用户本地终端上的数据
+3.Cookie作为一段一般不超过 4KB 的小型文本数据，它由一个名称（Name）、一个值（Value）和其它几个用于控制 Cookie 有效期、安全性、使用范围的可选属性组成
+4.Cookie的设置
+    - 客户端发送 HTTP 请求到服务器
+    - 当服务器收到 HTTP 请求时，在响应头里面添加一个 Set-Cookie 字段
+    - 浏览器收到响应后保存下 Cookie
+    - 之后对该服务器每一次请求中都通过 Cookie 字段将 Cookie 信息发送给服务器。
+5.一些设置：
+    - Expires 用于设置 Cookie 的过期时间
+    - Max-Age 用于设置在 Cookie 失效之前需要经过的秒数
+    - HTTPOnly：设置 HTTPOnly 属性可以防止客户端脚本通过 document.cookie 等方式访问 Cookie，有助于避免 XSS 攻击。
+
+## 谈一谈缓存
+
+1.缓存是性能优化中简单高效的一种优化方式。一个优秀的缓存策略可以缩短网页请求资源的距离，减少延迟，并且由于缓存文件可以重复利用，还可以减少带宽，降低网络负荷
+2.缓存分为强缓存和协商缓存 
+
+```
+- 强缓存：不会向服务器发送请求，直接从缓存中读取资源，并且显示from disk cache或from memory cache字样，强缓存可以通过设置两种 HTTP Header 实现：Expires 和 Cache-Control。
+    - 协商缓存：协商缓存就是强制缓存失效后，浏览器携带缓存标识向服务器发起请求，由服务器根据缓存标识决定是否使用缓存的过程
+- 描述协商缓存过程
+      1. 客户端向服务端发送一个请求,请求相应的资源
+      2. 服务端向客户端发送响应,在响应头中携带两个关于缓存的内容
+         分别是式文件的唯一标识(eTag'),文件最后一次的修改时间(last-modified)
+      3. 客户端接收到响应的eTag和last-modified,并且保存在客户端,但是改名了把eTag改名位if-none-match把last-modified改名为if-modified-since
+      4. 客户端第二次请求服务端,请求指定的资源,在请求头上会携带两个字段分别是if-none-match 和 if-modified-since
+      5. 服务端接受到客户端的发送的if-none-match和 if-modified-since,和自己的重新获当前文件的eTag和last-modifined进行比较如果两个都相同,则读取缓存如果有一个不同,则返回新的响应
+      6. 如果走缓存,则服务端的响应状态码应该是304,并且不需要设置响应内容
+      7. 如果走缓存,则接收到的状态码是304,则直接读取缓存
+      8. 如果不走缓存,则响应状态码是200,并且返回新的资源,还要再返回最新的eTag和last-modified
+```
+
+## 谈一谈session
+
+1.因为 Cookie 可以通过客户端修改，而 Session 只能在服务端设置，所以安全性比 Cookie 高，一般会用于验证用户登录状态
+2 Session 是基于Cookie 实现的另一种记录服务端和客户端会话状态的机制
+3 Session 是存储在服务端，而 SessionId 会被存储在客户端的 Cookie 中
+4 描述Session的过程
+
+1. 1.发送请求,请求登录,可能在报文体或者url中携带登录信息
+2. 2.服务端接收响应,创建一个session对象
+   然后创建一个当前用户信息的永远不重复sessionID,
+   把当前用户的信息和sessionID组成一个
+   key-value值,保存在session对象中
+3. 3.返回响应,cookie中携带了 sessionId
+4. 4.接受到sessionId,并保存在cookie中
+5. 5.第二次发送请求,会自动携带sessionId,因为在cookie中保存
+6. 6.服务端通过解析,获取到cookie中的
+   sessionId,去session对象中判断当前
+   sessionId是否存在
+7. 7.如果服务端验证成功,会直接响应相应的请求,否则需要再次登录
+
+## cookie,sessionStorage,localStorage的区别
+
+1. 生命周期:
+   	cookie(max-age超时时间)	没有设置超时时间,浏览器关闭失效
+      				设置超时时间,超过设置时间就作废
+      	sessionStorage		浏览器关闭失效
+      	localStorage		用户不主动删除或者使用API删除,永久存在
+
+2. 存储位置
+   	cookie(max-age超时时间)	没有设置超时时间,存储于内存中
+      				设置超时时间,存储于硬盘中
+      	sessionStorage		存储于内存中
+      	localStorage		存储于硬盘中
+
+3. 存储大小
+   	cookie		4KB	
+      	sessionStorage	5MB
+      	localStorage	20MB
+
+4.  与服务器之间的关系
+      	cookie		服务器创建,浏览器存储,发送请求自动携带上	
+      	sessionStorage	跟服务器没啥关系,不熟
+      	localStorage	跟服务器没啥关系,不熟
+
+token与上述的区别
+token数据类型:字符串
+内容:用户唯一标识->md5(盐salt)->得到base64字符串
+公司中:token每15分钟左右更换一个,过期时间一般7天或者15天
+
+## 谈一谈跨域
+
+1. 效果:在浏览器端会出现跨域问题,小程序端没出现
+
+2. 什么是跨域（也就是什么是同源策略）
+
+   1. 同源:获取数据的地址必须跟url中的域名相同
+   2. 跨域就是违反同源策略
+
+3. 跨域一定会出现问题吗
+
+   1. 获取别人服务器上的css和js等文件时,都没有报跨域问题
+
+      只有在发送ajax请求的时候才会出现跨域问题
+
+   2. 在小程序中发送ajax请求没报错,在浏览器端发送才报错
+
+      只有在浏览器端才会出现跨域问题
+
+   3. 跨域的ajax请求是什么时候才会提示失败
+
+      请求报错是在响应阶段才出现的
+      浏览器会检测被请求的服务器是否允许别人请求,如果没有声明允许被跨域请求,就报错
+      结果:服务器只要允许被别人跨域请求,浏览器就不会报错
+
+4. 如何解决跨域问题
+
+   1.jsonp(jq至今活着的原因)
+   	实现原理:使用了问题二中的第一个现象
+   2.cors
+   	实现原理:问题三的结果
+   3.proxy
+   	问题:有没有违反同源策略
+   	并没有违反同源策略
+   	实现原理:当前页面都是找devServer请求数据,devServer帮你去请求其他的服务器,将返回的数据再返回给你
+
+# 手写XXX
+
+## 手写iterator
+
+```JS
+Array.prototype.myIterator = function () {
+    let index = 0;
+    const _this = this; //保存当前的this指向，用来在其他地方使用
+    return {
+        next: function () {
+            if (index < _this.length) {
+                return {
+                    value: _this[index++],
+                    done: false
+                }
+            } else {
+                return {
+                    value: undefined,
+                    done: true
+                }
+            }
+        }
+    }
+}
+```
+
+## 使用extends书写一个继承
+
+```JS
+class Person {
+    constructor(name) {
+        this.name = name;
+    }
+    eat() {}
+}
+class Student extends Person {
+    constructor(name, age) {
+        super(name);
+        this.age = age;
+    }
+    study() {}
+}
+```
+
+## new构造函数
+
+```JS
+ //手写new
+function writeNew(constr) {
+    //创建一个对象
+    var o = {};
+    //把构造函数的this指向当前的对象o  并且向调用构造函数并传入参数 返回值就是A函数的返回值
+    var result = constr.apply(o, Array.prototype.slice.call(arguments, 1));
+    //把自定义对象的隐式原型指向构造函数的显式原型
+    o.__proto__ = constr.prototype;
+    //判断构造函数的返回值是基础值 还是对象
+    var isObj = typeof result === 'object' && typeof result != null;
+    var isFun = typeof result === 'function';
+    //根据构造函数的返回值 设置new的返回值
+    return (isObj || isFun) ? result : o;
+}
+```
+
+
+
+## 封装一个axios
+
+```JS
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn01">GET</button>
+    <button id="btn02">POST</button>
+    <script>
+        /* 
+            封装一个axios
+                1.参数:是一个对象
+                2.返回值是一个promise对象
+                3.先创建一个xhr对象
+                    3.1处理method大小写的问题
+                4.绑定onreadystatechange事件
+                    2.1 在请求数据成功时和xhr.readyState ===4 时返回成功的promise对象
+                    2.2 在xhr.readyState ===4和没有请求数据成功时，返回一个失败的promise对象G
+                5.设置请求信息
+                    5.1 如果传递了params，对它进行处理，处理成？name = "123"&age =18 的形式，拼接在url地址的后面
+                6.发送请求
+                    6.1 判断是不是POST PUT PATCH方式请求
+                    6.2将传递的数据转换为JSON的格式
+         */
+
+        function myAxios({ method, url, data, params }) {
+
+            return new Promise((resolve, reject) => {
+                // 1.先创建一个xhr对象
+                const xhr = new XMLHttpRequest();
+                // 处理method的大小写的问题
+                method = method.toUpperCase();
+                // 2.绑定onreadystatechange事件
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        if (199 < xhr.status < 300) {
+                            const response = {
+                                request: xhr,
+                                status: xhr.status,
+                                data: JSON.parse(xhr.responseText),
+                            };
+                            resolve(response);
+                        } else {
+                            reject("err")
+                        }
+                    }
+                }
+                // 如果params也传递进来，对它进行处理,params是一个对象，要将他转换成  ?name="xiaoli"&age=18的格式，拼接在地址上，不需要判断是什么请求
+                let queryString = ""
+                if (params) {
+                    queryString = Object.keys(params).reduce((p, i) => {
+                        return p + `${i}=${params[i]}&`
+                    }, '?').slice(0, -1)
+                }
+                // 3.设置请求信息
+                xhr.open(method, url + queryString)
+                // 判断是什么是什么请求方式,是POST请求的话，要处理数据，将数据转换成JSON字符串的形式
+                let body = ""
+                if ((method === "POST" || method === "PUT" || method === "PATCH") && data) {
+                    xhr.setRequestHeader("content-type", "application/json")
+                    body = JSON.stringify(data)
+                }
+                // 4.发送请求
+                xhr.send(body)
+            })
+        }
+        const btn01 = document.getElementById('btn01');
+        const btn02 = document.getElementById('btn02');
+        btn01.onclick = function () {
+            myAxios({
+                method: "GET",
+                url: "http://localhost:3000/comments"
+            }).then((value) => {
+                console.log(value);
+            })
+        }
+        btn02.onclick = function () {
+            myAxios({
+                method: "POST",
+                url: "http://localhost:3000/comments",
+                data: {
+                    body: "wys",
+                    postId: 2,
+                }
+            }).then((value) => {
+                console.log(value);
+            })
+        }
+
+    </script>
+</body>
+
+</html>
+```
+
+## 1.Promise构造函数
+
+```JS
+  function myPromise(exec) {
+    const that = this;
+    that._status = "pending";
+    that._value = undefined;
+    // d定义一个容器用来存放，then方法的回调,当promise对象中调用了resolve和reject方法后，then方法的回调函数才会调用，并且异步调用
+    that._callBack = {};
+    // 设置resolve函数
+    function resolve(value) {
+      // 状态值只会该改变一次，这就意味着，状态只能是从pending开始的
+      if (that._status !== "pending") return;
+      that._status = "resolved";
+      that._value = value;
+      setTimeout(() => {
+        that._callBack.onResolved?.(value);
+      });
+    }
+
+    function reject(reason) {
+      // 状态值只会该改变一次，这就意味着，状态只能是从pending开始的
+      if (that._status !== "pending") return;
+      that._status = "rejected";
+      that._value = reason;
+      setTimeout(() => {
+        that._callBack.onRejected?.(reason);
+      });
+    }
+    exec(resolve, reject);
+  }
+```
+
+## 2.then
+
+```JS
+  myPromise.prototype.then = function (onResolved, onRejected) {
+    //要将正确的传递下去
+    onResolved =
+      typeof onResolved === "function" ? onResolved : (value) => value;
+    //将错误的传递下去
+    onRejected =
+      typeof onRejected === "function"
+        ? onRejected
+        : (reason) => {
+            throw reason;
+          };
+    const that = this;
+    // 链式调用，返回Promise对象
+    // 返回的Promise对象的状态，是由then方法的回调的函数的返回值决定的
+    return new myPromise((resolve, reject) => {
+      // 又套了一层函数，是为了获取到then方法回调的返回值
+      that._callBack.onResolved = function (value) {
+        try {
+          const res = onResolved(value);
+          if (res instanceof myPromise) {
+            // then方法的回调的返回值是一个Promise对象，那么then方法的返回值是和回调的Promise是相同的，失败调失败，成功调成功
+            res.then(resolve, reject);
+          } else {
+            // 其余返回成功的  res是回调的返回值，这里res的值可能是11
+            resolve(res);
+          }
+        } catch (e) {
+          reject(e);
+        }
+      };
+      that._callBack.onRejected = function (reason) {
+        try {
+          const res = onRejected(reason);
+          if (res instanceof myPromise) {
+            // then方法的回调的返回值是一个Promise对象，那么then方法的返回值是和回调的Promise是相同的，失败调失败，成功调成功
+            res.then(resolve, reject);
+          } else {
+            // 其余返回成功的  res是回调的返回值，这里res的值可能是11
+            resolve(res);
+          }
+        } catch (e) {
+          reject(e);
+        }
+      };
+    });
+  };
+```
+
+## 3.catch
+
+```JS
+ myPromise.prototype.catch = function (onRejected) {
+    return this.then(undefined, onRejected);
+  };
+```
+
+## 4.resolve
+
+```JS
+ myPromise.resolve = function (value) {
+    if (value instanceof myPromise) {
+      return value;
+    } else {
+      return new myPromise((resolve) => resolve());
+    }
+  };
+```
+
+## 5.reject
+
+```JS
+myPromise.reject = function (reason) {
+    return new myPromise((resolve, reject) => {
+      reject(reason);
+    });
+  };
+```
+
+## 6.all
+
+```JS
+  myPromise.all = function (arr) {
+    return new myPromise((resolve, reject) => {
+      const valueArr = [];
+      let count = 0;
+      arr.forEach((item, index) => {
+        if (item instanceof myPromise) {
+          item.then((value) => {
+            returnValue(index, value);
+          }, reject);
+        } else {
+          returnValue(index, item);
+        }
+      });
+      function returnValue(index, value) {
+        valueArr[index] = value;
+        count++;
+        if (arr.length === count) {
+          resolve(valueArr);
+        }
+      }
+    });
+  };
+```
+
+## 7allSettled
+
+```JS
+ myPromise.allSettled = function (arr) {
+    const valueArr = [];
+    let count = 0;
+    return new myPromise((resolve, reject) => {
+      arr.forEach((item, index) => {
+        if (item instanceof myPromise) {
+          item.then(
+            (value) => {
+              count++;
+              arr[index] = {
+                status: "resolved",
+                value,
+              };
+              if (count === arr.length) {
+                resolve(arr);
+              }
+            },
+            (reason) => {
+              count++;
+              arr[index] = {
+                status: "resolved",
+                reason,
+              };
+              if (count === arr.length) {
+                resolve(arr);
+              }
+            }
+          );
+        } else {
+          count++;
+          arr[index] = {
+            status: "rejected",
+            value:item,
+          };
+          if (count === arr.length) {
+            resolve(arr);
+          }
+        }
+      });
+    });
+  };
+```
+
+
+
+## 
+
+
+
+
+
+# 代码操作
+
+## 已知有字符串foo=”get-element-by-id”,写一个function将其转化成驼峰表示法”getElementById”
+
+```JS
+function combo(msg){
+    var arr=msg.split("-");
+    for(var i=1;i<arr.length;i++){
+     arr[i]=arr[i].charAt(0).toUpperCase()+arr[i]
+.substr(1,arr[i].length-1);
+    }
+    msg=arr.join("");
+    return msg;
+}
+// charAt返回指定下标的字符串 substr截取字符串
+```
+
+## 输出今天的日期，以YYYY-MM-DD的方式，比如今天是2014年9月26日，则输出2014-09-26
+
+```JS
+var d = new Date();
+// 获取年，getFullYear()返回4位的数字
+var year = d.getFullYear();
+// 获取月，月份比较特殊，0是1月，11是12月
+var month = d.getMonth() + 1;
+获取年份 getFullYear
+获取月份 getMonth
+获取日 getDate
+获取小时 getHours
+获取分钟 getMinutes
+获取秒 getSeconds
+获取毫秒 getMilliseconds
+获取星期 getDay
+```
+
+## 将字符串”<tr><td>{$id}</td><td>{$name}</td></tr>”中的{$id}替换成10，{$name}替换成Tony （使用正则表达式）
+
+```JS
+"<tr><td>{$id}</td><td>{$id}_{$name}</td></tr>".replace(/{\$id}/g, '10').replace(/{\$name}/g, 'Tony')
+```
+
+## 把两个数组合并，并删除第二个元素
+
+```JS
+var array1 = ['a','b','c'];
+var bArray = ['d','e','f'];
+var cArray = array1.concat(bArray);
+cArray.splice(1,1);
+```
+
+## item.taobao.com/item.htm?a=1&b=2&c=&d=xxx&e请写一段JS程序提取URL中的各个GET参数(参数名和参数个数不确定)，将其按key-value形式返回到一个json结构中，如{a:’1′, b:’2′, c:”, d:’xxx’, e:undefined}。
+
+```JS
+const str = "http://item.taobao.com/item.htm?a=1&b=2&c=&d=xxx&e";
+
+const attr = str.split("?")[1].split("&");
+const obj = attr.reduce((p, c) => {
+  const [key, value] = c.split("=");
+  console.log(key, value);
+  p[key] = value;
+  return p;
+}, {});
+console.log(obj);
+```
+
+## 判断一个字符串中出现次数最多的字符，统计这个次数
+
+```JS
+var str = "asdfssaaasasasasaa";
+var obj = {};
+for (var i = 0; i < str.length; i++) {
+  // 判断对象中是否存在单个字符，不存在就添加上，值是1
+  if (!obj[str.charAt(i)]) {
+    obj[str.charAt(i)] = 1;
+  } else {
+    // 如果存在，就加加
+    obj[str.charAt(i)]++;
+  }
+}
+// 用来保存次数
+var value = 0;
+// 用来保存是谁次数最多
+var key = 0;
+// 遍历对象拿到数值最大的
+for (var i in obj) {
+  // console.log(i);
+  if (obj[i] > value) {
+    value = obj[i];
+    key = i;
+  }
+}
+console.log(max, key);
+```
+
+## 字符串反转，如将 '12345678' 变成 '87654321
+
+```JS
+//思路：先将字符串转换为数组 split()，利用数组的反序函数 reverse()颠倒数组，再利用 jion() 转换为字符串
+var str = '12345678';
+str = str.split('').reverse().join('');
+```
+
+## 数字反转
+
+```JS
+function numReverse(s) {
+  // 定义我最终要输出的数字
+  var result = 0;
+  while (s) {
+    // 每次得到各位上的数字
+    const r = s % 10;
+    // 因为是反转，位置要提升的
+    result = result * 10 + r;
+    // 去掉个位上的数字
+    s = (s - r) / 10;
+  }
+  return result;
+}
+```
+
+## 冒泡排序
+
+```JS
+const arr = [1, 2, 8, 4, 3, 5, 7];
+for (var i = 1; i < arr.length; i++) {
+  for (var j = 0; j < arr.length - i; j++) {
+    if (arr[j] > arr[j + 1]) {
+      var temp;
+      temp = arr[j];
+      arr[j] = arr[j + 1];
+      arr[j + 1] = temp;
+    }
+  }
+}
+```
+
+## 反转数组
+
+```JS
+// 方式1
+const arr = [1, 2, 3];
+const newArr = [];
+for (var i = arr.length - 1; i >= 0; i--) {
+  newArr[newArr.length] = arr[i];
+}
+console.log(newArr);
+// 方式二
+for (var i = 0; i < arr.length / 2; i++) {
+  var temp = arr[i];
+  arr[i] = arr[arr.length - 1 - i];
+  arr[arr.length - 1 - i] = temp;
+}
+console.log(arr);
+```
+
+## 去重
+
+```JS
+ function qc(arr) {
+    return arr.reduce((p, v) => (p.includes(v) ? p : [...p, v]), [])
+  }
+ const re = qc(arr);
+ console.log(re);
+```
+
+```JS
+Array.prototype.unique = function () {
+    return this.filter((item, index) => this.indexOf(item) === index);
+ }
+```
+
+## 实现1px像素的边框
+
+#### 方法一
+
+使用媒查询：
+
+```css
+@media screen and (-webkit-min-device-pixel-ratio:2){
+    #demo{
+        border: 0.5px solid black;
+    }
+}
+```
+
+#### 方法二
+
+​	根据dpr扩大布局视口，例如dpr为n则布局视口改为原来的n倍，则元素尺寸均变为原来的n分之一，为了保证元素尺寸比例不变，扩大根字体为原来的n倍，但整个过程中边框一直用px作为单位，不用rem。
+
+1. rem 页面布局
+
+```js
+function mobile (){
+   document.documentElement.style.fontSize = (document.documentElement.clientWidth * 100)/375 + 'px'
+}
+mobile()
+window.onresize = mobile
+```
+
+2. 元素的边框设置为 1px
+
+3. 通过 viewport 中的 initial-scale 将布局视口扩大n倍，这样页面元素就比原来缩小了n倍
+
+```js
+var viewport = document.querySelector('meta[name=viewport]')
+var scale = 1 / window.devicePixelRatio
+viewport.setAttribute('content', 'width=device-width,initial-scale=' + scale);
+```
+
+4. 重新设置根元素字体
+
+```js
+var fontSize = parseInt(document.documentElement.style.fontSize);
+document.documentElement.style.fontSize = fontSize * window.devicePixelRatio + 'px'
+```
+
+## CSS画一个三角形
+
+```JS
+1. 给边框宽度，大一些
+2. 让元素的内容宽度是0
+3. 就有了四个三角形，设置其中三个为透明
+.box {
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid #856;
+    border-right: 20px solid transparent6;
+    width: 0;
+    height: 0;
+  }
+<div class="box"></div>
+```
+
+## 下面输出什么
+
+```JS
+function Foo() {
+  getName = function () {//Foo调用是会给全局添加一个getName
+    console.log(1);
+  };
+  return this;
+}
+Foo.getName = function () {//给Foo添加一个静态方法
+  console.log(2);
+};
+Foo.prototype.getName = function () {
+  console.log(3);
+};
+var getName = function () {//覆盖getName函数
+  console.log(4);
+};
+function getName() {//变量提升了，被var定义的getName给覆盖掉了
+  console.log(5);
+}
+
+Foo.getName();//2
+getName();//4
+Foo().getName();//1  （Foo()）.getName();-》window.getName  Foo调用了，里面的getName方法，没有var所以是是全局的，将全局的getName方法修改为了1
+getName();//1  在调用时，就是1
+new Foo.getName();// 2  new (Foo.getName();)
+new Foo().getName();//3 (new Foo()).getName() 实例对向
+new new Foo().getName();//3 new （（1new Foo()）.getName()2）
+//点的运算符优先级最高
+```
+
+## 节流
+
+```JS
+函数的节流(throttle)与防抖(debounce)
+     作用：为了节约函数的性能（让函数调用次数更少）
+     节流(throttle)：让函数在单位时间内只调用一次，第一次调用生效
+     应用场景：发送验证码按钮
+     
+<div id="box"></div>
+    <script>
+        const oBox = document.querySelector("#box");
+        //功能函数
+        function move(e) {
+            console.log(Date.now());
+            console.log(this); //应该是指向oBox
+            console.log(e) //
+        }
+        const result = throttle(move, 200);
+        //当box事件触发的时候 会走看门狗
+        oBox.onmousemove = result;
+        //高阶函数
+        //封装一个节流函数,参数:需要节流的功能函数  是每次功能函数调用所间隔的时间
+        function throttle(fn, time) {
+            //进来以后判断最新的时间和上一次访问的时间 间隔是否有200ms  
+            //如果有 则执行move函数  否则直接return
+
+            //第一次进来没有上一次的时间,并且第一次一定是要执行的
+            //所以直接给第一个进来设置一个上一次的默认时间是0
+            let lastTime = 0;
+            return function () {
+                //获取当前进入的时间
+                let nowTime = Date.now();
+                //进行判断，如果小于就直接返回出去
+                if (nowTime - lastTime < time) {
+                    return;
+                }
+                //如果时间超出 则直接调用fn
+                //当前return的函数this指向是box 所以需要把fn的this指向当前的this
+                //当前的return的才是真正的事件函数,所以当前return的函数拥有event,但是fn没有
+                //需要把当前return的函数的参数 给到fn上
+                fn.call(this, arguments[0]);
+                //把lastTime更新一下 方便下次判断
+                lastTime = nowTime;
+            }
+        }
+```
+
+## 防抖
+
+```JS
+<div id="box"></div>
+    <script>
+        const oBox = document.querySelector("#box");
+
+        //功能函数
+        function move(e) {
+            console.log(Date.now());
+            console.log(this); //应该是指向oBox
+            console.log(e) //
+        }
+
+        const result = debounce(move, 200);
+
+        //当我最后一次移动完成之后 200毫秒后再执行
+        oBox.onmousemove = result;
+
+        function debounce(fn, time) {
+            let timerID = null;
+            return function () {
+                //每次move一执行 就要重新触发 重新计时 所以需要清除计时器
+                clearTimeout(timerID);
+                const arg = arguments;
+                //重新设置时间
+                timerID = setTimeout(() => {
+                    fn.call(this, arg[0]);
+                }, 200)
+            }
+        }
+    </script>
+```
+
+## 快排
+
+```JS
+function quickSort(arr) {
+    //如果数组的长度只剩下一个  就直接返回这个数组就行了
+    if (arr.length <= 1) {
+        return arr;
+    }
+    //取出基准值(任意值都可以)
+    const baseValueIndex = Math.floor(arr.length / 2);
+    //把原数组中的基准值删除掉,arr直接变成一个去除基准值的新数组,并且返回了一个删除元素的数组
+    const baseValue = arr.splice(baseValueIndex, 1)[0];
+    const left = [],
+        right = [];
+
+    arr.forEach((item, index) => {
+        if (item < baseValue) {
+            left.push(item);
+        } else {
+            right.push(item);
+        }
+    })
+    //递归并合并
+    return quickSort(left).concat(baseValue, quickSort(right))
+}
+const re = quickSort([1, 3, 5, 2, 11, 6, 4, 9, 7, 0]);
+console.log(re);
+```
+
+##  封装一个绑带事件监听的函数(有难度)
+
+```js
+/* 
+绑定事件监听的通用函数(不带委托)
+*/
+function bindEvent1 (ele, type, fn) {
+  ele.addEventListener(type, fn)
+}
+
+/* 
+绑定事件监听的通用函数(带委托)
+*/
+function bindEvent2(ele, type, fn, selector) {
+
+  ele.addEventListener(type, event => {
+    // 得到发生事件的目标
+    const target = event.target
+    if (selector) {
+      // 如果元素被指定的选择器字符串选择, 返回true; 否则返回false。
+      if (target.matches(selector)) {
+        // 委托绑定调用
+        fn.call(target, event)
+      } 
+    } else {
+      // 普通绑定调用
+      fn.call(ele, event)
+      // fn(event) // this不对
+    }
+  })
+}
+
+
+<ul>
+   <span>
+    <li>
+    <li>
+</ul>
+    
+bindEvent2(ul, 'click', (event) => {}, 'li')
+bindEvent2(ul, 'click', (event) => {})
+```
+
+## 函数的call() / apply() / bind()
+
+```js
+/* 
+自定义函数对象的call方法
+*/
+function call (fn, obj, ...args) {
+  // 如果传入的是null/undefined, this指定为window
+  if (obj===null || obj===undefined) {
+    obj = obj || window
+  }
+  // 给obj添加一个方法: 属性名任意, 属性值必须当前调用call的函数对象
+  obj.tempFn = fn
+  // 通过obj调用这个方法
+  const result = obj.tempFn(...args)
+  // 删除新添加的方法
+  delete obj.tempFn
+  // 返回函数调用的结果
+  return result
+}
+
+/* 
+自定义函数对象的apply方法
+*/
+function apply (fn, obj, args) {
+  // 如果传入的是null/undefined, this指定为window
+  if (obj===null || obj===undefined) {
+    obj = obj || window
+  }
+  // 给obj添加一个方法: 属性名任意, 属性值必须当前调用call的函数对象
+  obj.tempFn = fn
+  // 通过obj调用这个方法
+  const result = obj.tempFn(...args)
+  // 删除新添加的方法
+  delete obj.tempFn
+  // 返回函数调用的结果
+  return result
+}
+
+/* 
+  自定义函数对象的bind方法
+  重要技术:
+    高阶函数
+    闭包
+    call()
+    三点运算符
+*/
+function bind (fn, obj, ...args) {
+  if (obj===null || obj===undefined) {
+    obj = obj || window
+  }
+  
+  return function (...args2) {
+    return call(fn, obj, ...args, ...args2)
+  }
+}
+```
+
+
+
+## 函数的节流(throttle)与防抖(debounce)
+
+```js
+/* 
+实现函数节流的函数
+*/
+
+function throttle(callback, delay) {
+  let start = 0 // 必须保存第一次点击立即调用
+  return function (event) { // 事件回调函数
+    // this是发生事件的dom元素
+    console.log('throttle 事件')
+    const current = Date.now()
+    if (current - start > delay) { // 从第2次点击开始, 需要间隔时间超过delay
+      callback.call(this, event)
+      // 将当前时间指定为start, ==> 为后面的比较做准备
+      start = current
+    }
+  }
+}
+
+/* 
+实现函数防抖的函数
+*/
+function debounce(callback, delay) {
+  return function (event) {
+    console.log('debounce 事件...')
+    
+    // 清除待执行的定时器任务
+    if (callback.timeoutId) {
+      clearTimeout(callback.timeoutId)
+    }
+    // 每隔delay的时间, 启动一个新的延迟定时器, 去准备调用callback
+    callback.timeoutId = setTimeout(() => {
+      callback.call(this, event)
+      // 如果定时器回调执行了, 删除标记
+      delete callback.timeoutId
+    }, delay)
+  }
+}
+```
+
+
+
+## 数组去重(unique)
+
+```js
+/*
+方法1: 利用forEach()和indexOf()
+  说明: 本质是双重遍历, 效率差些
+*/
+function unique1 (array) {
+  const arr = []
+  array.forEach(item => {
+    if (arr.indexOf(item)===-1) { // 内部在遍历判断出来的
+      arr.push(item)
+    }
+  })
+  return arr
+}
+
+/*
+方法2: 利用forEach() + 对象容器
+  说明: 只需一重遍历, 效率高些
+*/
+function unique2 (array) {
+  const arr = []
+  const obj = {}
+  array.forEach(item => {
+    if (!obj.hasOwnProperty(item)) {// 不用遍历就能判断出是否已经有了
+      obj[item] = true
+      arr.push(item)
+    }
+  })
+  return arr
+}
+
+/*
+方法3: 利用ES6语法
+    1). from + Set
+    2). ... + Set
+    说明: 编码简洁
+*/
+function unique3 (array) {
+  // return Array.from(new Set(array))
+  return [...new Set(array)]
+}
+```
+
+
+
+## 数组扁平化(flatten) 
+
+```js
+/* 
+数组扁平化: 取出嵌套数组(多维)中的所有元素放到一个新数组(一维)中
+  如: [1, [3, [2, 4]]]  ==>  [1, 3, 2, 4]
+*/
+
+/*
+方法一: 递归 + reduce() + concat()
+*/
+function flatten1 (array) {
+
+  return array.reduce((pre, item) => {
+    if (Array.isArray(item) && item.some((cItem => Array.isArray(cItem)))) {
+      return pre.concat(flatten1(item))
+    } else {
+      return pre.concat(item)
+    }
+  }, [])
+}
+
+/*
+方法二: ... + some() + concat()
+*/
+function flatten2 (array) {
+
+  let arr = [].concat(...array)
+  while (arr.some(item => Array.isArray(item))) {
+    arr = [].concat(...arr)
+  }
+  return arr
+}
+```
+
+
+
+## 深拷贝
+
+```js
+/* 
+深度克隆
+1). 大众乞丐版
+    问题1: 函数属性会丢失
+    问题2: 循环引用会出错
+2). 面试基础版本
+    解决问题1: 函数属性还没丢失
+3). 面试加强版本
+    解决问题2: 循环引用正常
+4). 面试加强版本2(优化遍历性能)
+    数组: while | for | forEach() 优于 for-in | keys()&forEach() 
+    对象: for-in 与 keys()&forEach() 差不多
+*/
+
+const obj = {
+    a: {
+        
+    },
+    b: [],
+    fn: function (){}
+}
+obj.a.c = obj.b
+obj.b[0] = obj.a
+/* 
+1). 大众乞丐版
+  问题1: 函数属性会丢失
+  问题2: 循环引用会出错
+*/
+export function deepClone1(target) {
+  return JSON.parse(JSON.stringify(target))
+}
+
+/* 
+获取数据的类型字符串名
+*/
+function getType(data) {
+  return Object.prototype.toString.call(data).slice(8, -1)  // -1代表最后一位
+    // [object Array]  ===> Array  [object Object] ==> Object
+}
+
+/*
+2). 面试基础版本
+  解决问题1: 函数属性还没丢失
+*/
+function deepClone2(target) {
+  const type = getType(target)
+
+  if (type==='Object' || type==='Array') {
+    const cloneTarget = type === 'Array' ? [] : {}
+    for (const key in target) {
+      if (target.hasOwnProperty(key)) {
+        cloneTarget[key] = deepClone2(target[key])
+      }
+    }
+    return cloneTarget
+  } else {
+    return target
+  }
+}
+
+/* 
+3). 面试加强版本
+  解决问题2: 循环引用正常
+*/
+function deepClone3(target, map = new Map()) {
+  const type = getType(target)
+  if (type==='Object' || type==='Array') {
+     // 从map容器取对应的clone对象
+    let cloneTarget = map.get(target)
+    // 如果有, 直接返回这个clone对象
+    if (cloneTarget) {
+      return cloneTarget
+    }
+    cloneTarget = type==='Array' ? [] : {}
+    // 将clone产生的对象保存到map容器
+    map.set(target, cloneTarget)
+    for (const key in target) {
+      if (target.hasOwnProperty(key)) {
+        cloneTarget[key] = deepClone3(target[key], map)
+      }
+    }
+    return cloneTarget
+  } else {
+    return target
+  }
+}
+
+/* 
+4). 面试加强版本2(优化遍历性能)
+    数组: while | for | forEach() 优于 for-in | keys()&forEach() 
+    对象: for-in 与 keys()&forEach() 差不多
+*/
+function deepClone4(target, map = new Map()) {
+  const type = getType(target)
+  if (type==='Object' || type==='Array') {
+    let cloneTarget = map.get(target)
+    if (cloneTarget) {
+      return cloneTarget
+    }
+
+    if (type==='Array') {
+      cloneTarget = []
+      map.set(target, cloneTarget)
+      target.forEach((item, index) => {
+        cloneTarget[index] = deepClone4(item, map)
+      })
+    } else {
+      cloneTarget = {}
+      map.set(target, cloneTarget)
+      Object.keys(target).forEach(key => {
+        cloneTarget[key] = deepClone4(target[key], map)
+      })
+    }
+
+    return cloneTarget
+  } else {
+    return target
+  }
+}
+```
+
+
+
+## 自定义new和instanceof工具函数
+
+```js
+/* 
+自定义new工具函数
+  语法: newInstance(Fn, ...args)
+  功能: 创建Fn构造函数的实例对象
+  实现: 创建空对象obj, 调用Fn指定this为obj, 返回obj
+*/
+function newInstance(Fn, ...args) {
+  // 创建一个新的对象
+  const obj = {}
+  // 执行构造函数
+  const result = Fn.apply(obj, args) // 相当于: obj.Fn()
+  // 如果构造函数执行的结果是对象, 返回这个对象
+  if (result instanceof Object) {
+    return result
+  }
+  // 如果不是, 返回新创建的对象
+  obj.__proto__.constructor = Fn // 让原型对象的构造器属性指向Fn
+  
+  return obj
+}
+
+/* 
+自定义instanceof工具函数: 
+  语法: myInstanceOf(obj, Type)
+  功能: 判断obj是否是Type类型的实例
+  实现: Type的原型对象是否是obj的原型链上的某个对象, 如果是返回true, 否则返回false
+*/
+function myInstanceOf(obj, Type) {
+  // 得到原型对象
+  let protoObj = obj.__proto__
+
+  // 只要原型对象存在
+  while(protoObj) {
+    // 如果原型对象是Type的原型对象, 返回true
+    if (protoObj === Type.prototype) {
+      return true
+    }
+    // 指定原型对象的原型对象
+    protoObj = protoObj.__proto__
+  }
+
+  return false
+}
+```
+
+## 字符串处理
+
+```js
+/* 
+1. 字符串倒序: reverseString(str)  生成一个倒序的字符串
+2. 字符串是否是回文: palindrome(str) 如果给定的字符串是回文，则返回 true ；否则返回 false
+3. 截取字符串: truncate(str, num) 如果字符串的长度超过了num, 截取前面num长度部分, 并以...结束
+*/
+
+/* 
+1. 字符串倒序: reverseString(str)  生成一个倒序的字符串
+*/
+function reverseString(str) {
+  // return str.split('').reverse().join('')
+  // return [...str].reverse().join('')
+  return Array.from(str).reverse().join('')
+}
+
+/* 
+2. 字符串是否是回文: palindrome(str) 如果给定的字符串是回文，则返回 true ；否则返回 false
+*/
+function palindrome(str) {
+  return str === reverseString(str)
+}
+
+/* 
+3. 截取字符串: truncate(str, num) 如果字符串的长度超过了num, 截取前面num长度部分, 并以...结束
+*/
+function truncate(str, num) {
+  return str.length > num ? str.slice(0, num) + '...' : str
+}
+```
+
+
+
+## 简单排序: 冒泡 / 选择 / 插入
+
+```js
+/* 
+冒泡排序的方法
+*/
+function bubbleSort (array) {
+  // 1.获取数组的长度
+  var length = array.length;
+
+  // 2.反向循环, 因此次数越来越少
+  for (var i = length - 1; i >= 0; i--) {
+    // 3.根据i的次数, 比较循环到i位置
+    for (var j = 0; j < i; j++) {
+      // 4.如果j位置比j+1位置的数据大, 那么就交换
+      if (array[j] > array[j + 1]) {
+        // 交换
+        // const temp = array[j+1]
+        // array[j+1] = array[j]
+        // array[j] = temp
+        [array[j + 1], array[j]] = [array[j], array[j + 1]];
+      }
+    }
+  }
+
+  return arr;
+}
+
+/* 
+选择排序的方法
+*/
+function selectSort (array) {
+  // 1.获取数组的长度
+  var length = array.length
+
+  // 2.外层循环: 从0位置开始取出数据, 直到length-2位置
+  for (var i = 0; i < length - 1; i++) {
+    // 3.内层循环: 从i+1位置开始, 和后面的内容比较
+    var min = i
+    for (var j = min + 1; j < length; j++) {
+      // 4.如果i位置的数据大于j位置的数据, 记录最小的位置
+      if (array[min] > array[j]) {
+        min = j
+      }
+    }
+    if (min !== i) {
+      // 交换
+      [array[min], array[i]] = [array[i], array[min]];
+    }
+  }
+
+  return arr;
+}
+
+/* 
+插入排序的方法
+*/
+function insertSort (array) {
+  // 1.获取数组的长度
+  var length = array.length
+
+  // 2.外层循环: 外层循环是从1位置开始, 依次遍历到最后
+  for (var i = 1; i < length; i++) {
+    // 3.记录选出的元素, 放在变量temp中
+    var j = i
+    var temp = array[i]
+
+    // 4.内层循环: 内层循环不确定循环的次数, 最好使用while循环
+    while (j > 0 && array[j - 1] > temp) {
+      array[j] = array[j - 1]
+      j--
+    }
+
+    // 5.将选出的j位置, 放入temp元素
+    array[j] = temp
+  }
+
+  return array
+}
+```
+
+
+
+# 代码输出
+
+```JS
+//4  1  3  6  8  2  7  5
+async function async1() {
+    console.log('1');
+    await async2();// 这里的await，就值一直等，等其他的同步的执行完毕在执行，它下面的2
+    console.log('2')
+}
+
+async function async2() {
+    console.log('3')
+}
+
+console.log('4');      
+setTimeout(() => {
+    console.log('5')
+}, 0);
+
+async1();
+
+new Promise((resolve) => {
+    console.log('6');
+    resolve()
+}).then(() => {
+    console.log('7')
+});
+console.log('8')
+```
+
+# webpack
+
+## 简单介绍一下webpack
+
+* 什么是webpack
+  * Webpack是一个模块打包器(bundler)。
+  * 在Webpack看来, 前端的所有资源文件(js/json/css/img/less/...)都会作为模块处理
+  * 它将根据模块的依赖关系进行静态分析，生成对应的静态资源
+* 五个核心概念
+  * Entry：入口起点(entry point)指示 webpack 应该使用哪个模块，来作为构建其内部依赖图的开始。
+  * Output：output 属性告诉 webpack 在哪里输出它所创建的 bundles，以及如何命名这些文件，默认值为 ./dist。
+  * Loader：loader 让 webpack 能够去处理那些非 JavaScript 文件（webpack 自身只能解析 JavaScript）。
+  * Plugins：插件则可以用于执行范围更广的任务。插件的范围包括，从打包优化和压缩，一直到重新定义环境中的变量等。一般是实现一些新功能的扩展,
+  * Mode：模式，有生产模式production和开发模式development
+* 理解Loader
+  * Webpack 本身只能加载JS/JSON模块，如果要加载其他类型的文件(模块)，就需要使用对应的loader 进行转换/加载
+  * Loader 本身也是运行在 node.js 环境中的 JavaScript 模块
+  * 它本身是一个函数，接受源文件作为参数，返回转换的结果
+  * loader 一般以 xxx-loader 的方式命名，xxx 代表了这个 loader 要做的转换功能，比如 json-loader。
+* 理解Plugins
+  * 插件可以完成一些loader不能完成的功能。
+  * 插件的使用一般是在 webpack 的配置信息 plugins 选项中指定。
+* 配置文件(默认)
+  * webpack.config.js : 是一个node模块，返回一个 json 格式的配置信息对象
+
+# 移动端
+
+## 移动端适配
+
+**为什么要做适配？**
+			由于移动端设备的屏幕尺寸大小不一，会出现：同一个元素，在两个不同的手机上显示效果不一样（比例不同）。要想让同一个元素在不同设备上，显示效果一样，就需要适配，**无论采用何种适配方式，中心原则永远是：**<span style="color:#ee0b41">**等比**</span>！
+
+主流的适配方式有三种：
+
+* viewport 适配
+* rem 适配（主流方式，几乎完美适配）
+* vw、vh适配
+
+### 1.viewport 适配
+
+- 方法：拿到设计稿之后，设置布局视口宽度为设计稿宽度，然后直接按照设计稿给宽高进行布局即可。
+
+- ```JS
+   <meta name="viewport" content="width=设计稿的宽度" />
+  ```
+
+- 优点：不用复杂的计算，直接使用图稿上标注的px值
+
+- 缺点：
+
+  - 有些不希望被适配的东西，例如边框，也被适配了，导致比设计稿大的设备上边框太粗。
+  - 图片失真
+  - 不能使用完整的meta标签，会导致在某些安卓手机上有兼容性问题。
+
+- 一般适用于：计图稿宽度 < 375
+
+### <span style="color:#ee0b41">2.rem适配</span>（在理想视口的基础上实现，让元素的宽度实现动态变化）
+
+#### em 和 rem
+
+em 和 rem 都是 css 中的长度单位。而且两个都是相对长度单位，不过两个有点区别
+
+* em 相对的是父级元素的字体大小
+* rem 相对的是根元素的字体大小
+
+rem适配的原理：编写样式时统一使用rem为单位，在不同设备上动态调整根字体大小
+
+#### 具体方案：
+
+##### 方案一：
+
+淘宝、百度的移动端页面用的此方案
+
+1. 设置完美视口
+2. <span style="color:#ee0b41">通过js设置根字体大小 = **( 当前设备横向独立像素值 *100) / 设计稿宽度**</span>
+3. <span style="color:#ee0b41">编写样式时，直接以rem为单位，值为：**设计值 / 100** </span>
+4. 增加 JS 代码进行实时适配
+
+优势：编写样式时直接挪动小数点即可。
+
+```JS
+<script>
+
+    //总结: 
+    // 1. 动态蛇者根字体的大小
+    // 2. 写样式的时候,写rem单位. 值是由设计稿的值/100
+
+    function adapter (){
+        // 1. 动态的设置根字体的大小
+        //根字体 = ( 设备横向独立像素值 * 100 )  / 设计稿宽度
+        const rootFontSize = document.documentElement.clientWidth * 100 / 375
+        document.documentElement.style.fontSize = rootFontSize + 'px'
+    }
+    adapter()
+    window.onresize = adapter
+</script>
+```
+
+##### 方法二：
+
+搜狐、唯品会的移动端页面用的此方案
+
+1. 设置完美视口
+2. <span style="color:#ee0b41">通过js设置根字体大小  = **当前设备横向独立像素值 / 10** </span>
+3. <span style="color:#ee0b41">编写样式时，直接以rem为单位，值为：**设计值 / (设计稿宽度 / 10)**</span>
+4. 增加 JS 代码进行实时适配
+
+```JS
+ <script>
+
+    // 总结: 
+    // 1. 设备根字体大小 设备独立像素宽度 / 10 
+    // 2. 写样式的时候,用设计高稿的值/根字体大小 单位是rem
+     function adapter (){
+        //根字体: 当前设备独立像素宽度 / 10
+        const rootFontSize = document.documentElement.clientWidth / 10
+        document.documentElement.style.fontSize = rootFontSize + 'px'
+    }
+    adapter()
+    window.onresize = adapter
+</script>
+```
+
+
+
+### 3.vw适配
+
+vw和vh是两个相对单位（100vw=屏幕宽度）
+
+- 1vw = 等于布局视口宽度的1%
+- 1vh = 等于布局视口高度的1%
+
+
+
+不过vw和vh有一定的兼容性问题：详见：[这里](https://www.caniuse.com/#search=vw)
+
+### 4.1px物理像素边框
+
+高清屏幕下 1px 对应更多的物理像素，所以 1 像素边框看起来比较粗，解决方法如下
+
+#### 方法一
+
+使用媒查询：
+
+```css
+@media screen and (-webkit-min-device-pixel-ratio:2){
+    #demo{
+        border: 0.5px solid black;
+    }
+}
+```
+
+#### 方法二
+
+​	根据dpr扩大布局视口，例如dpr为n则布局视口改为原来的n倍，则元素尺寸均变为原来的n分之一，为了保证元素尺寸比例不变，扩大根字体为原来的n倍，但整个过程中边框一直用px作为单位，不用rem。
+
+1. rem 页面布局
+
+```js
+function mobile (){
+   document.documentElement.style.fontSize = (document.documentElement.clientWidth * 100)/375 + 'px'
+}
+mobile()
+window.onresize = mobile
+```
+
+2. 元素的边框设置为 1px
+
+3. 通过 viewport 中的 initial-scale 将布局视口扩大n倍，这样页面元素就比原来缩小了n倍
+
+```js
+var viewport = document.querySelector('meta[name=viewport]')
+var scale = 1 / window.devicePixelRatio
+viewport.setAttribute('content', 'width=device-width,initial-scale=' + scale);
+```
+
+4. 重新设置根元素字体
+
+```js
+var fontSize = parseInt(document.documentElement.style.fontSize);
+document.documentElement.style.fontSize = fontSize * window.devicePixelRatio + 'px'
+```
+
+# axios
+
+```JS
+/*
+  1. 为什么axios既能当做函数调用，也能当做对象使用？
+    axios({}) --> instance({}) --> request({})
+      因为改变了this指向，所以this指向context（就是Axios的实例对象）
+    axios.get(url)
+      将Axios.prototype的方法复制到instance（axios）上
+      utils.extend(instance, Axios.prototype, context);
+      
+  2. Axios 和 axios 之间的联系
+    axios是不是Axios的实例对象？不是，context才是
+    但是axios有Axios上的方法（与Axios实例功能很相似，但不完全一样）
+
+  3. axios的功能
+    本身是一个request函数
+    有 get、post...等方法
+    有 defaults、interceptors等属性
+    有 create 、all、Cancel 等方法
+
+  4. axios和axios.create()返回的axios有什么区别？
+    本身是一个request函数
+    有 get、post...等方法
+    有 defaults、interceptors等属性
+
+    没有 create 、all、Cancel 等方法
+*/
+```
+
+
+
+#### 使用xhr封装axios
+
+```JS
+function axios({
+        method, // 请求方式
+        url, // 请求地址
+        data, // 请求体参数 body
+        params, // querystring 查询字符串参数
+      }) {
+        return new Promise((resolve, reject) => {
+          method = method.toUpperCase();
+          // 1. 创建xhr对象
+          const xhr = new XMLHttpRequest();
+          // 2. 绑定onreadystatechange事件
+          // 当readystate发生变化时触发的事件
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+              // 响应返回了（但是成功、失败不知道）
+              if (xhr.status >= 200 && xhr.status < 300) {
+                // 响应成功
+                const response = {
+                  request: xhr,
+                  status: xhr.status,
+                  data: JSON.parse(xhr.responseText),
+                };
+                resolve(response);
+              } else {
+                // 响应失败
+                console.log("error", xhr);
+                reject("error");
+              }
+            }
+          };
+          /*
+            通常情况下：
+              GET、DELETE请求，只会有查询字符串参数
+              POST、PUT、PATCH请求，既可以有请求体参数，也可以有查询字符串参数
+            params: { name: 'jack', age: 18 } 
+              --> url?name=jack&age=18
+          */
+          let qs = "";
+          if (params) {
+            // 提取params中所有属性名成为一个数组
+            // ['name', 'age']
+            qs = Object.keys(params)
+              .reduce((p, key) => {
+                const value = params[key];
+                return p + `${key}=${value}&`;
+              }, "?")
+              .slice(0, -1);
+          }
+
+          // 3. 设置请求信息（请求地址、请求方法。。。）
+          xhr.open(method, url + qs);
+
+          let body = "";
+          if (
+            (method === "POST" || method === "PUT" || method === "PATCH") &&
+            data
+          ) {
+            // 设置请求头
+            xhr.setRequestHeader("content-type", "application/json");
+            body = JSON.stringify(data);
+          }
+          // 4. 发送请求
+          xhr.send(body);
+        });
+      }
+```
+
+
+
+#### xhr.status
+
+- 2XX: 表示成功处理请求, 如200, 201
+- 3XX: 需要生定向, 浏览器直接跳转, 如302
+- 4XX: 客户端请求错误, 如:  401, 404 
+- 5XX: 服务器端错误, 如: 500
+
+#### 区别ajax请求与一般HTTP请求
+
+- ajax请求是一种特别的http请求
+- 对服务器端来说, 没有任何区别, 区别在浏览器端
+- 浏览器端发请求: 只有XHR或fetch发出的才是ajax请求, 其它所有的都是非ajax请求
+- 浏览器端接收到响应
+  - 一般请求: 浏览器一般会直接显示响应体数据, 也就是我们常说的刷新/跳转页面
+  - ajax请求: 浏览器不会对界面进行任何更新操作, 只是调用监视的回调函数并传入响应相关数据
+
+#### 封装一个简易的ajax异步请求函数
+
+```js
+/* 
+xhr + promise 封装一个异步ajax请求的通用函数  简洁版
+*/
+function ajax(url) {
+  return new Promise((resolve, reject) => {
+    // 创建一个XHR对象
+    const xhr = new XMLHttpRequest()
+    // 初始化一个异步请求(还没发请求)
+    xhr.open('GET', url, true)
+      
+    xhr.onreadystatechange = function () { 
+        /*
+        ajax引擎得到响应数据后
+        	将xhr的readyState属性指定为4
+        	将响应数据保存在response / responseText属性上
+        	调用此回调函数
+        */
+        
+      // 如果状态值不为4, 直接结束(请求还没有结束)
+      if (xhr.readyState !== 4) {
+        return
+      }
+      // 如果响应码在200~~299之间, 说明请求都是成功的
+      if (xhr.status>=200 && xhr.status<300) {
+        // 指定promise成功及结果值
+        resolve(JSON.parse(xhr.responseText))
+      } else { // 请求失败了
+        // 指定promise失败及结果值
+        reject(new Error('request error staus '+ request.status))
+      }
+    }
+    xhr.send(null)
+  })
+}
+
+/* 
+xhr + promise 封装一个异步ajax请求的通用函数  加强版
+  返回值: promise
+  参数为配置对象
+    url: 请求地址
+    params: 包含所有query请求参数的对象
+    data: 包含所有请求体参数数据的对象
+    method: 为请求方式
+*/
+function axios({url, params={}, data={}, method='GET'}) {
+  // 返回一个promise对象
+  return new Promise((resolve, reject) => {
+    // 创建一个XHR对象
+    const request = new XMLHttpRequest()
+    
+    // 根据params拼接query参数
+    let queryStr = Object.keys(params).reduce((pre, key) => {
+      pre += `&${key}=${params[key]}`
+      return pre
+    }, '')
+    if (queryStr.length>0) {
+      queryStr = queryStr.substring(1)
+      url += '?' + queryStr
+    }
+    // 请求方式转换为大写
+    method = method.toUpperCase()
+    
+    // 初始化一个异步请求(还没发请求)
+    request.open(method, url, true)
+    // 绑定请求状态改变的监听
+    request.onreadystatechange = function () {
+      // 如果状态值不为4, 直接结束(请求还没有结束)
+      if (request.readyState !== 4) {
+        return
+      }
+      // 如果响应码在200~~299之间, 说明请求都是成功的
+      if (request.status>=200 && request.status<300) {
+        // 准备响应数据对象
+        const responseData = {
+          data: JSON.parse(request.response),
+          status: request.status,
+          statusText: request.statusText
+        }
+        // 指定promise成功及结果值
+        resolve(responseData)
+      } else { // 请求失败了
+        // 指定promise失败及结果值
+        const error = new Error('request error staus '+ request.status)
+        reject(error)
+      }
+    }
+
+    // 如果是post/put请求
+    if (method==='POST' || method==='PUT' || method==='DELETE') {
+      // 设置请求头: 使请求体参数以json形式传递
+      request.setRequestHeader('Content-Type', 'application/json;charset=utf-8')
+      // 包含所有请求参数的对象转换为json格式
+      const dataJson = JSON.stringify(data)
+      // 发送请求, 指定请求体数据
+      request.send(dataJson)
+    } else {// GET请求
+      // 发送请求
+      request.send(null)
+    }
+  })
+}
+```
+
+
+
+#### 跨域
+
+- 什么是跨域(同源策略)
+- JSONP
+- CORS
+- 代理服务器
+
+
+
+#### 同源策略
+
+- 同源: 协议, 域名, 端口, 三者都相同
+- ajax请求时, 浏览器要求当前网页和Server必须同源(安全), 否则会抛出跨域的错误
+- 加载image/link/script不受同源策略限制
+
+#### JSONP原理
+
+- 前台:
+
+  - <script src="目标url?callback=fn" />
+
+  - 接收响应数据的函数: function fn (data) {}
+
+- 后台
+
+  - 处理请求, 产生需要返回的数据data
+  - 读取callback请求参数得到前台处理响应数据的函数名fn
+  - 返回执行函数fn的js代码: 'fn && fn(data)'
+
+- 不足
+
+  - 只能处理GET请求
+  - 每个请求在后台都要做处理, 麻烦
+
+  ```js
+  // 发送jsonp请求的函数
+  function jsonp() {
+      var script = document.createElement('script')
+      script.type = 'text/javascript'
+      // 传参并指定回调执行函数为backFn
+      script.src = 'http://localhost:4000/getUserInfo?id=100&callback=fn'
+      document.body.appendChild(script)
+  }
+  
+  // 回调函数, 接收响应数据
+  function fn(data) {
+  	console.log(data)
+  }
+  ```
+
+  
+
+#### CORS原理
+
+- 后台: 返回允许浏览器在某个域上发送跨域请求的相关响应头
+
+```js
+// 使用cors, 允许跨域, 且允许携带跨域cookie
+app.use(function (req, res, next) {
+  // console.log('----')
+  // 允许跨域的地址
+  res.header('Access-Control-Allow-Origin', 'http://localhost:5500')  // 不要是*
+  // 允许携带凭证(也就是cookie)
+  res.header('Access-Control-Allow-Credentials', 'true')
+  // 允许跨域的请求头
+  res.set("Access-Control-Allow-Headers", "Content-Type")
+  // 放行
+  next()
+})
+```
+
+- 前台: 不需要做特别任何处理
+
+```js
+axios.defaults.withCredentials = true // 允许携带cookie
+xhr.withCredentials = true
+```
+
+#### 代理服务器
+
+- 开发环境: 利用webpack-dev-server中的http-proxy-middle  进行正向代理
+  - vue脚手架项目
+  - react脚手架项目
+  - 自定义webpack配置
+  - 直接使用http-proxy-middle配置
+- 生产环境: 利用nigix  进行反向代理
+- https://www.cnblogs.com/taostaryu/p/10547132.html
+
+
+
+#### 使用axios发送ajax请求
+
+```js
+axios(url)
+axios({
+    method: '',
+    url: '',  // 如果有params参数必须拼接在url中
+    params: {}, // query参数
+    data: {} // 请求体参数
+})
+axios.get(url, {配置})
+axios.post(url, data, {配置})
+axios.put(url, data, {配置})
+axios.delete(url, {配置})
+
+const service = axios.create({
+    baseURL: '',
+    timeout: 20000,
+})
+
+service.interceptors.request.use((config) => {
+   	// 添加请求头
+    config.headers['token'] = token值
+    return config // 必须返回config
+})
+
+xhr.send()
+
+service.interceptors.response.use(
+    response => {
+        // return response
+        return response.data
+    },
+    error => {
+        
+    }
+)
+
+
+service({}).then(data => {
+    
+})
+
+
+Promise.resolve(config)
+    .then((config) => {  // 请求拦截器的回调
+    	return config
+	})  
+    .then((config) => { // 用来发ajax的回调
+        return new Promise((resolve, reject) => {
+            // 根据config使用xhr发请求
+            resolve(response)
+        })
+    })
+	.then(   // 响应拦截器
+        (response) => {
+            return response.data
+        }, 
+        (error) => {
+            
+        }
+	)
+	.then((data) => { // 最终发具体请求的成功回调
+    
+	})
+```
+
+#### axios二次封装
+
+1. 配置通用的基础路径和超时
+
+2. 显示请求进度条
+   1. 显示进度条: 请求拦截器回调
+   2. 结束进度条: 响应拦截器回调
+
+3. 成功返回的数据不再是response, 而直接是响应体数据response.data
+
+4. 统一处理请求错误, 具体请求也可以选择处理或不处理
+
+5. 每个请求自动携带userTempId的请求头: 在请求拦截器中实现
+
+6. 如果当前有token, 自动携带token的请求头
+7. 对token过期的错误进行处理
+
+```js
+import axios from 'axios'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+import store from '@/store'
+import router from '@/router'
+
+NProgress.configure({ showSpinner: false }) // 隐藏右侧的旋转进度条
+
+// 创建instance
+const instance = axios.create({
+  // baseURL: 'http://182.92.128.115/api',
+  baseURL: '/api',
+  timeout: 20000
+})
+
+// 指定请求拦截器
+instance.interceptors.request.use(config => {
+  // 显示进度条: 请求拦截器回调
+  NProgress.start()
+
+  /* 每个请求自动携带userTempId的请求头: 在请求拦截器中实现 */
+  const userTempId = store.state.user.userTempId
+  config.headers.userTempId = userTempId
+  
+  /* 6. 如果当前有token, 自动携带token的请求头 */
+  const token = store.state.user.token
+  if (token) {
+    config.headers.token = token
+  }
+  
+  return config // 必须返回config
+}) 
+
+
+// 指定响应拦截器
+instance.interceptors.response.use(
+  response => { // 成功的回调
+    // 结束进度条: 响应拦截器回调
+    NProgress.done()
+    // 成功返回的数据不再是response, 而直接是响应体数据response.data
+    return response.data
+  },
+
+  async error => { // 失败的回调
+    // 结束进度条: 响应拦截器回调
+    NProgress.done()
+
+    // 统一处理请求错误, 具体请求也可以选择处理或不处理
+    // alert('请求出错: ' + error.message||'未知错误')
+
+    // 取出响应对象
+    const { response } = error
+    // 如果是请求处理出错
+    if (response && response.status) {
+      // 401说明token非法
+      if (response.status === 401) {
+        // 如果当前没在登陆页
+        if (router.currentRoute.path!=='/login') {
+          // 分发action去清除用户token信息
+          await store.dispatch('logout')
+          // 跳转到登陆页面
+          router.replace('/login')
+          // 提示
+          message.error('登陆已过期, 请重新登陆')
+        }
+      } else {
+        message.error('请求出错: ' + error.message||'未知错误')
+      }
+    } else if (!response) { // 网络连接不上服务器
+      message.error('您的网络发生异常，无法连接服务器')
+    }
+
+    // throw error
+    return Promise.reject(error) // 将错误向下传递
+  }
+)
+
+// 向外暴露instance
+export default instance
+```
+
+
+
+#### Restless API 与 Restful API
+
+- Restless API  
+
+  - 传统的API, 把每个url当作一个功能操作      /deleteUser
+  - 同一个url, 后台只进行CRUD的某一种操作
+  - 请求方式不决定请求的CRUD操作
+  - 一个请求路径只对应一个操作
+  - 一般只有GET/POST
+
+- Restful API 
+
+  - 新式的API, 把每个url当作一个唯一资源   /user/2
+  - 同一个url, 可以通过不同类型的请求对后台资源数据进行CRUD四种操作
+  - 请求方式来决定了请求在后台进行CRUD的哪种操作
+    - GET: 查询
+    - POST: 添加
+    - PUT: 更新
+    - DELETE: 删除
+  - 同一个请求路径可以进行多个操作
+  - 请求方式会用到GET/POST/PUT/DELETE
+
+- 测试: 可以使用json-server快速搭建模拟的rest api 接口
+
+
+
+[jekyll-docs]: https://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/
+
