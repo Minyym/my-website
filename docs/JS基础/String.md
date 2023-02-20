@@ -45,3 +45,10 @@ sidebar_position: 5
     | `offset`          | 匹配到的子字符串在原字符串中的偏移量。（比如，如果原字符串是 `'abcd'`，匹配到的子字符串是 `'bc'`，那么这个参数将会是 1） |
     | `string`          | 被匹配的原字符串。                                           |
     | NamedCaptureGroup | 命名捕获组匹配的对象                                         |
+
+# Object.prototype.toString()
+
+- **`toString()`** 方法返回一个表示该对象的字符串。
+- 参数：默认情况下，不接受任何参数，然而继承Object的对象可以重新实现它
+- [`Number.prototype.toString()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toString) 和 [`BigInt.prototype.toString()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/BigInt/toString) 方法接受一个可选的 `radix` 参数。
+  - radix：指定转换到几进制`numObj.toString(2)` 转换到二进制
