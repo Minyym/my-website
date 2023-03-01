@@ -102,12 +102,20 @@ sidebar_position: 1
 
 - 字面量
 
+  - 字面量类型主要包括**字符串字面量类型**、**数字字面量类型**、**布尔字面量类型**和**对象字面量类型**。
+
   - 也可以使用字面量去指定变量的类型，通过字面量可以确定变量的取值范围
 
   - ```typescript
     let color: "red" | "blue" | "black";
     let num: 1 | 2 | 3 | 4 | 5;
     ```
+
+- 联合类型
+
+  - 对于联合类型中的函数类型，需要使用括号`()`包裹起来
+  - 函数类型并不存在字面量类型，因此这里的 `(() => {})` 就是一个合法的函数类型
+  - 你可以在联合类型中进一步嵌套联合类型，但这些嵌套的联合类型最终都会被展平到第一级中
 
 - any:类型是 any，它可以赋值给任意变量
 
@@ -117,7 +125,7 @@ sidebar_position: 1
     d = true;
     ```
 
-- unknown：和any的区别：any给任何类型进行赋值不会提示报错，unknown任何类型进行赋值会提示报错
+- unknown：和any的区别：any给任何类型进行赋值不会提示报错，一个 unknown 类型的变量可以再次赋值为任意其它类型，但只能赋值给 any 与 unknown 类型的变量
 
   - ```typescript
     let notSure: unknown = 4;
@@ -156,11 +164,57 @@ sidebar_position: 1
     }
     ```
 
-- object（没啥用）
+- object、Object、{}、装箱类型
 
   - ```typescript
-    let obj: object = {};
+    // ---Object 包含所有的类型
+    // 对于 undefined、null、void 0 ，需要关闭 strictNullChecks
+    const tmp1: Object = undefined;
+    const tmp2: Object = null;
+    const tmp3: Object = void 0;
+    
+    const tmp4: Object = 'linbudu';// 不报错
+    const tmp5: Object = 599;// 不报错
+    const tmp6: Object = { name: 'linbudu' };// 不报错
+    const tmp7: Object = () => {};// 不报错
+    const tmp8: Object = [];// 不报错
+    
+    // ---装箱类型：只有对应的拆箱类型才不会报错，尽量不使用装箱类型
+    const tmp9: String = undefined;
+    const tmp10: String = null;
+    const tmp11: String = void 0;
+    const tmp12: String = 'linbudu';
+    // 以下不成立，因为不是字符串类型的拆箱类型
+    const tmp13: String = 599; // X
+    const tmp14: String = { name: 'linbudu' }; // X
+    const tmp15: String = () => {}; // X
+    const tmp16: String = []; // X
+    
+    //---object:代表所有非原始类型的类型，即数组、对象与函数类型这些
+    const tmp17: object = undefined;
+    const tmp18: object = null;
+    const tmp19: object = void 0;
+    const tmp20: object = 'linbudu';  // X 不成立，值为原始类型
+    const tmp21: object = 599; // X 不成立，值为原始类型
+    const tmp22: object = { name: 'linbudu' };
+    const tmp23: object = () => {};
+    const tmp24: object = [];
+    
+    // ---{} :内部无属性定义的空对象
+    const tmp25: {} = undefined; // 仅在关闭 strictNullChecks 时成立，下同
+    const tmp26: {} = null;
+    const tmp27: {} = void 0; // void 0 等价于 undefined
+    
+    const tmp28: {} = 'linbudu';
+    const tmp29: {} = 599;
+    const tmp30: {} = { name: 'linbudu' };
+    const tmp31: {} = () => {};
+    const tmp32: {} = [];
     ```
+    
+    - 在任何时候都**不要，不要，不要使用** Object 以及类似的装箱类型。
+    - 当你不确定某个变量的具体类型，但能确定它不是原始类型，可以使用 object。但我更推荐进一步区分，也就是使用 `Record<string, unknown>` 或 `Record<string, any>` 表示对象，`unknown[]` 或 `any[]` 表示数组，`(...args: any[]) => any`表示函数这样。
+    - 我们同样要避免使用`{}`。`{}`意味着任何非 `null / undefined` 的值，从这个层面上看，使用它和使用 `any` 一样恶劣。
 
 - array：相同类型
 
@@ -174,9 +228,13 @@ sidebar_position: 1
   - ```typescript
     let x: [string, number];
     x = ["hello", 10];
+    // 可选
+    const arr6: [string, number?, boolean?] = ['linbudu'];
+    // 下面这么写也可以
+    // const arr6: [string, number?, boolean?] = ['linbudu', , ,];
     ```
 
-- enum
+- enum：双向映射
 
   - ```typescript
     enum Color {
@@ -199,6 +257,15 @@ sidebar_position: 1
       Blue = 4,
     }
     let c: Color = Color.Green;
+    
+    const returnNum = () => 100 + 499;
+    
+    enum Items {
+      Foo = returnNum(),
+      Bar = 599,
+      Baz
+    }
+    // 如果你使用了延迟求值，那么没有使用延迟求值的枚举成员必须放在使用常量枚举值声明的成员之后（如上例），或者放在第一位：
     ```
 
 - 类型断言
@@ -704,7 +771,69 @@ const profile: ProfileStruct = {
 
 联合类型只需要符合成员之一即可（`||`），而交叉类型需要严格符合每一位成员（`&&`）。
 
+### 函数重载
 
+- 获取更精确的类型标注能力。
+- 拥有多个重载声明的函数在被调用时，是按照重载的声明顺序往下查找的
 
+```TS
+// 因此在第一个重载声明中，为了与逻辑中保持一致，即在 bar 为 true 时返回 string 类型，这里我们需要将第一个重载声明的 bar 声明为必选的字面量类型。
+function func(foo: number, bar: true): string;
+function func(foo: number, bar?: false): number;
+function func(foo: number, bar?: boolean): string | number {
+  if (bar) {
+    return String(foo);
+  } else {
+    return foo * 599;
+  }
+}
 
+const res1 = func(599); // number
+const res2 = func(599, true); // string
+const res3 = func(599, false); // number
+```
 
+### calss类
+
+- public：此类成员在**类、类的实例、子类**中都能被访问。
+- private：此类成员仅能在**类的内部**被访问。
+- protected：此类成员仅能在**类与子类中**被访问，你可以将类和类的实例当成两种概念，即一旦实例化完毕（出厂零件），那就和类（工厂）没关系了，即**不允许再访问受保护的成员**。
+- static：静态成员，不同于实例成员，在类的内部静态成员无法通过 this 来访问，需要通过 `Foo.staticHandler` 这种形式进行访问。**静态成员不会被实例继承，它始终只属于当前定义的这个类（以及其子类）**
+
+#### 继承
+
+```TS
+class Base { }
+
+class Derived extends Base { }
+```
+
+- 基类中的方法也可以在派生类中被覆盖，但我们仍然可以通过 super 访问到基类中的方法：
+
+```TS
+class Base {
+  print() { }
+}
+
+class Derived extends Base {
+  print() {
+    super.print()
+    // ...
+  }
+}
+```
+
+- 在派生类中覆盖基类方法时，我们并不能确保派生类的这一方法能覆盖基类方法，万一基类中不存在这个方法呢？所以，TypeScript 4.3 新增了 `override` 关键字，来确保派生类尝试覆盖的方法一定在基类中存在定义：
+
+  ```TS
+  class Base {
+    printWithLove() { }
+  }
+  
+  class Derived extends Base {
+    override print() { //TS 将会给出错误，因为尝试覆盖的方法并未在基类中声明。通过这一关键字我们就能确保首先这个方法在基类中存在，同时标识这个方法在派生类中被覆盖了。
+      // ...
+    }
+  }
+  
+  ```
