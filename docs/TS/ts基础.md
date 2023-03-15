@@ -13,7 +13,7 @@ sidebar_position: 1
 | 索引类型访问（Indexed Access Type）  | 从一个接口结构，使用键名字符串字面量访问到对应的键值类型     | 类型别名、映射类型 |
 | 映射类型 （Mapping Type）            | 从一个联合类型依次映射到其内部的每一个类型                   | 工具类型           |
 
-## 1、TypeScript 简介
+## TypeScript 简介
 
 1. TypeScript 是 JavaScript 的超集。
 2. 它对 JS 进行了扩展，向 JS 中引入了类型的概念，并添加了许多新的特性。
@@ -24,7 +24,7 @@ sidebar_position: 1
 7. 可以在任何支持js的平台运行
 8. 即使提示报错，也还是会编译成js代码，可以进行配置，不通过编译
 
-## 2、基本类型
+## 基本类型
 
 - 类型声明
 
@@ -71,51 +71,51 @@ sidebar_position: 1
   |  tuple  |       [4,5]       | 元素，TS 新增类型，固定长度数组 |
   |  enum   |    enum{A, B}     |       枚举，TS 中新增类型       |
 
-- number
+#### number
 
-  - ```typescript
-    let decimal: number = 6;
-    let hex: number = 0xf00d;
-    let binary: number = 0b1010;
-    let octal: number = 0o744;
-    let big: bigint = 100n;
-    ```
+- ```typescript
+  let decimal: number = 6;
+  let hex: number = 0xf00d;
+  let binary: number = 0b1010;
+  let octal: number = 0o744;
+  let big: bigint = 100n;
+  ```
 
-- boolean
+#### boolean
 
-  - ```typescript
-    let isDone: boolean = false;
-    ```
+- ```typescript
+  let isDone: boolean = false;
+  ```
 
-- string
+#### string
 
-  - ```typescript
-    let color: string = "blue";
-    color = "red";
-    
-    let fullName: string = `Bob Bobbington`;
-    let age: number = 37;
-    let sentence: string = `Hello, my name is ${fullName}.
-    
-    I'll be ${age + 1} years old next month.`;
-    ```
+- ```typescript
+  let color: string = "blue";
+  color = "red";
+  
+  let fullName: string = `Bob Bobbington`;
+  let age: number = 37;
+  let sentence: string = `Hello, my name is ${fullName}.
+  
+  I'll be ${age + 1} years old next month.`;
+  ```
 
-- 字面量
+#### 字面量
 
-  - 字面量类型主要包括**字符串字面量类型**、**数字字面量类型**、**布尔字面量类型**和**对象字面量类型**。
+- 字面量类型主要包括**字符串字面量类型**、**数字字面量类型**、**布尔字面量类型**和**对象字面量类型**。
 
-  - 也可以使用字面量去指定变量的类型，通过字面量可以确定变量的取值范围
+- 也可以使用字面量去指定变量的类型，通过字面量可以确定变量的取值范围
 
-  - ```typescript
-    let color: "red" | "blue" | "black";
-    let num: 1 | 2 | 3 | 4 | 5;
-    ```
+- ```typescript
+  let color: "red" | "blue" | "black";
+  let num: 1 | 2 | 3 | 4 | 5;
+  ```
 
-- 联合类型
+#### 联合类型
 
-  - 对于联合类型中的函数类型，需要使用括号`()`包裹起来
-  - 函数类型并不存在字面量类型，因此这里的 `(() => {})` 就是一个合法的函数类型
-  - 你可以在联合类型中进一步嵌套联合类型，但这些嵌套的联合类型最终都会被展平到第一级中
+- 对于联合类型中的函数类型，需要使用括号`()`包裹起来
+- 函数类型并不存在字面量类型，因此这里的 `(() => {})` 就是一个合法的函数类型
+- 你可以在联合类型中进一步嵌套联合类型，但这些嵌套的联合类型最终都会被展平到第一级中
 
 - any:类型是 any，它可以赋值给任意变量
 
@@ -124,6 +124,8 @@ sidebar_position: 1
     d = "hello";
     d = true;
     ```
+
+#### Unknown
 
 - unknown：和any的区别：any给任何类型进行赋值不会提示报错，一个 unknown 类型的变量可以再次赋值为任意其它类型，但只能赋值给 any 与 unknown 类型的变量
 
@@ -150,11 +152,15 @@ sidebar_position: 1
     s = <string>e;
     ```
 
+#### viod
+
 - void：返回值是空
 
-  - ```typescript
-    let unusable: void = undefined;
-    ```
+  ```TS
+  let unusable: void = undefined;
+  ```
+
+#### never
 
 - never：没有返回值
 
@@ -163,6 +169,8 @@ sidebar_position: 1
       throw new Error(message);
     }
     ```
+
+#### object、Object、{}、装箱类型
 
 - object、Object、{}、装箱类型
 
@@ -216,12 +224,16 @@ sidebar_position: 1
     - 当你不确定某个变量的具体类型，但能确定它不是原始类型，可以使用 object。但我更推荐进一步区分，也就是使用 `Record<string, unknown>` 或 `Record<string, any>` 表示对象，`unknown[]` 或 `any[]` 表示数组，`(...args: any[]) => any`表示函数这样。
     - 我们同样要避免使用`{}`。`{}`意味着任何非 `null / undefined` 的值，从这个层面上看，使用它和使用 `any` 一样恶劣。
 
+#### Array
+
 - array：相同类型
 
   - ```typescript
     let list: number[] = [1, 2, 3];
     let list: Array<number> = [1, 2, 3];
     ```
+
+#### Tuple 元组
 
 - tuple：不同类型，固定长度
 
@@ -233,6 +245,8 @@ sidebar_position: 1
     // 下面这么写也可以
     // const arr6: [string, number?, boolean?] = ['linbudu', , ,];
     ```
+
+#### Enum 枚举
 
 - enum：双向映射
 
@@ -268,6 +282,8 @@ sidebar_position: 1
     // 如果你使用了延迟求值，那么没有使用延迟求值的枚举成员必须放在使用常量枚举值声明的成员之后（如上例），或者放在第一位：
     ```
 
+#### 类型断言
+
 - 类型断言
 
   - 有些情况下，变量的类型对于我们来说是很明确，但是 TS 编译器却并不清楚，此时，可以通过类型断言来告诉编译器变量的类型，断言有两种形式：
@@ -286,17 +302,449 @@ sidebar_position: 1
         let strLength: number = (<string>someValue).length;
         ```
 
-- &
+#### & 交叉类型
 
-  - 同时满足
+- **需要同时满足 A 与 B 两个类型**，取交集
 
-    ```ts
-    let obj:{name:string}&{age:number} = {name:'lili',age:12}
-    ```
+  ```ts
+  interface NameStruct {
+    name: string;
+  }
+  
+  interface AgeStruct {
+    age: number;
+  }
+  
+  type ProfileStruct = NameStruct & AgeStruct;
+  
+  const profile: ProfileStruct = {
+    name: "linbudu",
+    age: 18
+  }
+  ```
+  
+- any类型与任何类型的交叉都是any，也就是1&any结果也是any
+
+- 判断是否是any类型
+
+  ```TS
+  type isAny<T> = 1 entends 2 & T ? true : false
+  ```
+
+#### 联合类型 | 
 
 - ｜（联合类型）表示或者的意思
 
-## 4、webpack
+#### 索引类型
+
+- 索引类型指的不是某一个特定的类型工具，它其实包含三个部分：**索引签名类型**、**索引类型查询**与**索引类型访问**。
+
+  1. 索引签名类型
+
+     索引签名类型主要指的是在接口或类型别名中，通过以下语法来**快速声明一个键值类型一致的类型结构**：
+
+     ```typescript
+     
+     interface AllStringTypes {
+       [key: string]: string;
+     }
+     
+     type AllStringTypes = {
+       [key: string]: string;
+     }
+     ```
+
+  2. 索引类型查询
+
+     - **这里并不会将数字类型的键名转换为字符串类型字面量，而是仍然保持为数字类型字面量**。
+
+       ```typescript
+       interface Foo {
+         linbudu: 1,
+         599: 2
+       }
+       
+       type FooKeys = keyof Foo; // "linbudu" | 599
+       ```
+
+  3. 索引类型访问
+
+     1. ```typescript
+        interface Foo {
+          propA: number;
+          propB: boolean;
+          propC: string;
+        }
+        
+        type PropTypeUnion = Foo[keyof Foo]; // string | number | boolean
+        
+        interface Foo {
+          propA: number;
+          propB: boolean;
+        }
+        
+        type PropAType = Foo['propA']; // number
+        type PropBType = Foo['propB']; // boolean
+        ```
+
+#### 类型守卫
+
+- TypeScript 中提供了非常强大的类型推导能力，它会随着你的代码逻辑不断尝试收窄类型，这一能力称之为**类型的控制流分析**（也可以简单理解为类型推导）。
+
+- is关键字
+
+- ```TS
+  function isString(input: unknown): boolean {
+    return typeof input === "string";
+  }
+  
+  function foo(input: string | number) {
+    if (isString(input)) {
+      // 类型“string | number”上不存在属性“replace”。
+      (input).replace("linbudu", "linbudu599")
+    }
+    if (typeof input === 'number') { }
+    // ...
+  }
+  ```
+
+  ts无法做到跨函数来进行类型的信息收集，为了解决这一类型控制流分析的能力不足， TypeScript 引入了 **is 关键字**来显式地提供类型信息：
+
+- ```TS
+  function isString(input: unknown): input is string {
+    return typeof input === "string";
+  }
+  
+  function foo(input: string | number) {
+    if (isString(input)) {
+      // 正确了
+      (input).replace("linbudu", "linbudu599")
+    }
+    if (typeof input === 'number') { }
+    // ...
+  }
+  ```
+
+  isString 函数称为类型守卫，在它的返回值中，我们不再使用 boolean 作为类型标注，而是使用 `input is string` 这么个奇怪的搭配，拆开来看它是这样的：
+
+  - input 函数的某个参数；
+  - `is string`，即 **is 关键字 + 预期类型**，即如果这个函数成功返回为 true，那么 is 关键字前这个入参的类型，就会**被这个类型守卫调用方后续的类型控制流分析收集到**
+
+#### 基于 in 与 instanceof 的类型保护
+
+- [`in` 操作符](https://link.juejin.cn/?target=https%3A%2F%2Fdeveloper.mozilla.org%2Fen-US%2Fdocs%2FWeb%2FJavaScript%2FReference%2FOperators%2Fin) 并不是 TypeScript 中新增的概念，而是 JavaScript 中已有的部分，它可以通过 `key in object` 的方式来判断 key 是否存在于 object 或其原型链上（返回 true 说明存在）。
+
+- 既然能起到区分作用，那么 TypeScript 中自然也可以用它来保护类型：
+
+- ```TS
+  interface Foo {
+    foo: string;
+    fooOnly: boolean;
+    shared: number;
+  }
+  
+  interface Bar {
+    bar: string;
+    barOnly: boolean;
+    shared: number;
+  }
+  
+  function handle(input: Foo | Bar) {
+    if ('foo' in input) {// foo具有辨识度
+      input.fooOnly;
+    } else {
+      input.barOnly;
+    }
+  }
+  ```
+
+- JavaScript 中还存在一个功能类似于 typeof 与 in 的操作符：[instanceof](https://link.juejin.cn/?target=https%3A%2F%2Fdeveloper.mozilla.org%2Fen-US%2Fdocs%2FWeb%2FJavaScript%2FReference%2FOperators%2Finstanceof)，它判断的是原型级别的关系，如 `foo instanceof Base` 会沿着 foo 的原型链查找 `Base.prototype` 是否存在其上。当然，在 ES6 已经无处不在的今天，我们也可以简单地认为这是判断 foo 是否是 Base 类的实例。同样的，instanceof 也可以用来进行类型保护：
+
+  ```typescript
+  class FooBase {}
+  
+  class BarBase {}
+  
+  class Foo extends FooBase {
+    fooOnly() {}
+  }
+  class Bar extends BarBase {
+    barOnly() {}
+  }
+  
+  function handle(input: Foo | Bar) {
+    if (input instanceof FooBase) {
+      input.fooOnly();
+    } else {
+      input.barOnly();
+    }
+  }
+  ```
+
+#### 条件类型
+
+在`TS` 2.8 加入了条件类型,逻辑是三元运算符，所以比较好理解
+
+```
+T extends U ? X : Y
+```
+
+#### infer
+
+在`extends`条件类型的子句中，可以使用`infer T`来捕获指定位置的类型（该类型由 TS 编译器推断），在`infer`后面的子句中可以使用捕获的类型变量。配合`extends`条件类型，截取符合条件的目标的某部分类型。
+
+```js
+type ParseInt = (n: string) => number
+// 如果是类型 T 是函数，则 R 会捕获其返回值类型并返回 R，否则返回 any
+type ReturnType<T extends (...args: any) => any> = T extends (...args: any) => infer R ? R : any
+type R = ReturnType<ParseInt>   // number
+ 
+type GetType<T> = T extends (infer E)[] ? E : never
+type E = GetType<['a', 100]>
+```
+
+
+
+#### extends 
+
+下面的一些内容会经常用`extends`关键字,`extends`类似数学集合里的子集概念,可以看一下这篇文章，会对TS有进一步对理解。[深入Typescript 的类型系统](https://zhuanlan.zhihu.com/p/38081852)
+
+
+
+#### keyof
+
+> keyof 操作符是在 TypeScript 2.1 版本引入的，操作符可以用于获取某种类型的所有键，其返回类型是联合类型。
+
+`keyof` 可以用来取得一个对象接口的所有 `key` 值.
+
+```
+interface Foo {
+  name: string;
+  age: number
+}
+type T = keyof Foo // -> "name" | "age"
+```
+
+
+
+#### typeof
+
+> typeof 操作符可以用来获取一个变量或对象的类型
+
+```
+interface Person {
+  name: string
+}
+
+const me: Person = {
+  name: 'bugaboo'
+}
+type MyType = typeof me // MyType = Person
+type MyNameType = typeof me.name // MyNameType = string
+```
+
+#### in
+
+遍历**联合类型**
+
+```js
+type key = 'vue' | 'react';
+
+type MappedType = { [k in key]: string } // { vue: string; react: string; }
+```
+
+
+
+#### in和keyof一同使用
+
+```js
+type Partial<T> = { [P in keyof T]?: T[P] };
+```
+
+#### 函数重载
+
+- 获取更精确的类型标注能力。
+- 拥有多个重载声明的函数在被调用时，是按照重载的声明顺序往下查找的
+
+```TS
+// 因此在第一个重载声明中，为了与逻辑中保持一致，即在 bar 为 true 时返回 string 类型，这里我们需要将第一个重载声明的 bar 声明为必选的字面量类型。
+function func(foo: number, bar: true): string;
+function func(foo: number, bar?: false): number;
+function func(foo: number, bar?: boolean): string | number {
+  if (bar) {
+    return String(foo);
+  } else {
+    return foo * 599;
+  }
+}
+
+const res1 = func(599); // number
+const res2 = func(599, true); // string
+const res3 = func(599, false); // number
+```
+
+#### 非空断言
+
+- 非空断言其实是类型断言的简化，它使用 `!` 语法，即 `obj!.func()!.prop` 的形式标记前面的一个声明一定是非空的（实际上就是剔除了 null 和 undefined 类型）
+
+  ```TS
+  declare const foo: {
+    func?: () => ({
+      prop?: number | null;
+    })
+  };
+  
+  // foo.func().prop.toFixed();
+  foo.func!().prop!.toFixed();
+  ```
+
+  
+
+## 泛型
+
+泛型（Generics）是指在定义函数、接口或类的时候，不预先指定具体的类型，而在使用的时候再指定类型的一种特性。
+
+**在类型编程里，泛型就是变量**
+
+#### 泛型基础
+
+##### 例子
+
+​	我们需要的是 **入参与返回值类型相同** 的效果	
+
+```ts
+function foo<T>(arg: T): T {
+  return arg;
+}
+```
+
+​	泛型在箭头函数下的书写
+
+```ts
+const foo = <T>(arg: T) => arg;
+```
+
+​	如果你在 TSX 文件中这么写，`<T>`可能会被识别为 JSX 标签，因此需要显式告知编译器
+
+```js
+const foo = <T extends SomeBasicType>(arg: T) => arg;
+// 我们使用了 extends 约束了泛型 T 必须符合接口 SomeBasicType 的形状
+```
+
+​	除了用在函数中，泛型也可以在类中使用
+
+```js
+class Foo<T, U> {
+  constructor(public arg1: T, public arg2: U) {}
+
+  public method(): T {
+    return this.arg1;
+  }
+}
+```
+
+​	多个类型参数
+
+```js
+
+function swap<T, U>(tuple: [T, U]): [U, T] {
+  return [tuple[1], tuple[0]]
+}
+//是ts自己隐式推断的
+swap([7, 'seven']); // ['seven', 7]
+// 下面是显示定义
+swap<number, string>([7, 'seven']) // ['seven', 7]
+```
+
+#### 泛型约束
+
+​	在函数内部使用泛型变量的时候，由于事先不知道它是哪种类型，所以不能随意的操作它的属性或方法：
+
+```ts
+function loggingIdentity<T>(arg: T): T {
+    console.log(arg.length);
+    return arg;
+}
+
+// index.ts(2,19): error TS2339: Property 'length' does not exist on type 'T'.
+// 类型“T”上不存在属性“length”。
+```
+
+​	上例中，泛型 `T` 不一定包含属性 `length`，所以编译的时候报错了。
+
+​	这时，我们可以对泛型进行约束，只允许这个函数传入那些包含 `length` 属性的变量。这就是泛型约束：
+
+```ts
+interface Lengthwise {
+    length: number;
+}
+
+function loggingIdentity<T extends Lengthwise>(arg: T): T {
+    console.log(arg.length);
+    return arg;
+}
+```
+
+#### 泛型参数的默认类型
+
+​	在 TypeScript 2.3 以后，我们可以为泛型中的类型参数指定默认类型。当使用泛型时没有在代码中直接指定类型参数，从实际值参数中也无法推测出时，这个默认类型就会起作用。
+
+```ts
+function createArray<T = string>(length: number, value: T): Array<T> {
+    let result: T[] = [];
+    for (let i = 0; i < length; i++) {
+        result[i] = value;
+    }
+    return result;
+}
+```
+
+## calss类
+
+- public：此类成员在**类、类的实例、子类**中都能被访问。
+- private：此类成员仅能在**类的内部**被访问。
+- protected：此类成员仅能在**类与子类中**被访问，你可以将类和类的实例当成两种概念，即一旦实例化完毕（出厂零件），那就和类（工厂）没关系了，即**不允许再访问受保护的成员**。
+- static：静态成员，不同于实例成员，在类的内部静态成员无法通过 this 来访问，需要通过 `Foo.staticHandler` 这种形式进行访问。**静态成员不会被实例继承，它始终只属于当前定义的这个类（以及其子类）**
+
+#### 继承
+
+```TS
+class Base { }
+
+class Derived extends Base { }
+```
+
+- 基类中的方法也可以在派生类中被覆盖，但我们仍然可以通过 super 访问到基类中的方法：
+
+```TS
+class Base {
+  print() { }
+}
+
+class Derived extends Base {
+  print() {
+    super.print()
+    // ...
+  }
+}
+```
+
+- 在派生类中覆盖基类方法时，我们并不能确保派生类的这一方法能覆盖基类方法，万一基类中不存在这个方法呢？所以，TypeScript 4.3 新增了 `override` 关键字，来确保派生类尝试覆盖的方法一定在基类中存在定义：
+
+  ```TS
+  class Base {
+    printWithLove() { }
+  }
+  
+  class Derived extends Base {
+    override print() { //TS 将会给出错误，因为尝试覆盖的方法并未在基类中声明。通过这一关键字我们就能确保首先这个方法在基类中存在，同时标识这个方法在派生类中被覆盖了。
+      // ...
+    }
+  }
+  
+  ```
+
+## webpack
 
 - 通常情况下，实际开发中我们都需要使用构建工具对代码进行打包，TS 同样也可以结合构建工具一起使用，下边以 webpack 为例介绍一下如何结合构建工具使用 TS。
 
@@ -419,7 +867,7 @@ sidebar_position: 1
 
 
 
-## 5、Babel
+## Babel
 
 - 经过一系列的配置，使得 TS 和 webpack 已经结合到了一起，除了 webpack，开发中还经常需要结合 babel 来对代码进行转换以使其可以兼容到更多的浏览器，在上述步骤的基础上，通过以下步骤再将 babel 引入到项目中。
 
@@ -565,275 +1013,4 @@ sidebar_position: 1
      };
      ```
 
-## 6、泛型
-
-泛型（Generics）是指在定义函数、接口或类的时候，不预先指定具体的类型，而在使用的时候再指定类型的一种特性。
-
-**在类型编程里，泛型就是变量**
-
-### 泛型基础
-
-### 例子
-
-​	我们需要的是 **入参与返回值类型相同** 的效果	
-
-```ts
-function foo<T>(arg: T): T {
-  return arg;
-}
-```
-
-​	泛型在箭头函数下的书写
-
-```ts
-const foo = <T>(arg: T) => arg;
-```
-
-​	如果你在 TSX 文件中这么写，`<T>`可能会被识别为 JSX 标签，因此需要显式告知编译器
-
-```js
-const foo = <T extends SomeBasicType>(arg: T) => arg;
-// 我们使用了 extends 约束了泛型 T 必须符合接口 SomeBasicType 的形状
-```
-
-​	除了用在函数中，泛型也可以在类中使用
-
-```js
-class Foo<T, U> {
-  constructor(public arg1: T, public arg2: U) {}
-
-  public method(): T {
-    return this.arg1;
-  }
-}
-```
-
-​	多个类型参数
-
-```js
-
-function swap<T, U>(tuple: [T, U]): [U, T] {
-  return [tuple[1], tuple[0]]
-}
-//是ts自己隐式推断的
-swap([7, 'seven']); // ['seven', 7]
-// 下面是显示定义
-swap<number, string>([7, 'seven']) // ['seven', 7]
-```
-
-### 泛型约束
-
-​	在函数内部使用泛型变量的时候，由于事先不知道它是哪种类型，所以不能随意的操作它的属性或方法：
-
-```ts
-function loggingIdentity<T>(arg: T): T {
-    console.log(arg.length);
-    return arg;
-}
-
-// index.ts(2,19): error TS2339: Property 'length' does not exist on type 'T'.
-// 类型“T”上不存在属性“length”。
-```
-
-​	上例中，泛型 `T` 不一定包含属性 `length`，所以编译的时候报错了。
-
-​	这时，我们可以对泛型进行约束，只允许这个函数传入那些包含 `length` 属性的变量。这就是泛型约束：
-
-```ts
-interface Lengthwise {
-    length: number;
-}
-
-function loggingIdentity<T extends Lengthwise>(arg: T): T {
-    console.log(arg.length);
-    return arg;
-}
-```
-
-### 泛型参数的默认类型
-
-​	在 TypeScript 2.3 以后，我们可以为泛型中的类型参数指定默认类型。当使用泛型时没有在代码中直接指定类型参数，从实际值参数中也无法推测出时，这个默认类型就会起作用。
-
-```ts
-function createArray<T = string>(length: number, value: T): Array<T> {
-    let result: T[] = [];
-    for (let i = 0; i < length; i++) {
-        result[i] = value;
-    }
-    return result;
-}
-```
-
 ## 
-
-### 条件类型
-
-在`TS` 2.8 加入了条件类型,逻辑是三元运算符，所以比较好理解
-
-```
-T extends U ? X : Y
-```
-
-### infer
-
-在`extends`条件类型的子句中，可以使用`infer T`来捕获指定位置的类型（该类型由 TS 编译器推断），在`infer`后面的子句中可以使用捕获的类型变量。配合`extends`条件类型，截取符合条件的目标的某部分类型。
-
-```js
-type ParseInt = (n: string) => number
-// 如果是类型 T 是函数，则 R 会捕获其返回值类型并返回 R，否则返回 any
-type ReturnType<T extends (...args: any) => any> = T extends (...args: any) => infer R ? R : any
-type R = ReturnType<ParseInt>   // number
- 
-type GetType<T> = T extends (infer E)[] ? E : never
-type E = GetType<['a', 100]>
-```
-
-
-
-### extends 
-
-下面的一些内容会经常用`extends`关键字,`extends`类似数学集合里的子集概念,可以看一下这篇文章，会对TS有进一步对理解。[深入Typescript 的类型系统](https://zhuanlan.zhihu.com/p/38081852)
-
-
-
-### keyof
-
-> keyof 操作符是在 TypeScript 2.1 版本引入的，操作符可以用于获取某种类型的所有键，其返回类型是联合类型。
-
-`keyof` 可以用来取得一个对象接口的所有 `key` 值.
-
-```
-interface Foo {
-  name: string;
-  age: number
-}
-type T = keyof Foo // -> "name" | "age"
-```
-
-
-
-### typeof
-
-> typeof 操作符可以用来获取一个变量或对象的类型
-
-```
-interface Person {
-  name: string
-}
-
-const me: Person = {
-  name: 'bugaboo'
-}
-type MyType = typeof me // MyType = Person
-type MyNameType = typeof me.name // MyNameType = string
-```
-
-### in
-
-遍历**联合类型**
-
-```js
-type key = 'vue' | 'react';
-
-type MappedType = { [k in key]: string } // { vue: string; react: string; }
-```
-
-
-
-### in和keyof一同使用
-
-```js
-type Partial<T> = { [P in keyof T]?: T[P] };
-```
-
-### &交叉类型
-
-**需要同时满足 A 与 B 两个类型**
-
-```ts
-interface NameStruct {
-  name: string;
-}
-
-interface AgeStruct {
-  age: number;
-}
-
-type ProfileStruct = NameStruct & AgeStruct;
-
-const profile: ProfileStruct = {
-  name: "linbudu",
-  age: 18
-}
-```
-
-### | 联合类型
-
-联合类型只需要符合成员之一即可（`||`），而交叉类型需要严格符合每一位成员（`&&`）。
-
-### 函数重载
-
-- 获取更精确的类型标注能力。
-- 拥有多个重载声明的函数在被调用时，是按照重载的声明顺序往下查找的
-
-```TS
-// 因此在第一个重载声明中，为了与逻辑中保持一致，即在 bar 为 true 时返回 string 类型，这里我们需要将第一个重载声明的 bar 声明为必选的字面量类型。
-function func(foo: number, bar: true): string;
-function func(foo: number, bar?: false): number;
-function func(foo: number, bar?: boolean): string | number {
-  if (bar) {
-    return String(foo);
-  } else {
-    return foo * 599;
-  }
-}
-
-const res1 = func(599); // number
-const res2 = func(599, true); // string
-const res3 = func(599, false); // number
-```
-
-### calss类
-
-- public：此类成员在**类、类的实例、子类**中都能被访问。
-- private：此类成员仅能在**类的内部**被访问。
-- protected：此类成员仅能在**类与子类中**被访问，你可以将类和类的实例当成两种概念，即一旦实例化完毕（出厂零件），那就和类（工厂）没关系了，即**不允许再访问受保护的成员**。
-- static：静态成员，不同于实例成员，在类的内部静态成员无法通过 this 来访问，需要通过 `Foo.staticHandler` 这种形式进行访问。**静态成员不会被实例继承，它始终只属于当前定义的这个类（以及其子类）**
-
-#### 继承
-
-```TS
-class Base { }
-
-class Derived extends Base { }
-```
-
-- 基类中的方法也可以在派生类中被覆盖，但我们仍然可以通过 super 访问到基类中的方法：
-
-```TS
-class Base {
-  print() { }
-}
-
-class Derived extends Base {
-  print() {
-    super.print()
-    // ...
-  }
-}
-```
-
-- 在派生类中覆盖基类方法时，我们并不能确保派生类的这一方法能覆盖基类方法，万一基类中不存在这个方法呢？所以，TypeScript 4.3 新增了 `override` 关键字，来确保派生类尝试覆盖的方法一定在基类中存在定义：
-
-  ```TS
-  class Base {
-    printWithLove() { }
-  }
-  
-  class Derived extends Base {
-    override print() { //TS 将会给出错误，因为尝试覆盖的方法并未在基类中声明。通过这一关键字我们就能确保首先这个方法在基类中存在，同时标识这个方法在派生类中被覆盖了。
-      // ...
-    }
-  }
-  
-  ```

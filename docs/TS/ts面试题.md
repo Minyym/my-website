@@ -6,7 +6,7 @@
 
 2. type可以声明基本、联合、元祖类型，interface不可以
 
-3. interface可以声明合并
+3. interface可以声明合并，**子接口中的属性类型需要能够兼容（extends）父接口中的属性类型**
 
    ```TS
    interface Person { name: string }
