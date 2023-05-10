@@ -1011,6 +1011,89 @@ class Derived extends Base {
          }
      
      };
+     
      ```
 
-## 
+# 进阶
+
+## 属性修饰进阶
+
+- 深层的属性修饰
+
+  ```TS
+  // 让所有的属性都变成可选的
+  export type DeepPartial<T extends object> = {
+    [K in keyof T]?: T[K] extends object ? DeepPartial<T[K]> : T[K];
+  };
+  ```
+
+- 基于已知属性的部分修饰，以及基于属性类型的部分修饰
+
+  ```TS
+  // 让一个对象的三个已知属性为可选的
+  // 1. 拆成两个对象
+  // 2，让三个对象变成可选的
+  // 3. 连个对象合成一个
+  //    K extends keyof T = keyof T   指定默认值
+  export type MarkPropsAsOptional<
+    T extends object,
+    K extends keyof T = keyof T
+  > = Partial<Pick<T, K>> & Omit<T, K>;
+  ```
+
+## 结构工具类型进阶
+
+- 基于键值类型的 Pick 与 Omit；
+
+  ```TS
+  // 实现：基于期望的类型去拿到所有此类型的属性名
+  
+  // 定义函数类型
+  type FuncStruct = (...args: any[]) => any;
+  
+  // 提供类型 获取对应的 属性名key值--返回key组成的联合类型
+  type ExpectedPropKeys<T extends object, ValueType> = {
+    [Key in keyof T]-?: T[Key] extends ValueType ? Key : never; // -? 移除了所有可选标记
+  }[keyof T];
+  
+  type FunctionKeys<T extends object> = ExpectedPropKeys<T, FuncStruct>;
+  // 验证
+  expectType<
+    FunctionKeys<{
+      foo: () => void;
+      bar: () => number;
+      baz: number;
+    }> // "foo" | "bar"
+  >('foo');
+  
+  expectType<
+    FunctionKeys<{
+      foo: () => void;
+      bar: () => number;
+      baz: number;
+    }> // "foo" | "bar"
+    // 报错，因为 baz 不是函数类型属性
+  >('baz');
+  
+  // 升级：根据
+  // 根据类型（只知道类型 不知道属性名）---拿到我想要的属性
+  export type PickByValueType<T extends object, ValueType> = Pick<
+    T,
+    ExpectedPropKeys<T, ValueType>
+  >;
+  
+  expectType<PickByValueType<{ foo: string; bar: number }, string>>({
+    foo: 'linbudu',
+  });
+  
+  type ResEqual = {
+    foo: 'foo';
+    bar: 'bar';
+    baz: never;
+  };
+  type WhatWillWeGet = ResEqual[keyof ResEqual]; // "foo" | "bar"
+  ```
+
+  
+
+- 子结构的互斥处理。
