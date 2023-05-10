@@ -7,26 +7,29 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@master
-      with:
-        persist-credentials: false
+      # actions/checkout@master 作用是部署到远程的分支不存在的话，该操作会创建它
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+      # 可选择下载和缓存请求的 Node.js 版本的分发，并将其添加到 PATH
+      # 可选择缓存 npm/yarn/pnpm 依赖项
+      # 为错误输出注册问题匹配器
+      # 为 GPR 或 npm 配置身份验证
+      - name: Set node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14.x
+          registry-url: "https://registry.npmjs.org"
+        run: |
+          npm install
+          npm run-script build
 
-    - name: Set node
-      uses: actions/setup-node@v3
-      with:
-        node-version: 14.x
-        registry-url: 'https://registry.npmjs.org'
-
-    - name: Install and Build
-      run: |
-        npm install
-        npm run-script build 
-
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v3
-      with:
-        ACCESS_TOKEN: ${{ secrets.TOKEN_2 }}
-        BRANCH: gh-pages
-        FOLDER: build
-        BUILD_SCRIPT: npm install && npm run build
+      # 将代码部署到GitHub的pages上
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.TOKEN_2 }}
+          BRANCH: gh-pages
+          FOLDER: build
+          BUILD_SCRIPT: npm install && npm run build
