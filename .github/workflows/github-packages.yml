@@ -10,8 +10,14 @@ jobs:
     - name: Checkout
       uses: actions/checkout@master
       with:
-        node-version: 16.x
         persist-credentials: false
+
+    - name: Set node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14.x
+          registry-url: 'https://registry.npmjs.org'
+
     - name: Install and Build
       run: |
         npm install
@@ -19,7 +25,6 @@ jobs:
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
-        node-version: 16.x
         ACCESS_TOKEN: ${{ secrets.TOKEN_2 }}
         BRANCH: gh-pages
         FOLDER: build
