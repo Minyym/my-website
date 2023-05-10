@@ -1,4 +1,5 @@
 name: Deploy Github pages
+# 一个步骤不是同时拥有run和uses
 on:
   push:
     branches:
@@ -9,9 +10,10 @@ jobs:
     steps:
       # actions/checkout@master 作用是部署到远程的分支不存在的话，该操作会创建它
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@master
         with:
           persist-credentials: false
+
       # 可选择下载和缓存请求的 Node.js 版本的分发，并将其添加到 PATH
       # 可选择缓存 npm/yarn/pnpm 依赖项
       # 为错误输出注册问题匹配器
@@ -21,6 +23,8 @@ jobs:
         with:
           node-version: 14.x
           registry-url: "https://registry.npmjs.org"
+
+      - name: Install and Build
         run: |
           npm install
           npm run-script build
