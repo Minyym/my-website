@@ -13,15 +13,16 @@ jobs:
         persist-credentials: false
 
     - name: Set node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 14.x
-          registry-url: 'https://registry.npmjs.org'
+      uses: actions/setup-node@v3
+      with:
+        node-version: 14.x
+        registry-url: 'https://registry.npmjs.org'
 
     - name: Install and Build
       run: |
         npm install
         npm run-script build 
+
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
