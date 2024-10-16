@@ -100,17 +100,24 @@ class Index extends React.Component{
 
 ### useImperativeHandle
 
+
+
 - 正常情况下 ref 是不能挂在到函数组件上的，因为函数组件没有实例，但是 useImperativeHandle 为我们提供了一个类似实例的东西。
 
 - 它帮助我们通过 useImperativeHandle 的第 2 个参数，所返回的对象的内容挂载到 父组件的 ref.current 上。
 
 - forwardRef会创建一个React组件，这个组件能够将其接受的 ref 属性转发到其组件树下的另一个组件中。
 
+- 使用`useImperativeHandle` 时，它可以让你自定义父组件通过 `ref` 可以访问到的子组件的实例值。通过这种方式，你可以有选择地暴露特定的方法给父组件使用。
+
   ```JS
   import React, { forwardRef, useImperativeHandle, useEffect, useRef } from 'react'
   
-  const TestRef = forwardRef((props, ref) => {
+  const TestRef = forwardRef((props, ref) => {// 在 React 中，forwardRef是一个用于将子组件的引用转发到父组件的函数
     useImperativeHandle(ref, () => ({
+  // useImperativeHandle是一个 React Hook，它允许自定义使用 ref 时暴露给父组件的实例值。
+  // 第一个参数 ref 是一个引用，通常是通过 forwardRef 创建并从父组件传递下来的。这个引用可以用来访问子组件的实例或 DOM 元素。
+  // 第二个参数是一个函数，这个函数返回一个对象，该对象定义了暴露给父组件的属性和方法。
       open() {
         console.log("open")
       }
