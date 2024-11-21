@@ -50,18 +50,18 @@ const config = {
             position: "left",
             label: "JS",
           },
-          {
-            type: "doc",
-            docId: "TS/ts基础",
-            position: "left",
-            label: "TS",
-          },
-          {
-            type: "doc",
-            docId: "ES/函数的扩展",
-            position: "left",
-            label: "ES",
-          },
+          // {
+          //   type: "doc",
+          //   docId: "TS/ts基础",
+          //   position: "left",
+          //   label: "TS",
+          // },
+          // {
+          //   type: "doc",
+          //   docId: "ES/函数的扩展",
+          //   position: "left",
+          //   label: "ES",
+          // },
           // { to: "/blog", label: "Blog", position: "left" },
           {
             href: "https://github.com/Minyym/my-website",

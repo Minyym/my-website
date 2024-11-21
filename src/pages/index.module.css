@@ -3,6 +3,27 @@
  * and scoped locally.
  */
 
+.pageBackground {
+  background-image: url('../../static/img/HomepageFeatures/4.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 92vh;
+  position: relative;
+}
+
+.pageBackground::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255,0.3); /* 半透明白色背景，提高文字可读性 */
+  z-index: 1;
+  min-height: 92vh;
+}
+
 .heroBanner {
   padding: 4rem 0;
   text-align: center;
@@ -20,4 +41,55 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.docsListContainer {
+  box-sizing: border-box;
+  padding-top: 2rem;
+  text-align: center;
+  position: relative;
+  z-index: 2; /* 确保内容在半透明层之上 */
+  min-height: 92vh;
+
+}
+
+.docsListTitle {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--ifm-color-primary-darker);
+}
+
+.docsList {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  /* margin: 0 auto; */
+  margin-left: 6rem;
+}
+
+.docsItem {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.docsItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.docsLink {
+  color: var(--ifm-color-primary-darker);
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  display: block;
+}
+
+.docsLink:hover {
+  text-decoration: none;
 }
