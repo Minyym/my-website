@@ -42,7 +42,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: "Yym",
+        title: "xiaojingyu",
         items: [
           {
             type: "doc",

@@ -39,7 +39,7 @@ Commands:
 
 ## 操作演示
 
-![img](../../../../notes/self/image/20240416-nucm.gif)
+![img](../../static/img/docs/20240416-nucm.gif)
 
 ### 1、添加账号
 
