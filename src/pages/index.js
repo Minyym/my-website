@@ -22,7 +22,7 @@ const docsList = [
   },
   {
     title: 'html&css',
-    link: 'my-website/docs/CSS&HTML/CSS'
+    link: '/my-website/docs/CSS&HTML/CSS'
   },
   {
     title: 'React',
