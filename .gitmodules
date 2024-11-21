@@ -1,0 +1,3 @@
+[submodule "child2"]
+	path = child2
+	url = git@github.com:Minyym/taro-demo.git
