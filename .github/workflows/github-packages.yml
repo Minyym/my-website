@@ -29,6 +29,28 @@ jobs:
           npm install
           npm run-script build
 
+      # 创建新的 tag
+      - name: Create Tag
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const date = new Date();
+            const tagName = `v${date.getFullYear()}${String(date.getMonth() + 1).padStart(2, '0')}${String(date.getDate()).padStart(2, '0')}-${String(date.getHours()).padStart(2, '0')}${String(date.getMinutes()).padStart(2, '0')}`;
+            const sha = context.sha;
+            
+            try {
+              // 创建 tag
+              await github.rest.git.createRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: `refs/tags/${tagName}`,
+                sha: sha
+              });
+              console.log(`Successfully created tag: ${tagName}`);
+            } catch (error) {
+              console.log(`Failed to create tag: ${error.message}`);
+            }
+
       # 将代码部署到GitHub的pages上
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
