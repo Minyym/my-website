@@ -29,16 +29,34 @@ jobs:
           npm install
           npm run-script build
 
-      # 创建新的 tag
-      - name: Create Tag
+      # 创建新的 tag 和 release
+      - name: Create Tag and Release
         uses: actions/github-script@v6
         with:
           script: |
             const date = new Date();
-            const tagName = `v${date.getFullYear()}${String(date.getMonth() + 1).padStart(2, '0')}${String(date.getDate()).padStart(2, '0')}-${String(date.getHours()).padStart(2, '0')}${String(date.getMinutes()).padStart(2, '0')}`;
+            const dateStr = `${date.getFullYear()}${String(date.getMonth() + 1).padStart(2, '0')}${String(date.getDate()).padStart(2, '0')}-${String(date.getHours()).padStart(2, '0')}${String(date.getMinutes()).padStart(2, '0')}`;
             const sha = context.sha;
             
             try {
+              // 获取提交信息
+              const commit = await github.rest.repos.getCommit({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: sha
+              });
+              
+              // 处理提交信息，移除特殊字符并限制长度
+              let commitMsg = commit.data.commit.message
+                .split('\n')[0]  // 只取第一行
+                .replace(/[^a-zA-Z0-9\s-]/g, '')  // 移除特殊字符
+                .trim()
+                .replace(/\s+/g, '-')  // 空格替换为横线
+                .substring(0, 50);  // 限制长度
+              
+              // 生成tag名称：v日期-提交信息
+              const tagName = `v${dateStr}-${commitMsg}`;
+              
               // 创建 tag
               await github.rest.git.createRef({
                 owner: context.repo.owner,
@@ -47,8 +65,21 @@ jobs:
                 sha: sha
               });
               console.log(`Successfully created tag: ${tagName}`);
+              
+              // 创建 release
+              const release = await github.rest.repos.createRelease({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                tag_name: tagName,
+                name: `Release ${tagName}`,
+                body: `## 更新内容\n\n${commit.data.commit.message}\n\n## 提交信息\n- 提交者: ${commit.data.commit.author.name}\n- 提交时间: ${commit.data.commit.author.date}\n- 提交 SHA: ${sha.substring(0, 7)}`,
+                draft: false,
+                prerelease: false
+              });
+              
+              console.log(`Successfully created release: ${release.data.html_url}`);
             } catch (error) {
-              console.log(`Failed to create tag: ${error.message}`);
+              console.log(`Failed to create tag or release: ${error.message}`);
             }
 
       # 将代码部署到GitHub的pages上
