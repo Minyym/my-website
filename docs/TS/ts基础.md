@@ -304,7 +304,7 @@ sidebar_position: 1
 
 #### & 交叉类型
 
-- **需要同时满足 A 与 B 两个类型**，取交集
+- **需要同时满足 A 与 B 两个类型**，取并集
 
   ```ts
   interface NameStruct {
